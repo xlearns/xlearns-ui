@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest",
+    "dev": "pnpm -C play dev"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/xlearns/mini-elementPlus/issues"
   },
-  "homepage": "https://github.com/xlearns/mini-elementPlus#readme"
+  "homepage": "https://github.com/xlearns/mini-elementPlus#readme",
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "vitest": "^0.14.2"
+  }
 }
