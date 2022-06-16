@@ -4,24 +4,66 @@ importers:
 
   .:
     specifiers:
+      '@element3/components': workspace:^1.0.0
+      '@element3/directives': workspace:^1.0.0
+      '@element3/hooks': workspace:^1.0.0
+      '@element3/locale': workspace:^1.0.0
       typescript: ^4.5.4
       vitest: ^0.14.2
+    dependencies:
+      '@element3/components': link:packages/components
+      '@element3/directives': link:packages/directives
+      '@element3/hooks': link:packages/hooks
+      '@element3/locale': link:packages/locale
     devDependencies:
       typescript: 4.7.3
       vitest: 0.14.2
 
-  packages:
+  packages/components:
+    specifiers:
+      '@element3/components': workspace:^1.0.0
+    dependencies:
+      '@element3/components': 'link:'
 
-    specifiers: {}
+  packages/directives:
+    specifiers:
+      '@element3/components': workspace:^1.0.0
+    dependencies:
+      '@element3/components': link:../components
+
+  packages/element:
+    specifiers:
+      '@element3/components': workspace:^1.0.0
+      vue: ^3.2.25
+      vue-router: ^4.0.16
+    dependencies:
+      '@element3/components': link:../components
+    devDependencies:
+      vue: 3.2.37
+      vue-router: 4.0.16_vue@3.2.37
+
+  packages/hooks:
+    specifiers:
+      '@element3/components': workspace:^1.0.0
+    dependencies:
+      '@element3/components': link:../components
+
+  packages/locale:
+    specifiers:
+      '@element3/components': workspace:^1.0.0
+    dependencies:
+      '@element3/components': link:../components
 
   play:
     specifiers:
+      '@element3/components': workspace:^1.0.0
       '@vitejs/plugin-vue': ^2.3.3
       typescript: ^4.5.4
       vite: ^2.9.9
       vue: ^3.2.25
       vue-tsc: ^0.34.7
     dependencies:
+      '@element3/components': link:../packages/components
       vue: 3.2.37
     devDependencies:
       '@vitejs/plugin-vue': 2.3.3_vite@2.9.12+vue@3.2.37
@@ -30,7 +72,10 @@ importers:
       vue-tsc: 0.34.17_typescript@4.7.3
 
   website:
-    specifiers: {}
+    specifiers:
+      '@element3/components': workspace:^1.0.0
+    dependencies:
+      '@element3/components': link:../packages/components
 
 packages:
 
@@ -124,6 +169,10 @@ packages:
       '@vue/compiler-dom': 3.2.37
       '@vue/shared': 3.2.37
 
+  /@vue/devtools-api/6.1.4:
+    resolution: {integrity: sha512-IiA0SvDrJEgXvVxjNkHPFfDx6SXw0b/TUkqMcDZWNg9fnCAHbTpoo59YfJ9QLFkwa3raau5vSlRVzMSLDnfdtQ==}
+    dev: true
+
   /@vue/reactivity-transform/3.2.37:
     resolution: {integrity: sha512-IWopkKEb+8qpu/1eMKVeXrK0NLw9HicGviJzhJDEyfxTR9e1WtpnnbYkJWurX6WwoFP0sz10xQg8yL8lgskAZg==}
     dependencies:
@@ -143,7 +192,6 @@ packages:
     dependencies:
       '@vue/reactivity': 3.2.37
       '@vue/shared': 3.2.37
-    dev: false
 
   /@vue/runtime-dom/3.2.37:
     resolution: {integrity: sha512-HimKdh9BepShW6YozwRKAYjYQWg9mQn63RGEiSswMbW+ssIht1MILYlVGkAGGQbkhSh31PCdoUcfiu4apXJoPw==}
@@ -151,7 +199,6 @@ packages:
       '@vue/runtime-core': 3.2.37
       '@vue/shared': 3.2.37
       csstype: 2.6.20
-    dev: false
 
   /@vue/server-renderer/3.2.37_vue@3.2.37:
     resolution: {integrity: sha512-kLITEJvaYgZQ2h47hIzPh2K3jG8c1zCVbp/o/bzQOyvzaKiCquKS7AaioPI28GNxIsE/zSx+EwWYsNxDCX95MA==}
@@ -161,7 +208,6 @@ packages:
       '@vue/compiler-ssr': 3.2.37
       '@vue/shared': 3.2.37
       vue: 3.2.37
-    dev: false
 
   /@vue/shared/3.2.37:
     resolution: {integrity: sha512-4rSJemR2NQIo9Klm1vabqWjD8rs/ZaJSzMxkMNeJS6lHiUjjUeYFbooN19NgFjztubEKh3WlZUeOLVdbbUWHsw==}
@@ -189,7 +235,6 @@ packages:
 
   /csstype/2.6.20:
     resolution: {integrity: sha512-/WwNkdXfckNgw6S5R125rrW8ez139lBHWouiBvX8dfMFtcn6V81REDqnH7+CRpRipfYlyU1CmOnOxrmGcFOjeA==}
-    dev: false
 
   /debug/4.3.4:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
@@ -606,6 +651,15 @@ packages:
       - supports-color
     dev: true
 
+  /vue-router/4.0.16_vue@3.2.37:
+    resolution: {integrity: sha512-JcO7cb8QJLBWE+DfxGUL3xUDOae/8nhM1KVdnudadTAORbuxIC/xAydC5Zr/VLHUDQi1ppuTF5/rjBGzgzrJNA==}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      '@vue/devtools-api': 6.1.4
+      vue: 3.2.37
+    dev: true
+
   /vue-tsc/0.34.17_typescript@4.7.3:
     resolution: {integrity: sha512-jzUXky44ZLHC4daaJag7FQr3idlPYN719/K1eObGljz5KaS2UnVGTU/XSYCd7d6ampYYg4OsyalbHyJIxV0aEQ==}
     hasBin: true
@@ -624,4 +678,3 @@ packages:
       '@vue/runtime-dom': 3.2.37
       '@vue/server-renderer': 3.2.37_vue@3.2.37
       '@vue/shared': 3.2.37
-    dev: false

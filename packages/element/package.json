@@ -8,5 +8,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.16"
+  }
 }

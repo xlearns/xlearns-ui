@@ -1,5 +1,5 @@
 {
-  "name": "website",
+  "name": "@element3/locale",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-  }
+  "license": "ISC"
 }
