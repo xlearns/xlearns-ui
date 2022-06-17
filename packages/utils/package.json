@@ -1,5 +1,5 @@
 {
-  "name": "element",
+  "name": "@element3/utils",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,8 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "peerDependencies": {
-    "vue": "^3.2.0"
-  }
+  "license": "ISC"
 }

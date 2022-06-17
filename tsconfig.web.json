@@ -1,10 +1,12 @@
 {
+	"extends": "./tsconfig.base.json",
 	"compilerOptions": {
 		"composite": true,
-		"lib": ["ESNext", "DOM", "DOM.Iterable"],
-		"types": []
+		"jsx": "preserve",
+		"lib": ["ES2018", "DOM", "DOM.Iterable"],
+		"types": ["unplugin-vue-define-options"]
 	},
-	"include": ["packages"],
+	"include": ["packages", "typings/components.d.ts", "typings/env.d.ts"],
 	"exclude": [
 		"node_modules",
 		"**/dist",
