@@ -3,6 +3,8 @@ import { buttonProps } from "./button";
 defineOptions({
 	name: "ElButton",
 });
+
+console.log(buttonProps);
 </script>
 
 <template>
