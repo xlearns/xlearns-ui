@@ -77,7 +77,7 @@ importers:
   packages/directives:
     specifiers: {}
 
-  packages/element:
+  packages/element3:
     specifiers: {}
 
   packages/hooks:
