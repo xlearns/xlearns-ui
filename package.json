@@ -8,7 +8,7 @@
     "test": "vitest",
     "dev": "pnpm -C play dev",
     "preinstall": "npx only-allow pnpm",
-    "build": "rimraf dist/components && esno build/components.ts"
+    "build": "rimraf dist && esno build/full-bundle.ts"
   },
   "keywords": [],
   "author": "",
