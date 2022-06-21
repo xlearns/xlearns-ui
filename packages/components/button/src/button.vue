@@ -1,18 +1,14 @@
-<template>
-  <button>
-    <slot />
-  </button>
-</template>
-
-<script lang="ts">
+<script setup lang="ts">
 import { buttonProps } from "./button";
-console.log(buttonProps);
-export default {
+defineOptions({
   name: "ElButton",
-  setup() {
-    return {};
-  },
-};
+});
+
+console.log(buttonProps);
 </script>
+
+<template>
+  <button><slot /></button>
+</template>
 
 <style scoped></style>

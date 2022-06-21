@@ -1,5 +1,6 @@
 import path from "path";
 import fs from "fs";
+import DefineOptions from "unplugin-vue-define-options/vite";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import * as rollup from "rollup";
 import commonjs from "@rollup/plugin-commonjs";
@@ -27,6 +28,7 @@ const umdMinified = {
     input: path.resolve(epRoot, "./index.ts"),
     plugins: [
       nodeResolve(),
+      DefineOptions(),
       vue({
         target: "browser",
         exposeFilename: false,
