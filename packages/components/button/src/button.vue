@@ -8,7 +8,7 @@ console.log(buttonProps);
 </script>
 
 <template>
-  <button><slot /></button>
+  <button class="el-button"><slot /></button>
 </template>
 
 <style scoped></style>

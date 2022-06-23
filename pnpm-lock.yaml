@@ -9,6 +9,7 @@ importers:
       '@element3/directives': workspace:^1.0.0
       '@element3/hooks': workspace:^1.0.0
       '@element3/locale': workspace:^1.0.0
+      '@element3/theme-chalk': workspace:^1.0.0
       '@element3/utils': workspace:^1.0.0
       '@rollup/plugin-babel': ^5.2.2
       '@rollup/plugin-commonjs': ^17.0.0
@@ -31,6 +32,7 @@ importers:
       rollup-plugin-terser: ^7.0.2
       rollup-plugin-typescript2: ^0.29.0
       rollup-plugin-vue: ^6.0.0
+      sass: ^1.53.0
       typescript: ^4.5.4
       unplugin-vue-define-options: ^0.6.1
       vite: '>=2.5.10 <3.0.0'
@@ -42,6 +44,7 @@ importers:
       '@element3/directives': link:packages/directives
       '@element3/hooks': link:packages/hooks
       '@element3/locale': link:packages/locale
+      '@element3/theme-chalk': link:packages/theme-chalk
       '@element3/utils': link:packages/utils
       '@rollup/plugin-babel': 5.3.1_@babel+core@7.0.0+rollup@2.75.6
       '@rollup/plugin-commonjs': 17.1.0_rollup@2.75.6
@@ -62,13 +65,14 @@ importers:
       rollup-plugin-terser: 7.0.2_rollup@2.75.6
       rollup-plugin-typescript2: 0.29.0_rollup@2.75.6+typescript@4.7.4
       rollup-plugin-vue: 6.0.0_@vue+compiler-sfc@3.2.37
-      vite: 2.9.12
+      vite: 2.9.12_sass@1.53.0
     devDependencies:
       '@vitejs/plugin-vue': 2.3.3_vite@2.9.12+vue@3.2.37
       '@vitejs/plugin-vue-jsx': 1.3.10
+      sass: 1.53.0
       typescript: 4.7.4
       unplugin-vue-define-options: 0.6.1_c6a7f17d1239a2e4c235d8ef929db6a4
-      vitest: 0.14.2
+      vitest: 0.14.2_sass@1.53.0
       vue: 3.2.37
 
   packages/components:
@@ -702,7 +706,7 @@ packages:
       vite: ^2.5.10
       vue: ^3.2.25
     dependencies:
-      vite: 2.9.12
+      vite: 2.9.12_sass@1.53.0
       vue: 3.2.37
     dev: true
 
@@ -2194,6 +2198,10 @@ packages:
       minimatch: 3.1.2
     dev: false
 
+  /immutable/4.1.0:
+    resolution: {integrity: sha512-oNkuqVTA8jqG1Q6c+UglTOD1xhC1BtjKI7XkCXRkZHrN5m18/XsnUp8Q89GkQO/z+0WjonSvl0FLhDYftp46nQ==}
+    dev: true
+
   /imurmurhash/0.1.4:
     resolution: {integrity: sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==}
     engines: {node: '>=0.8.19'}
@@ -3392,6 +3400,16 @@ packages:
     dev: false
     optional: true
 
+  /sass/1.53.0:
+    resolution: {integrity: sha512-zb/oMirbKhUgRQ0/GFz8TSAwRq2IlR29vOUJZOx0l8sV+CkHUfHa4u5nqrG+1VceZp7Jfj59SVW9ogdhTvJDcQ==}
+    engines: {node: '>=12.0.0'}
+    hasBin: true
+    dependencies:
+      chokidar: 3.5.3
+      immutable: 4.1.0
+      source-map-js: 1.0.2
+    dev: true
+
   /scss-tokenizer/0.2.3:
     resolution: {integrity: sha512-dYE8LhncfBUar6POCxMTm0Ln+erjeczqEvCJib5/7XNkdw1FkUGgwMPY360FY0FgPWQxHWCx29Jl3oejyGLM9Q==}
     dependencies:
@@ -3854,7 +3872,7 @@ packages:
       chokidar: 3.5.3
       esbuild: 0.14.46
       rollup: 2.75.6
-      vite: 2.9.12
+      vite: 2.9.12_sass@1.53.0
       webpack-sources: 3.2.3
       webpack-virtual-modules: 0.4.3
     dev: true
@@ -3920,8 +3938,33 @@ packages:
       rollup: 2.75.6
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
 
-  /vitest/0.14.2:
+  /vite/2.9.12_sass@1.53.0:
+    resolution: {integrity: sha512-suxC36dQo9Rq1qMB2qiRorNJtJAdxguu5TMvBHOc/F370KvqAe9t48vYp+/TbPKRNrMh/J55tOUmkuIqstZaew==}
+    engines: {node: '>=12.2.0'}
+    hasBin: true
+    peerDependencies:
+      less: '*'
+      sass: '*'
+      stylus: '*'
+    peerDependenciesMeta:
+      less:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+    dependencies:
+      esbuild: 0.14.46
+      postcss: 8.4.14
+      resolve: 1.22.1
+      rollup: 2.75.6
+      sass: 1.53.0
+    optionalDependencies:
+      fsevents: 2.3.2
+
+  /vitest/0.14.2_sass@1.53.0:
     resolution: {integrity: sha512-vXQUl8OUCqHmxKWscMGL+6Xl1pBJmYHZ8N85iNpLGrirAC2vhspu7b73ShRcLonmZT44BYZW+LBAVvn0L4jyVA==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
@@ -3947,7 +3990,7 @@ packages:
       local-pkg: 0.4.1
       tinypool: 0.1.3
       tinyspy: 0.3.3
-      vite: 2.9.12
+      vite: 2.9.12_sass@1.53.0
     transitivePeerDependencies:
       - less
       - sass
