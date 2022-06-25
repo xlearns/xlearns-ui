@@ -1,0 +1,12 @@
+@use "sass:math";
+@use "sass:map";
+@import "../mixins/config";
+/* Button
+-------------------------- */
+$--button: () !default;
+$--button: map.merge(
+  (
+    "background-color": "red",
+  ),
+  $--button
+);
