@@ -4,7 +4,9 @@ defineOptions({
   name: "ElButton",
 });
 
-console.log(buttonProps);
+defineProps({ ...buttonProps });
+
+defineEmits({});
 </script>
 
 <template>
