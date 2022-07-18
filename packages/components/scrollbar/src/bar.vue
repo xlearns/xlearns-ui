@@ -1,8 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useNamespace } from "@element3/hooks";
+const ns = useNamespace("scrollbar");
+</script>
 
 <template>
-  <div class="scrollbar-bar">
-    <div class="scrollbar-thumb"></div>
+  <div :class="ns.b('bar')">
+    <div :class="ns.b('thumb')"></div>
   </div>
 </template>
 

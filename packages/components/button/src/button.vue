@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { buttonProps } from "./button";
+import { useNamespace } from "@element3/hooks";
 defineOptions({
   name: "ElButton",
 });
@@ -7,10 +8,12 @@ defineOptions({
 defineProps({ ...buttonProps });
 
 defineEmits({});
+
+const ns = useNamespace("button");
 </script>
 
 <template>
-  <button class="el-button"><slot /></button>
+  <button :class="ns.b()"><slot /></button>
 </template>
 
 <style scoped></style>

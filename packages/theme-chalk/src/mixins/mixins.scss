@@ -1,3 +1,9 @@
+@forward "config";
+
+@forward "_var";
+
+@use "config" as *;
+
 @mixin b($block) {
   $B: $namespace + "-" + $block !global;
 
