@@ -6,7 +6,7 @@
   "scripts": {
     "bootstrap": "pnpm i",
     "test": "vitest",
-    "dev": "pnpm -C play dev",
+    "dev": "pnpm -C playground dev",
     "preinstall": "npx only-allow pnpm",
     "build": "rimraf dist && esno build/full-bundle.ts",
     "docs:dev": "pnpm -C docs dev"

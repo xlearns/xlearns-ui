@@ -1,15 +1,24 @@
 {
   "0 debug pnpm:scope": {
     "selected": 1,
-    "workspacePrefix": "C:\\Users\\Garbrielle\\Desktop\\wanxin\\github\\element3"
+    "workspacePrefix": "/wanxin/github/element3"
   },
-  "1 error pnpm": {
-    "code": "ERR_PNPM_ADDING_TO_ROOT",
+  "1 info pnpm": {
+    "err": {
+      "name": "Error",
+      "message": "not found: isntall",
+      "code": "ENOENT",
+      "stack": "Error: not found: isntall\n    at getNotFoundError (/mnt/d/nodejs/node_global/node_modules/pnpm/dist/pnpm.cjs:41491:51)\n    at Function.whichSync [as sync] (/mnt/d/nodejs/node_global/node_modules/pnpm/dist/pnpm.cjs:41568:13)\n    at getCommandAbsolutePathSync (/mnt/d/nodejs/node_global/node_modules/pnpm/dist/pnpm.cjs:43133:44)\n    at default_1 (/mnt/d/nodejs/node_global/node_modules/pnpm/dist/pnpm.cjs:43142:32)\n    at /mnt/d/nodejs/node_global/node_modules/pnpm/dist/pnpm.cjs:176198:39"
+    }
+  },
+  "2 error pnpm": {
+    "code": "ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL",
+    "prefix": "/wanxin/github/element3",
     "err": {
       "name": "pnpm",
-      "message": "Running this command will add the dependency to the workspace root, which might not be what you want - if you really meant it, make it explicit by running this command again with the -w flag (or --workspace-root). If you don't want to see this warning anymore, you may set the ignore-workspace-root-check setting to true.",
-      "code": "ERR_PNPM_ADDING_TO_ROOT",
-      "stack": "pnpm: Running this command will add the dependency to the workspace root, which might not be what you want - if you really meant it, make it explicit by running this command again with the -w flag (or --workspace-root). If you don't want to see this warning anymore, you may set the ignore-workspace-root-check setting to true.\n    at Object.handler [as add] (D:\\nodejs\\node_global\\node_modules\\pnpm\\dist\\pnpm.cjs:121537:15)\n    at D:\\nodejs\\node_global\\node_modules\\pnpm\\dist\\pnpm.cjs:180173:83\n    at async run (D:\\nodejs\\node_global\\node_modules\\pnpm\\dist\\pnpm.cjs:180149:34)\n    at async runPnpm (D:\\nodejs\\node_global\\node_modules\\pnpm\\dist\\pnpm.cjs:180360:5)\n    at async D:\\nodejs\\node_global\\node_modules\\pnpm\\dist\\pnpm.cjs:180352:7"
+      "message": "not found: isntall",
+      "code": "ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL",
+      "stack": "Error: not found: isntall\n    at getNotFoundError (/mnt/d/nodejs/node_global/node_modules/pnpm/dist/pnpm.cjs:41491:51)\n    at Function.whichSync [as sync] (/mnt/d/nodejs/node_global/node_modules/pnpm/dist/pnpm.cjs:41568:13)\n    at getCommandAbsolutePathSync (/mnt/d/nodejs/node_global/node_modules/pnpm/dist/pnpm.cjs:43133:44)\n    at default_1 (/mnt/d/nodejs/node_global/node_modules/pnpm/dist/pnpm.cjs:43142:32)\n    at /mnt/d/nodejs/node_global/node_modules/pnpm/dist/pnpm.cjs:176198:39"
     }
   }
 }

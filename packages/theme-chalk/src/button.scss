@@ -12,8 +12,6 @@
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
-  background: var(
-    --el-button-background-color,
-    map.get($button, "background-color")
-  );
+  background: var(--el-button-background-color,
+      map.get($button, "background-color"));
 }

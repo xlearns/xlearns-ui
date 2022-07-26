@@ -4,9 +4,13 @@
 /* Button
 -------------------------- */
 $button: () !default;
-$button: map.merge(
-  (
-    "background-color": "red",
-  ),
-  $button
+$button: map.merge(("background-color": "red",'opacity': 1),
+        $button
+);
+
+/* $Scrollbar
+-------------------------- */
+$scrollbar: () !default;
+$scrollbar: map.merge(("background-color": "red",'opacity': 1),
+        $scrollbar
 );

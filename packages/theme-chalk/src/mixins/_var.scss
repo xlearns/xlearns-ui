@@ -3,10 +3,14 @@
 @use "../common/var" as *;
 
 @mixin set-component-css-var($name, $variables) {
-  @each $attribute, $value in $variables {
-    @if $attribute == "default" {
+
+  @each $attribute,
+  $value in $variables {
+    @if $attribute =="default" {
       #{getCssVarName($name)}: #{$value};
-    } @else {
+    }
+
+    @else {
       #{getCssVarName($name, $attribute)}: #{$value};
     }
   }

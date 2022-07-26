@@ -5,5 +5,5 @@
 		"lib": ["ESNext", "DOM", "DOM.Iterable"],
 		"types": []
 	},
-	"include": ["packages", "play/main.ts", "play/env.d.ts", "play/src/**/*"]
+	"include": ["packages", "playground/main.ts", "playground/env.d.ts", "playground/src/**/*"]
 }
