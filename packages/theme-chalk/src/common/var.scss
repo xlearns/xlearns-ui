@@ -1,16 +1,48 @@
 @use "sass:math";
 @use "sass:map";
+@use "../mixins/function" as *;
+// Types
+$types: primary, success, warning, danger, error, info;
 
-/* Button
--------------------------- */
+// Colors
+$color:() !default;
+$color:map.deep-merge((
+  'white': #ffffff,
+  'black': #000000,
+  'primary': (
+    'base': #409eff,
+  )
+), $color);
+
+$color-white:map.get($color, 'white');
+$color-black:map.get($color, 'black');
+$color-primary:map.get($color, 'primary','base');
+
+
+// Fill
+$fill-color: () !default;
+$fill-color: map.merge(
+  (
+    '': #f0f2f5,
+    'light': #f5f7fa,
+    'lighter': #fafafa,
+    'extra-light': #fafcff,
+    'dark': #ebedf0,
+    'darker': #e6e8eb,
+    'blank': #ffffff,
+  ),
+  $fill-color
+);
+
+// Button
 $button: () !default;
-$button: map.merge(("background-color": "red",'opacity': 1),
+$button: map.merge(('bg-color': getCssVar('fill-color', 'blank'),'opacity': 1),
         $button
 );
 
-/* $Scrollbar
--------------------------- */
+// Scrollbar
+
 $scrollbar: () !default;
-$scrollbar: map.merge(("background-color": "red",'opacity': 1),
+$scrollbar: map.merge(('bg-color': getCssVar('fill-color', 'blank'),'opacity': 1),
         $scrollbar
 );

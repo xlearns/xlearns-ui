@@ -2,11 +2,23 @@
   "name": "@element3/theme-chalk",
   "version": "1.0.0",
   "description": "",
-  "main": "index.css",
+  "main": "dist/index.css",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "pnpm run clean:dist && gulp --require @esbuild-kit/cjs-loader",
+    "clean:dist": "rimraf dist"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@esbuild-kit/cjs-loader": "^2.3.2",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-sass": "^5.1.0",
+    "path": "^0.12.7",
+    "sass": "^1.54.3"
+  },
+  "dependencies": {
+    "@element3/build": "workspace:^1.0.0"
+  }
 }

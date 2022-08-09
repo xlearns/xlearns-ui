@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 
 import "@element3/theme-chalk/src/index.scss";
+
 (async () => {
   const apps = import.meta.glob("./src/*.vue");
   const file = apps[`./src/App.vue`];

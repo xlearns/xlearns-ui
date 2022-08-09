@@ -1,7 +1,6 @@
 @use "sass:map";
 @use "common/var" as *;
 @use "mixins/mixins" as *;
-@use "mixins/var" as *;
 
 @include b(button) {
   @include set-component-css-var("button", $button);
@@ -12,6 +11,6 @@
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
-  background: var(--el-button-background-color,
-      map.get($button, "background-color"));
+  // background: var(--el-button-background-color,
+  //     map.get($button, "background-color"));
 }
