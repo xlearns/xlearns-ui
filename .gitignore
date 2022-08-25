@@ -28,3 +28,4 @@ element-ui
 packages/website/src/play/index.vue
 .lh
 history
+coverage

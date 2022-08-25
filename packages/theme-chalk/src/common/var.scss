@@ -4,6 +4,7 @@
 // Types
 $types: primary, success, warning, danger, error, info;
 
+
 // Colors
 $color:() !default;
 $color:map.deep-merge((
@@ -13,7 +14,6 @@ $color:map.deep-merge((
     'base': #409eff,
   )
 ), $color);
-
 $color-white:map.get($color, 'white');
 $color-black:map.get($color, 'black');
 $color-primary:map.get($color, 'primary','base');
@@ -29,20 +29,21 @@ $fill-color: map.merge(
     'extra-light': #fafcff,
     'dark': #ebedf0,
     'darker': #e6e8eb,
-    'blank': #ffffff,
+    'black': #000000,
   ),
   $fill-color
 );
 
+
 // Button
 $button: () !default;
-$button: map.merge(('bg-color': getCssVar('fill-color', 'blank'),'opacity': 1),
+$button: map.merge(('bg-color': getCssVar('fill-color', 'black'),'text-color':getCssVar('color-white'),'opacity': 1),
         $button
 );
 
-// Scrollbar
 
+// Scrollbar
 $scrollbar: () !default;
-$scrollbar: map.merge(('bg-color': getCssVar('fill-color', 'blank'),'opacity': 1),
+$scrollbar: map.merge(('bg-color': getCssVar('fill-color', 'black'),'opacity': 1),
         $scrollbar
 );
