@@ -1,0 +1,2 @@
+play:
+	npm run dev
