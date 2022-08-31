@@ -37,7 +37,7 @@ $fill-color: map.merge(
 
 // Button
 $button: () !default;
-$button: map.merge(('bg-color': getCssVar('fill-color', 'black'),'text-color':getCssVar('color-white'),'opacity': 1),
+$button: map.merge(('bg-color': getCssVar('fill-color', 'light'),'text-color':getCssVar('color-primary'),'opacity': 1),
         $button
 );
 

@@ -3,18 +3,18 @@ import { promises as fs } from "fs";
 import { resolve, join } from "path";
 import upperCamelCase from "uppercamelcase";
 import MagicString from "magic-string";
-import Chalk from 'chalk'
+import Chalk from "chalk";
 
 function log(msg, type?) {
 	if (type) {
-	console.log(Chalk.red(msg))
+		console.log(Chalk.red(msg));
 	} else {
-	console.log(Chalk.blue(msg))
+		console.log(Chalk.blue(msg));
 	}
 }
 const root = process.cwd();
 const name = process.argv[2];
-let upper_name, pgk_path, components_path, element3_path,theme_path;
+let upper_name, pgk_path, components_path, element3_path, theme_path;
 
 /**
  * @description init
@@ -24,12 +24,16 @@ function init() {
 		pgk_path = resolve(root, "packages");
 		components_path = resolve(pgk_path, "components");
 		element3_path = resolve(pgk_path, "element3");
-		theme_path = resolve(pgk_path, "theme-chalk")
+		theme_path = resolve(pgk_path, "theme-chalk");
 		if (name) {
 			upper_name = upperCamelCase(name);
 			res(true);
 		} else {
-			err(new Error("name is undefined"));
+			err(
+				new Error(`
+❌ name is undefined please input name
+👉 eg: npm run new name`)
+			);
 		}
 	});
 }
@@ -83,13 +87,13 @@ function update_com_name_index() {
  * @description components main
  */
 function update_com_name_main_style_css() {
-	create(resolve(components_path, `${name}/style/css.ts`),'');
+	create(resolve(components_path, `${name}/style/css.ts`), "");
 }
 function update_com_name_main_style_index() {
 	const template = `
 	import "@element3/theme-chalk/src/base.css";
   import "@element3/theme-chalk/src/${name}.scss";
-	`
+	`;
 	create(resolve(components_path, `${name}/style/index.ts`), template);
 }
 
@@ -98,12 +102,12 @@ function update_com_name_main_src_ts() {
 	const template = `
 export const ${name}Types = [] as const;
 export const ${name}Props = {}
-	`
+	`;
 	create(resolve(components_path, `${name}/src/${name}.ts`), template);
 }
 
 function update_com_name_main_src_vue() {
-const template = `
+	const template = `
 <script setup lang="ts">
 import { ${name}Props } from "./${name}";
 import { useNamespace } from "@element3/hooks";
@@ -119,7 +123,7 @@ import { useNamespace } from "@element3/hooks";
 	<div :class="ns.b()"><slot /></div>
 </template>
 <style scoped></style>
-	`
+	`;
 	create(resolve(components_path, `${name}/src/${name}.vue`), template);
 }
 
@@ -131,19 +135,22 @@ describe('${name} test', () => {
 	it('test 1', () => {
 		expect(1 + 1).toEqual(2)
 	})
-})`
-	create(resolve(components_path, `${name}/__test__/${name}.test.tsx`),template);
+})`;
+	create(
+		resolve(components_path, `${name}/__test__/${name}.test.tsx`),
+		template
+	);
 }
 
-function update_com_name_main() { 
-   //style
-	update_com_name_main_style_index()
-	update_com_name_main_style_css()
-	 //src
-	update_com_name_main_src_vue()
-	update_com_name_main_src_ts()
-	 //__test__
-	update_com_name_main_test_index()
+function update_com_name_main() {
+	//style
+	update_com_name_main_style_index();
+	update_com_name_main_style_css();
+	//src
+	update_com_name_main_src_vue();
+	update_com_name_main_src_ts();
+	//__test__
+	update_com_name_main_test_index();
 }
 
 //theme-chalk
@@ -162,44 +169,44 @@ function update_theme_scss() {
 	display: inline-block;
   color: getCssVar('${name}', 'text-color');
 }
-	`
-	create(resolve(theme_path, `src/${name}.scss`),template);
+	`;
+	create(resolve(theme_path, `src/${name}.scss`), template);
 }
 
 async function update_theme_index() {
-	  let path = resolve(theme_path, `src/index.scss`)
-		let indexText = await fs.readFile(path);
-		const template = `${indexText}@use "./${name}.scss";`;
-		create(path,template);
+	let path = resolve(theme_path, `src/index.scss`);
+	let indexText = await fs.readFile(path);
+	const template = `${indexText}@use "./${name}.scss";`;
+	create(path, template);
 }
 
-async function update_theme_com_var() { 
-	let path = resolve(theme_path, `src/common/var.scss`)
+async function update_theme_com_var() {
+	let path = resolve(theme_path, `src/common/var.scss`);
 	let indexText = await fs.readFile(path);
 	const template = `
 // ${upper_name}
 $${name}: () !default;
 $${name}: map.merge(('bg-color': getCssVar('fill-color', 'black'),'text-color':getCssVar('color-white'),'opacity': 1),$${name});
-	`
+	`;
 	const temp = `${indexText}${template}`;
-	create(path,temp);
+	create(path, temp);
 }
-function update_theme_main() { 
-	update_theme_scss()
-	update_theme_index()
-	update_theme_com_var()
+function update_theme_main() {
+	update_theme_scss();
+	update_theme_index();
+	update_theme_com_var();
 }
 async function main() {
 	try {
 		await init();
 		update_com_name_index();
 		update_com_index();
-		update_element_com()
-		update_com_name_main()
-		update_theme_main()
-		log('✔ 创建完成')
+		update_element_com();
+		update_com_name_main();
+		update_theme_main();
+		log("✔ 创建完成");
 	} catch (e) {
-		log(e,true);
+		log(e, true);
 	}
 }
 

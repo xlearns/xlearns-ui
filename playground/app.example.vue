@@ -3,13 +3,15 @@ import { ElButton } from "@element3/components";
 </script>
 
 <template>
-	<el-button>hello</el-button>
+	<div class="content">
+		<el-button>hello</el-button>
+	</div>
 </template>
 
 <style scoped>
-html,
-body {
-	width: 100vw;
-	height: 100vh;
+.content {
+	width: 100%;
+	height: 100%;
+	background: #000;
 }
 </style>
