@@ -1,5 +1,4 @@
 packages:
-  - packages/**
-  - build/**
-  - website
-  - play
+  - packages/*
+  - build
+  - playground

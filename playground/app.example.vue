@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import { ElButton } from "@element3/components";
-</script>
-
 <template>
 	<div class="content">
 		<el-button>hello</el-button>
