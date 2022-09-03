@@ -1,4 +1,6 @@
 const namespace = "el";
+const statePrefix = "is-";
+
 const _bem = (
   namespace: string,
   block: string,
@@ -25,5 +27,9 @@ export const useNamespace = (block: string) => {
     element ? _bem(namespace, block, "", element, "") : "";
   const m = (modifier?: string) =>
     modifier ? _bem(namespace, block, "", "", modifier) : "";
-  return { b, e, m };
+  const is = (name: string, ...args: [boolean | undefined] | []) => {
+    const state = args.length >= 1 ? args[0]! : true;
+    return name && state ? `${statePrefix}${name}` : "";
+  };
+  return { b, e, m, is };
 };
