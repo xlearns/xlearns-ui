@@ -3,15 +3,8 @@ import { promises as fs } from "fs";
 import { resolve, join } from "path";
 import upperCamelCase from "uppercamelcase";
 import MagicString from "magic-string";
-import Chalk from "chalk";
+import { log } from "@element3/utils";
 
-function log(msg, type?) {
-	if (type) {
-		console.log(Chalk.red(msg));
-	} else {
-		console.log(Chalk.blue(msg));
-	}
-}
 const root = process.cwd();
 const name = process.argv[2];
 let upper_name, pgk_path, components_path, element3_path, theme_path;
@@ -204,9 +197,9 @@ async function main() {
 		update_element_com();
 		update_com_name_main();
 		update_theme_main();
-		log("✔ 创建完成");
+		log("✔ 创建完成", "green");
 	} catch (e) {
-		log(e, true);
+		log(e);
 	}
 }
 
