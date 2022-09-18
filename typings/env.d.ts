@@ -1,5 +1,6 @@
 import type { vShow } from "vue";
 export const INSTALLED_KEY = Symbol("INSTALLED_KEY");
+export * from "@vue/runtime-dom";
 
 declare global {
   const process: {

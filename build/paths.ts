@@ -1,5 +1,4 @@
 import path from "path";
-
 export const projRoot = path.resolve(__dirname, "../");
 export const pkgRoot = path.resolve(projRoot, "./packages");
 export const compRoot = path.resolve(pkgRoot, "./components");

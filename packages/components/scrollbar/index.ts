@@ -1,4 +1,5 @@
-import { withInstall } from "@element3/utils";
+import { withInstall } from "@element3/utils/web";
+
 import Scrollbar from "./src/scrollbar.vue";
 
 export const ElScrollbar = withInstall(Scrollbar);
