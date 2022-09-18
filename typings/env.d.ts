@@ -1,34 +1,33 @@
 import type { vShow } from "vue";
+export const INSTALLED_KEY = Symbol("INSTALLED_KEY");
 
 declare global {
-	const process: {
-		env: {
-			NODE_ENV: string;
-		};
-	};
+  const process: {
+    env: {
+      NODE_ENV: string;
+    };
+  };
 
-	const INSTALLED_KEY = Symbol("INSTALLED_KEY");
-
-	namespace JSX {
-		interface IntrinsicAttributes {
-			class?: any;
-			style?: any;
-		}
-	}
+  namespace JSX {
+    interface IntrinsicAttributes {
+      class?: any;
+      style?: any;
+    }
+  }
 }
 
 declare module "@vue/runtime-core" {
-	export interface App {
-		[INSTALLED_KEY]?: boolean;
-	}
+  export interface App {
+    [INSTALLED_KEY]?: boolean;
+  }
 
-	export interface GlobalComponents {
-		Component: (props: { is: Component | string }) => void;
-	}
+  export interface GlobalComponents {
+    Component: (props: { is: Component | string }) => void;
+  }
 
-	export interface ComponentCustomProperties {
-		vShow: typeof vShow;
-	}
+  export interface ComponentCustomProperties {
+    vShow: typeof vShow;
+  }
 }
 
 export {};
