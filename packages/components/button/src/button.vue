@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useSlots, ref, onMounted } from "vue";
+import { ref } from "vue";
 import { buttonProps, buttonEmits } from "./button";
 import { useNamespace } from "@element3/hooks";
 defineOptions({
@@ -8,24 +8,29 @@ defineOptions({
 const ns = useNamespace("button");
 const props = defineProps(buttonProps);
 const emit = defineEmits(buttonEmits);
-const slots = useSlots();
+// const slots = useSlots();
 const _ref = ref<HTMLButtonElement>();
 const _type = props.type || "";
 
-function test() {
-	return;
-	console.log(slots.default?.(), emit);
+function handleClick(evt: MouseEvent) {
+	emit("click", evt);
 }
-onMounted(() => {
-	test();
-});
+
 defineExpose({ ref: _ref, type: _type });
 </script>
 
 <template>
-	<button :class="[ns.b(), ns.m(_type), ns.is('plain', plain)]" ref="_ref">
-		<slot />
+	<button
+		:class="[ns.b(), ns.m(_type), ns.is('plain', plain), ns.is('round', round)]"
+		ref="_ref"
+		@click="handleClick"
+	>
+		<template v-if="loading">
+			<!-- loader -->
+		</template>
+		<!-- icon -->
+		<span v-if="$slots.default">
+			<slot />
+		</span>
 	</button>
 </template>
-
-<style scoped></style>

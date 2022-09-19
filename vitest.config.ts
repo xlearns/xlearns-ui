@@ -5,5 +5,10 @@ import DefineOptions from "unplugin-vue-define-options/vite";
 
 export default defineConfig({
 	plugins: [Vue(), VueJsx(), DefineOptions()],
-	test: {},
+	test: {
+		/**
+		 * https://github.com/vitest-dev/vitest/issues/990
+		 */
+		environment: "jsdom",
+	},
 });

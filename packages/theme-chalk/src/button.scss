@@ -2,6 +2,7 @@
 @use "common/var" as *;
 @use "mixins/function" as *;
 @use "mixins/mixins" as *;
+@use "common/stype" as *;
 // set button var
 @include b(button) {
   @include set-component-css-var("button", $button);
@@ -9,6 +10,7 @@
 
 @include b(button) {
   display: inline-block;
+  @include center;
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
