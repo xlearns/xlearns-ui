@@ -1,19 +1,15 @@
 {
-  "name": "docs",
-  "version": "0.0.1",
+  "name": "@element-plus/docs",
+  "private": true,
+  "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "authors": {
-    "name": "",
-    "email": ""
-  },
-  "repository": "/docs",
   "scripts": {
-    "dev": "vuepress dev src",
-    "build": "vuepress build src"
+    "dev": "NODE_ENV=production vitepress dev ."
   },
-  "license": "MIT",
-  "devDependencies": {
-    "vuepress": "^1.5.3"
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vitepress": "^0.22.4",
+    "vitepress-theme-demoblock": "^1.4.2"
   }
 }
