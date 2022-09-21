@@ -1,5 +1,8 @@
+<script setup lang="ts">
+const msg = "footer";
+</script>
 <template>
-	<div></div>
+	<div>{{ msg }}</div>
 </template>
 
 <style scoped></style>

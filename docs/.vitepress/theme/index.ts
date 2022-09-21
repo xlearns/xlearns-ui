@@ -14,8 +14,8 @@ import "./style.css";
 export default {
 	...Theme,
 	enhanceApp: ({ app }) => {
+		app.use(Element3);
 		app.component("Demo", Demo);
 		app.component("DemoBlock", DemoBlock);
-		app.use(Element3);
 	},
 };
