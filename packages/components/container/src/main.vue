@@ -1,8 +1,17 @@
 <script setup lang="ts">
-const msg = "main";
+import { useNamespace } from "@element3/hooks";
+
+defineOptions({
+	name: "ElMain",
+});
+
+const ns = useNamespace("main");
 </script>
+
 <template>
-	<div>{{ msg }}</div>
+	<main :class="ns.b()">
+		<slot />
+	</main>
 </template>
 
 <style scoped></style>

@@ -1,8 +1,31 @@
 <script setup lang="ts">
-const msg = "footer";
+import { useNamespace } from "@element3/hooks";
+import { computed } from "vue";
+import type { CSSProperties } from "vue";
+const ns = useNamespace("footer");
+
+defineOptions({
+	name: "ElFooter",
+});
+
+const props = defineProps({
+	height: {
+		type: String,
+		default: null,
+	},
+});
+
+const style = computed(
+	() =>
+		(props.height
+			? ns.cssVarBlock({ height: props.height })
+			: {}) as CSSProperties
+);
 </script>
 <template>
-	<div>{{ msg }}</div>
+	<footer :class="ns.b()" :style="style">
+		<slot />
+	</footer>
 </template>
 
 <style scoped></style>

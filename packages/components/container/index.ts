@@ -13,4 +13,8 @@ export const ElContainer = withInstall(Container, {
 	Main,
 });
 
+export const ElAside = withInstall(Aside);
+export const ElFooter = withInstall(Footer);
+export const ElHeader = withInstall(Header);
+export const ElMain = withInstall(Main);
 export default ElContainer;
