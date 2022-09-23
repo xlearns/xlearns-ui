@@ -5,7 +5,8 @@ import autoprefixer from "gulp-autoprefixer";
 // css压缩
 // import clearCss from "gulp-clean-css";
 import path from "path";
-import { buildOutput } from '@element3/build'
+import { buildOutput } from "@element3/build";
+import { copyFile, mkdir } from "fs/promises";
 
 // console美化
 // import consola from "consola";
@@ -13,8 +14,7 @@ import { buildOutput } from '@element3/build'
 // 文件重命名
 // import rename from "gulp-rename";
 const distFolder = path.resolve(__dirname, "dist");
-const distBundle = path.resolve(buildOutput, 'theme-chalk')
-
+const distBundle = path.resolve(buildOutput, "theme-chalk");
 
 function buildThemeChalk() {
 	const sass = gulpSass(dartSass);
@@ -25,10 +25,18 @@ function buildThemeChalk() {
 	return res;
 }
 
-
-
 export function copyThemeChalkBundle() {
-  return src(`${distFolder}/**`).pipe(dest(distBundle))
+	return src(`${distFolder}/**`).pipe(dest(distBundle));
 }
-export const build = parallel(series(buildThemeChalk,copyThemeChalkBundle));
+export const copyFullStyle = async () => {
+	await mkdir(path.resolve(buildOutput, "dist"), { recursive: true });
+	await copyFile(
+		path.resolve(buildOutput, "theme-chalk/index.css"),
+		path.resolve(buildOutput, "dist/index.css")
+	);
+};
+
+export const build = parallel(
+	series(buildThemeChalk, copyThemeChalkBundle, copyFullStyle)
+);
 export default build;

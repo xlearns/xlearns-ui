@@ -7,13 +7,12 @@ import commonjs from "@rollup/plugin-commonjs";
 import vue from "rollup-plugin-vue";
 import esbuild from "rollup-plugin-esbuild";
 import { epRoot, buildOutput } from "./paths";
-import dts from "vite-plugin-dts";
 
 const sourceMap = process.env.SOURCE_MAP === "true";
 
 const umd = {
 	format: "umd",
-	file: path.resolve(buildOutput, "element3/dist/index.js"),
+	file: path.resolve(buildOutput, "dist/index.js"),
 	exports: "named",
 	name: "Element3",
 	globals: {
@@ -23,7 +22,7 @@ const umd = {
 
 const umdMinified = {
 	...umd,
-	file: path.resolve(buildOutput, "element3/dist/index.full.js"),
+	file: path.resolve(buildOutput, "dist/index.full.js"),
 };
 
 (async () => {
@@ -40,12 +39,6 @@ const umdMinified = {
 			esbuild({
 				minify: false,
 			}),
-			// dts({
-			// 	exclude: ["node_modules", "playground"],
-			// 	outputDir: ["lib", "es"],
-			// 	compilerOptions: { sourceMap },
-			// 	copyDtsFiles: false,
-			// }),
 		],
 		external: ["vue"],
 	};
@@ -73,13 +66,13 @@ const umdMinified = {
 
 	await entryBundle.write({
 		format: "cjs",
-		dir: path.resolve(buildOutput, "element3/lib"),
+		dir: path.resolve(buildOutput, "lib"),
 		exports: "named",
 	});
 
 	await entryBundle.write({
 		format: "esm",
-		dir: path.resolve(buildOutput, "element3/es"),
+		dir: path.resolve(buildOutput, "es"),
 	});
 })();
 

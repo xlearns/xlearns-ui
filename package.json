@@ -14,7 +14,7 @@
     "dts": "esno script/gen-dts && pnpm types",
     "types": "esno script/bootstrap",
     "postpublish": "pinst --enable",
-    "build": "rimraf dist &&  pnpm build:comp && pnpm build:theme && pnpm dts",
+    "build": "rimraf dist &&  pnpm build:comp && pnpm build:theme && pnpm dts && esno script/gen-pkg",
     "build:comp": "esno build/full-bundle.ts",
     "build:theme": "pnpm run -C packages/theme-chalk build",
     "docs:dev": "pnpm -C docs dev",
@@ -49,7 +49,6 @@
     "typescript": "^4.7.4",
     "unplugin-vue-define-options": "^0.6.1",
     "uppercamelcase": "^3.0.0",
-    "vite-plugin-dts": "^1.4.1",
     "vitest": "0.12.6",
     "vue": "3.2.39",
     "vue-tsc": "^0.34.7"
