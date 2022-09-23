@@ -27,5 +27,3 @@ const style = computed(
 		<slot />
 	</footer>
 </template>
-
-<style scoped></style>

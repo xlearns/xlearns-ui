@@ -1,0 +1,15 @@
+@use "sass:map";
+@use "common/var" as *;
+@use "mixins/function" as *;
+@use "mixins/mixins" as *;
+@use "common/stype" as *;
+@include b(footer) {
+  @include set-component-css-var("footer", $footer);
+}
+
+@include b(footer) {
+  padding: getCssVar('footer-padding');
+  box-sizing: border-box;
+  flex-shrink: 0;
+  height: getCssVar('footer-height');
+}

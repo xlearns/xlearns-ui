@@ -25,5 +25,3 @@ const style = computed(
 		<slot />
 	</aside>
 </template>
-
-<style scoped></style>

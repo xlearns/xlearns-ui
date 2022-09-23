@@ -1,0 +1,15 @@
+@use "sass:map";
+@use "common/var" as *;
+@use "mixins/function" as *;
+@use "mixins/mixins" as *;
+@use "common/stype" as *;
+
+@include b(header) {
+  // @include set-component-css-var("header", $header);
+}
+
+@include b(header) {
+  box-sizing: border-box;
+  flex-shrink: 0;
+  height: getCssVar('header-height');
+}

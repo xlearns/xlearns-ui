@@ -13,5 +13,3 @@ const ns = useNamespace("main");
 		<slot />
 	</main>
 </template>
-
-<style scoped></style>

@@ -47,3 +47,23 @@ $scrollbar: () !default;
 $scrollbar: map.merge(('bg-color': getCssVar('fill-color', 'black'),'opacity': 1),
         $scrollbar
 );
+
+//main
+$main:() !default;
+$main: map.merge(
+  (
+    'padding': 20px,
+  ),
+  $main
+);
+
+
+// footer
+$footer: () !default;
+$footer: map.merge(
+  (
+    'padding': 0 20px,
+    'height': 60px,
+  ),
+  $footer
+);
