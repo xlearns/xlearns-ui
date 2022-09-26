@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
-import { toCapitalCase, components, log } from "@element3/utils/node";
+import { toCapitalCase, log } from "@element3/utils/node";
+import { components } from "@element3/build";
 import { projRoot } from "@element3/build";
 const typesPath = path.resolve(projRoot, "types.d.ts");
 

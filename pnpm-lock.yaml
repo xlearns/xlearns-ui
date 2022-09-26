@@ -35,7 +35,7 @@ importers:
       magic-string: ^0.26.3
       pinst: ^3.0.0
       rimraf: ^3.0.2
-      rollup: ^2.56.3
+      rollup: ^2.75.7
       rollup-plugin-css-only: ^2.1.0
       rollup-plugin-esbuild: ^4.5.0
       rollup-plugin-filesize: ^9.1.1
@@ -72,7 +72,6 @@ importers:
       esno: 0.16.3
       fast-glob: 3.2.12
       rimraf: 3.0.2
-      rollup: 2.79.0
       rollup-plugin-css-only: 2.1.0_rollup@2.79.0
       rollup-plugin-esbuild: 4.10.1_esbuild@0.15.8+rollup@2.79.0
       rollup-plugin-filesize: 9.1.2
@@ -97,6 +96,7 @@ importers:
       jsdom: 20.0.0
       magic-string: 0.26.3
       pinst: 3.0.0
+      rollup: 2.79.0
       sass: 1.54.9
       snowball-ui: link:packages/element3
       ts-morph: 10.1.0
@@ -125,7 +125,10 @@ importers:
     specifiers: {}
 
   packages/element3:
-    specifiers: {}
+    specifiers:
+      chalk: ^5.0.1
+    devDependencies:
+      chalk: 5.0.1
 
   packages/hooks:
     specifiers: {}
@@ -5787,7 +5790,7 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
-    dev: false
+    dev: true
 
   /run-parallel/1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
