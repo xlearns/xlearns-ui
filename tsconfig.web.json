@@ -1,18 +1,18 @@
 {
-  "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-    "composite": true,
-    "jsx": "preserve",
-    "lib": ["ES2018", "DOM", "DOM.Iterable"],
-    "types": ["unplugin-vue-define-options", "@types/node"],
-    "skipLibCheck": true
-  },
-  "include": ["packages", "typings/components.d.ts", "typings/env.d.ts"],
-  "exclude": [
-    "node_modules",
-    "**/dist",
-    "**/__tests__/**/*",
-    "**/gulpfile.ts",
-    "**/test-helper"
-  ]
+	"extends": "./tsconfig.base.json",
+	"compilerOptions": {
+		"composite": true,
+		"jsx": "preserve",
+		"lib": ["ES2018", "DOM", "DOM.Iterable"],
+		"types": ["unplugin-vue-define-options", "@types/node"],
+		"skipLibCheck": true
+	},
+	"include": ["packages", "typings/components.d.ts", "typings/env.d.ts"],
+	"exclude": [
+		"node_modules",
+		"**/dist",
+		"**/__tests__/**/*",
+		"**/gulpfile.ts",
+		"**/test-helper"
+	]
 }
