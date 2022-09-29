@@ -7,8 +7,9 @@ import type { Plugin } from "rollup";
 import commonjs from "@rollup/plugin-commonjs";
 import vue from "rollup-plugin-vue";
 import esbuild from "rollup-plugin-esbuild";
-import { epRoot, buildOutput } from "./paths";
+import { epRoot, epOutput } from "./paths";
 import genDts from "./gen-dts";
+
 import chalk from "chalk";
 /**
  * Fock: https://github.com/Dreamerryao/element-plus/blob/85849419f14e2c29eab8354c196ab232be97ba14/build/full-bundle.ts
@@ -37,7 +38,7 @@ const excludes = ["icons"];
 
 	const umd = {
 		format: "umd",
-		file: path.resolve(buildOutput, "dist/index.js"),
+		file: path.resolve(epOutput, "dist/index.js"),
 		exports: "named",
 		name: "Element3",
 		globals: {
@@ -47,7 +48,7 @@ const excludes = ["icons"];
 
 	const umdMinified = {
 		...umd,
-		file: path.resolve(buildOutput, "dist/index.full.js"),
+		file: path.resolve(epOutput, "dist/index.full.js"),
 	};
 
 	console.log(chalk.bold(chalk.yellow("Building bundle")));
@@ -92,7 +93,7 @@ const excludes = ["icons"];
 
 	await entryBundle.write({
 		format: "cjs",
-		dir: path.resolve(buildOutput, "lib"),
+		dir: path.resolve(epOutput, "lib"),
 		exports: "named",
 		paths: rewriter,
 	});
@@ -103,7 +104,7 @@ const excludes = ["icons"];
 
 	await entryBundle.write({
 		format: "esm",
-		dir: path.resolve(buildOutput, "es"),
+		dir: path.resolve(epOutput, "es"),
 		paths: rewriter,
 	});
 

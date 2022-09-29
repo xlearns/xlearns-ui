@@ -17,6 +17,7 @@ importers:
       '@rollup/plugin-json': ^4.1.0
       '@rollup/plugin-node-resolve': ^11.0.0
       '@rollup/plugin-replace': ^2.3.4
+      '@types/fs-extra': ^9.0.13
       '@types/jsdom': ^20.0.0
       '@types/node': ^18.7.16
       '@vitejs/plugin-vue': ^2.3.3
@@ -31,6 +32,7 @@ importers:
       esno: ^0.16.3
       fast-glob: ^3.2.7
       file-save: ^0.2.0
+      fs-extra: ^10.1.0
       jsdom: ^20.0.0
       magic-string: ^0.26.3
       pinst: ^3.0.0
@@ -83,6 +85,7 @@ importers:
       vite: 2.9.15_sass@1.54.9
     devDependencies:
       '@element3/build': link:build
+      '@types/fs-extra': 9.0.13
       '@types/jsdom': 20.0.0
       '@types/node': 18.7.18
       '@vitejs/plugin-vue': 2.3.4_vite@2.9.15+vue@3.2.39
@@ -93,6 +96,7 @@ importers:
       chalk: 5.0.1
       consola: 2.15.3
       file-save: 0.2.0
+      fs-extra: 10.1.0
       jsdom: 20.0.0
       magic-string: 0.26.3
       pinst: 3.0.0
@@ -989,6 +993,12 @@ packages:
   /@types/estree/1.0.0:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
     dev: false
+
+  /@types/fs-extra/9.0.13:
+    resolution: {integrity: sha512-nEnwB++1u5lVDM2UI4c1+5R+FYaKfaAzS4OococimjVm3nQw3TuzH5UNsocrcTBbhnerblyHj4A49qXbIiZdpA==}
+    dependencies:
+      '@types/node': 18.7.18
+    dev: true
 
   /@types/istanbul-lib-coverage/2.0.4:
     resolution: {integrity: sha512-z/QT1XN4K4KYuslS23k62yDIDLwLFkzxOuMplDtObz0+y7VqJCaO2o+SPwHCvLFZh7xazvvoor2tA/hPz9ee7g==}
@@ -3186,7 +3196,6 @@ packages:
       graceful-fs: 4.2.10
       jsonfile: 6.1.0
       universalify: 2.0.0
-    dev: false
 
   /fs-extra/8.1.0:
     resolution: {integrity: sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==}
@@ -3236,7 +3245,7 @@ packages:
     resolution: {integrity: sha512-WvJ193OHa0GHPEL+AycEJgxvBEwyfRkN1vhjca23OaPVMCaLCXTd5qAu82AjTcgP1UJmytkOKb63Ypde7raDIg==}
     engines: {node: '>=0.6'}
     dependencies:
-      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.10
+      graceful-fs: 4.2.10
       inherits: 2.0.4
       mkdirp: 0.5.6
       rimraf: 2.7.1
@@ -4168,7 +4177,6 @@ packages:
       universalify: 2.0.0
     optionalDependencies:
       graceful-fs: 4.2.10
-    dev: false
 
   /jsonparse/1.3.1:
     resolution: {integrity: sha512-POQXvpdL69+CluYsillJ7SUhKvytYjW9vG/GKpnf+xP8UWgYEM/RaMzHHofbALDiKbbP1W8UEYmgGl39WkPZsg==}
@@ -6530,7 +6538,6 @@ packages:
   /universalify/2.0.0:
     resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}
     engines: {node: '>= 10.0.0'}
-    dev: false
 
   /unplugin-vue-components/0.19.9_6157a384c70142961a2d54a839ccac66:
     resolution: {integrity: sha512-i5mZtg85euPWZrGswFkoa9pf4WjKCP5qOjnwOyg3KOKVzFjnP3osCdrunQMjtoMKehTdz1vV6baZH8bZR4PNgg==}

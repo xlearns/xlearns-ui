@@ -6,11 +6,12 @@ import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import esbuild from "rollup-plugin-esbuild";
 import glob from "fast-glob";
-import { epRoot, pkgRoot, buildOutput, ePackage } from "@element3/build";
-import { excludeFiles } from "@element3/utils/node";
+import { epRoot, pkgRoot, epOutput, ePackage } from "@element3/build";
+import { excludeFiles } from "@element3/utils";
 import type { OutputOptions } from "rollup";
 import path from "path";
 import type { Plugin } from "rollup";
+import copyType from "./copy-type";
 
 const PKG_NAME = "element3";
 const PKG_PREFIX = "@element3";
@@ -56,7 +57,7 @@ export const buildModules = async () => {
 			ext: "mjs",
 			output: {
 				name: "es",
-				path: path.resolve(buildOutput, "es"),
+				path: path.resolve(epOutput, "es"),
 			},
 			bundle: {
 				path: `es`,
@@ -68,7 +69,7 @@ export const buildModules = async () => {
 			ext: "js",
 			output: {
 				name: "lib",
-				path: path.resolve(buildOutput, "lib"),
+				path: path.resolve(epOutput, "lib"),
 			},
 			bundle: {
 				path: `lib`,
@@ -91,6 +92,8 @@ export const buildModules = async () => {
 	});
 
 	await writeBundles(bundle, _b);
+
+	await copyType();
 };
 
 function writeBundles(bundle, options: OutputOptions[]) {

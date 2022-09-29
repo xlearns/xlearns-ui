@@ -1,4 +1,4 @@
-import { withInstall } from "@element3/utils/web";
+import { withInstall } from "@element3/utils";
 
 import Scrollbar from "./src/scrollbar.vue";
 

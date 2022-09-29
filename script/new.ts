@@ -3,7 +3,7 @@ import { promises as fs } from "fs";
 import { resolve, join } from "path";
 import upperCamelCase from "uppercamelcase";
 import MagicString from "magic-string";
-import { log } from "@element3/utils/node";
+import { log } from "@element3/utils";
 
 const root = process.cwd();
 const name = process.argv[2];
@@ -67,7 +67,7 @@ async function update_element_com() {
  */
 function update_com_name_index() {
 	const tp_com_name_index = `
-  import { withInstall } from "@element3/utils/web";
+  import { withInstall } from "@element3/utils";
   import ${upper_name} from "./src/${name}.vue";
   export const El${upper_name} = withInstall(${upper_name});
   export default El${upper_name};

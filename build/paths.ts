@@ -1,14 +1,15 @@
-import path from "path";
+import { resolve } from "path";
 
-export const projRoot = path.resolve(__dirname, "../");
-export const pkgRoot = path.resolve(projRoot, "packages");
-export const compRoot = path.resolve(pkgRoot, "./components");
-export const themeRoot = path.resolve(pkgRoot, "./theme-chalk");
-export const hookRoot = path.resolve(pkgRoot, "./hooks");
-export const localeRoot = path.resolve(pkgRoot, "./locale");
-export const directiveRoot = path.resolve(pkgRoot, "./directives");
-export const epRoot = path.resolve(pkgRoot, "./element3");
-export const utilRoot = path.resolve(pkgRoot, "./utils");
-export const buildOutput = path.resolve(projRoot, "./dist");
-export const docRoot = path.resolve(projRoot, "./docs");
-export const ePackage = path.resolve(epRoot, "./package.json");
+export const projRoot = resolve(__dirname, "../");
+export const pkgRoot = resolve(projRoot, "packages");
+export const compRoot = resolve(pkgRoot, "components");
+export const themeRoot = resolve(pkgRoot, "theme-chalk");
+export const hookRoot = resolve(pkgRoot, "hooks");
+export const localeRoot = resolve(pkgRoot, "locale");
+export const directiveRoot = resolve(pkgRoot, "directives");
+export const epRoot = resolve(pkgRoot, "element3");
+export const utilRoot = resolve(pkgRoot, "utils");
+export const buildOutput = resolve(projRoot, "dist");
+export const docRoot = resolve(projRoot, "docs");
+export const ePackage = resolve(epRoot, "package.json");
+export const epOutput = resolve(buildOutput, "./");
