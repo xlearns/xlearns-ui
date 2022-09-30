@@ -10,6 +10,7 @@ import * as vueCompiler from "vue/compiler-sfc";
 import chalk from "chalk";
 
 import consola from "consola";
+import { buildConfig, PKG_NAME, PKG_PREFIX } from "./info";
 
 // todo: build env es or lib component for url error
 
@@ -70,7 +71,7 @@ const main = async () => {
 
 			await writeFile(
 				filepath,
-				pathRewriter("es")(outputFile.getText()),
+				pathRewriter("esm")(outputFile.getText()),
 				"utf8"
 			);
 
@@ -180,11 +181,10 @@ async function build(sourceFiles) {
 }
 
 export const pathRewriter = (module) => {
-	const PKG_PREFIX = "@element3";
-	const PKG_NAME = "element3";
+	const config = buildConfig[module];
 	return (id: any) => {
 		id = id.replaceAll(`${PKG_PREFIX}/theme-chalk`, `${PKG_NAME}/theme-chalk`);
-		id = id.replaceAll(`${PKG_PREFIX}/`, `${module}/`);
+		id = id.replaceAll(`${PKG_PREFIX}/`, `${config.bundle.path}/`);
 		return id;
 	};
 };

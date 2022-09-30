@@ -1,2 +1,3 @@
-export * from "./web/vue";
-export * from "./node/pkg";
+export * from "./vue";
+export * from "./node";
+export * from "./log";
