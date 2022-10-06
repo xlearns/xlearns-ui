@@ -12,7 +12,7 @@ let template = `
   "license": "MIT",
   "main": "lib/index.js",
   "module": "es/index.mjs",
-  "types": "types/packages/index.d.ts",
+  "types": "es/index.d.ts",
   "exports": {
     ".": {
       "require": "./lib/index.js",
@@ -57,7 +57,7 @@ let template = `
   `;
 
 function main() {
-	writeFile(path, template);
+  writeFile(path, template);
 }
 
 main();
