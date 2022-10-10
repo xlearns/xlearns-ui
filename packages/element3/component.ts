@@ -1,4 +1,4 @@
-import { ElLayout } from "@element3/components/layout";import { ElButton } from "@element3/components/button";
+import { ElGridLayout } from "@element3/components/grid-layout";import { ElLayout } from "@element3/components/layout";import { ElButton } from "@element3/components/button";
 import { ElScrollbar } from "@element3/components/scrollbar";
 import type { Plugin } from "vue";
 
@@ -17,5 +17,6 @@ export default [
 	ElFooter,
 	ElHeader,
 	ElMain,
-,ElLayout] as Plugin[];
+,ElLayout,ElGridLayout] as Plugin[];
+
 

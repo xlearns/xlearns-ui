@@ -71,3 +71,8 @@ $footer: map.merge(
 $layout: () !default;
 $layout: map.merge(('bg-color': getCssVar('fill-color', 'black'),'text-color':getCssVar('color-white'),'opacity': 1),$layout);
 	
+
+// GridLayout
+$grid-layout: () !default;
+$grid-layout: map.merge(('bg-color': getCssVar('fill-color', 'black'),'text-color':getCssVar('color-white'),'opacity': 1),$grid-layout);
+	
