@@ -52,7 +52,7 @@ async function update_com_index() {
  * @description element3 components index
  */
 async function update_element_com() {
-	let path = resolve(element3_path, "components.ts");
+	let path = resolve(element3_path, "component.ts");
 	let indexText = await fs.readFile(path);
 	let text = String(indexText);
 	let startIndex = text.indexOf("]");
