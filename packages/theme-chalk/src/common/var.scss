@@ -67,3 +67,7 @@ $footer: map.merge(
   ),
   $footer
 );
+// Layout
+$layout: () !default;
+$layout: map.merge(('bg-color': getCssVar('fill-color', 'black'),'text-color':getCssVar('color-white'),'opacity': 1),$layout);
+	

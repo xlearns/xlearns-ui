@@ -1,4 +1,4 @@
-import { ElButton } from "@element3/components/button";
+import { ElLayout } from "@element3/components/layout";import { ElButton } from "@element3/components/button";
 import { ElScrollbar } from "@element3/components/scrollbar";
 import type { Plugin } from "vue";
 
@@ -17,4 +17,5 @@ export default [
 	ElFooter,
 	ElHeader,
 	ElMain,
-] as Plugin[];
+,ElLayout] as Plugin[];
+

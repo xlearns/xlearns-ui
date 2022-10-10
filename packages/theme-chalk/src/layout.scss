@@ -1,0 +1,15 @@
+
+@use "sass:map";
+@use "common/var" as *;
+@use "mixins/function" as *;
+@use "mixins/mixins" as *;
+// set layout var
+@include b(layout) {
+	@include set-component-css-var("layout", $layout);
+}
+
+@include b(layout) {
+	display: inline-block;
+  color: getCssVar('layout', 'text-color');
+}
+	
