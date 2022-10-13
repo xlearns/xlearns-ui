@@ -1,0 +1,15 @@
+
+@use "sass:map";
+@use "common/var" as *;
+@use "mixins/function" as *;
+@use "mixins/mixins" as *;
+// set row var
+@include b(row) {
+	@include set-component-css-var("row", $row);
+}
+
+@include b(row) {
+	display: inline-block;
+  color: getCssVar('row', 'text-color');
+}
+	

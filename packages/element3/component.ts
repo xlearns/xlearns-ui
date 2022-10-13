@@ -1,4 +1,4 @@
-import { ElGridLayout } from "@element3/components/grid-layout";
+import { ElRow } from "@element3/components/row";import { ElCol } from "@element3/components/col";import { ElGridLayout } from "@element3/components/grid-layout";
 import { ElLayout } from "@element3/components/layout";
 import { ElButton } from "@element3/components/button";
 import { ElScrollbar } from "@element3/components/scrollbar";
@@ -22,4 +22,6 @@ export default [
   ElMain,
   ElLayout,
   ElGridLayout,
-] as Plugin[];
+,ElCol,ElRow] as Plugin[];
+
+

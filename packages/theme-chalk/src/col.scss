@@ -1,0 +1,15 @@
+
+@use "sass:map";
+@use "common/var" as *;
+@use "mixins/function" as *;
+@use "mixins/mixins" as *;
+// set col var
+@include b(col) {
+	@include set-component-css-var("col", $col);
+}
+
+@include b(col) {
+	display: inline-block;
+  color: getCssVar('col', 'text-color');
+}
+	
