@@ -1,4 +1,2 @@
-
-export const grid-layoutTypes = [] as const;
-export const grid-layoutProps = {}
-	
+export const gridLayoutTypes = [] as const;
+export const gridLayoutProps = {};
