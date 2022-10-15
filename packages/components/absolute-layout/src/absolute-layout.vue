@@ -3,7 +3,7 @@ import { useNamespace } from "@element3/hooks";
 import { computed } from "vue";
 
 defineOptions({
-  name: "ElLayout",
+  name: "ElAbsoluteLayout",
 });
 
 const props = defineProps({
@@ -19,7 +19,7 @@ const props = defineProps({
 
 defineEmits({});
 
-const ns = useNamespace("layout");
+const ns = useNamespace("absolute-layout");
 
 const style = computed(() => {
   return {

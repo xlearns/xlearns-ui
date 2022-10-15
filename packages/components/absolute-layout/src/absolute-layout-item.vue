@@ -11,7 +11,7 @@ interface _config {
 const config = ref<_config>({ x: "0", y: "0", w: "50px", h: "50px" });
 
 defineOptions({
-  name: "ElLayoutItem",
+  name: "ElAbsoluteLayoutItem",
 });
 
 const defaultConfig = {
@@ -30,7 +30,7 @@ const props = defineProps({
 
 defineEmits({});
 
-const ns = useNamespace("layout-item");
+const ns = useNamespace("absolute-layout-item");
 
 onMounted(() => {
   config.value = Object.assign(defaultConfig, props.option);

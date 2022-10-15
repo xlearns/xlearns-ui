@@ -1,0 +1,14 @@
+@use "sass:map";
+@use "common/var" as *;
+@use "mixins/function" as *;
+@use "mixins/mixins" as *;
+// set layout-item var
+@include b(absolute-layout-item) {
+  @include set-component-css-var("layout-item", $absolute-layout-item);
+}
+
+@include b(absolute-layout-item) {
+  display: inline-block;
+  position: absolute;
+  color: getCssVar("absolute-layout-item", "text-color");
+}
