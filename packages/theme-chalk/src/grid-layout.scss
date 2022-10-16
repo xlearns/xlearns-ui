@@ -1,15 +1,12 @@
-
 @use "sass:map";
 @use "common/var" as *;
 @use "mixins/function" as *;
 @use "mixins/mixins" as *;
 // set grid-layout var
 @include b(grid-layout) {
-	@include set-component-css-var("grid-layout", $grid-layout);
+  @include set-component-css-var("grid-layout", $grid-layout);
 }
 
 @include b(grid-layout) {
-	display: inline-block;
-  color: getCssVar('grid-layout', 'text-color');
+  display: grid;
 }
-	
