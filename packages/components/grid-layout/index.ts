@@ -1,7 +1,10 @@
+import { withInstall, withNoopInstall } from "@element3/utils";
+import GridLayoutItem from "./src/grid-layout-item.vue";
+import GridLayout from "./src/grid-layout.vue";
 
-  import { withInstall } from "@element3/utils";
-  import GridLayout from "./src/grid-layout.vue";
-  export const ElGridLayout = withInstall(GridLayout);
-  export default ElGridLayout;
-  export * from "./src/grid-layout";
-  
+export const ElGridLayout = withInstall(GridLayout, {
+  GridLayoutItem,
+});
+export const ElGridLayoutItem = withNoopInstall(GridLayoutItem);
+
+export default ElGridLayout;

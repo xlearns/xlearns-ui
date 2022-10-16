@@ -15,8 +15,8 @@ const props = defineProps({
     default: "1fr",
   },
   areas: {
-    type: Array,
-    default: [],
+    type: String,
+    default: ``,
   },
   gap: {
     type: String,
@@ -33,11 +33,10 @@ defineEmits({});
 const ns = useNamespace("grid-layout");
 
 const style = computed(() => {
-  const areas = `nav nav nav nav`;
   return {
     "grid-template-columns": props.columns,
     "grid-template-rows": props.rows,
-    "grid-template-areas": areas,
+    "grid-template-areas": props.areas,
     "grid-gap": props.gap,
     height: props.height,
   };
