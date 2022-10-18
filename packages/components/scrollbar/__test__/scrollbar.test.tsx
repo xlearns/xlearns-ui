@@ -5,6 +5,6 @@ const CONTENT = 'Rem is the best girl'
 
 describe('Scrollbar.vue', () => {
   test("click", async () => {
-    console.log(CONTENT)
+    // console.log(CONTENT)
   })
 })
