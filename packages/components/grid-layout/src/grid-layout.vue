@@ -96,7 +96,6 @@ defineEmits({});
 const ns = useNamespace("grid-layout");
 
 const style = computed(() => {
-	console.log(rows.value);
 	return {
 		"grid-template-columns": columns.value,
 		"grid-template-rows": rows.value,
@@ -145,7 +144,7 @@ function areasTransform(data: string[][]) {
 // TODO: Not elegant enough rewrite!!
 function getAreas() {
 	const _w = window.innerWidth;
-	let res;
+	let res: { [x: string]: string[][] };
 	if (_w <= _config.value.xs.value) {
 		res = _config.value.xs;
 	} else if (_w <= _config.value.sm.value && _w > _config.value.xs.value) {
@@ -158,16 +157,21 @@ function getAreas() {
 		res = _config.value.xl;
 	}
 
-	let { areas: _areas, columns: _columns, rows: _rows, gap: _gap } = res;
-
-	columns.value = _columns || props.columns;
-	rows.value = _rows || props.rows;
-	gap.value = _gap || props.gap;
-
-	areas.value =
-		_areas && _areas.length > 0
-			? areasTransform(_areas)
-			: areasTransform(props.areas as string[][]) || "";
+	Object.entries({
+		columns: columns,
+		rows: rows,
+		gap: gap,
+		areas: areas,
+	}).forEach(([key, val]) => {
+		if (key != "areas") {
+			val.value = res[key] || (props as Record<string, any>)[key] || "";
+		} else {
+			val.value =
+				res[key] && res[key].length > 0
+					? areasTransform(res[key])
+					: areasTransform(props[key] as string[][]) || "";
+		}
+	});
 }
 
 window.addEventListener("resize", () => {
