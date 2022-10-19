@@ -11,6 +11,7 @@ importers:
       '@element3/hooks': workspace:^1.0.0
       '@element3/locale': workspace:^1.0.0
       '@element3/theme-chalk': workspace:^1.0.0
+      '@element3/tokens': workspace:^1.0.0
       '@element3/utils': workspace:^1.0.0
       '@rollup/plugin-babel': ^5.2.2
       '@rollup/plugin-commonjs': ^17.0.0
@@ -85,6 +86,7 @@ importers:
       vite: 2.9.15_sass@1.54.9
     devDependencies:
       '@element3/build': link:build
+      '@element3/tokens': link:packages/tokens
       '@types/fs-extra': 9.0.13
       '@types/jsdom': 20.0.0
       '@types/node': 18.7.18

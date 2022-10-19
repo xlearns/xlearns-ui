@@ -7,7 +7,7 @@ const columns = ref();
 const rows = ref();
 const gap = ref();
 
-type TypeTarget = {
+type Target = {
 	[x: string]: any;
 	lg?: { value: number; areas: string | never[] };
 	md?: { value: number; areas: string | never[] };
@@ -105,7 +105,7 @@ const style = computed(() => {
 	};
 });
 
-function extend(target: TypeTarget, ...args: Record<string, any>[]) {
+function extend(target: Target, ...args: Record<string, any>[]) {
 	for (let i = 0; i < args.length; ++i) {
 		let from = args[i];
 		if (typeof from !== "object") continue;

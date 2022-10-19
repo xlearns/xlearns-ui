@@ -32,6 +32,7 @@
   "license": "ISC",
   "devDependencies": {
     "@element3/build": "workspace:^1.0.0",
+    "@element3/tokens": "workspace:^1.0.0",
     "@types/fs-extra": "^9.0.13",
     "@types/jsdom": "^20.0.0",
     "@types/node": "^18.7.16",
