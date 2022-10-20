@@ -143,20 +143,20 @@ function areasTransform(data: string[][]) {
 
 // TODO: Not elegant enough rewrite!!
 function getAreas() {
+	const sizes = ["xs", "sm", "md", "lg", "xl"];
 	const _w = window.innerWidth;
-	let res: { [x: string]: string[][] };
-	if (_w <= _config.value.xs.value) {
-		res = _config.value.xs;
-	} else if (_w <= _config.value.sm.value && _w > _config.value.xs.value) {
-		res = _config.value.sm;
-	} else if (_w <= _config.value.md.value && _w > _config.value.xs.value) {
-		res = _config.value.md;
-	} else if (_w <= _config.value.lg.value && _w > _config.value.md.value) {
-		res = _config.value.lg;
-	} else if (_w <= _config.value.xl.value && _w > _config.value.lg.value) {
-		res = _config.value.xl;
+	for (let i = 0; i < sizes.length; i++) {
+		const cur = _config.value[sizes[i]];
+		const pre = _config.value[sizes[i - 1]];
+		if (!cur) return;
+		if (!pre && _w <= cur.value) {
+			setGridAttributes(cur);
+		} else if (_w <= cur.value && _w > pre.value) {
+			setGridAttributes(cur);
+		}
 	}
-
+}
+function setGridAttributes(res: { [x: string]: string[][] }) {
 	Object.entries({
 		columns: columns,
 		rows: rows,
@@ -173,7 +173,6 @@ function getAreas() {
 		}
 	});
 }
-
 window.addEventListener("resize", () => {
 	getAreas();
 });
