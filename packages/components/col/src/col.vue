@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, inject } from "vue";
+import type { CSSProperties } from "vue";
 import { colProps } from "./col";
 import { useNamespace } from "@element3/hooks";
 import { rowContextKey } from "@element3/tokens";
@@ -8,13 +9,23 @@ defineOptions({
 	name: "ElCol",
 });
 
-const { gutter } = inject(rowContextKey, { gutter: computed(() => 1) });
+const { gutter } = inject(rowContextKey, { gutter: computed(() => 0) });
 
 const props = defineProps({ ...colProps });
 
 defineEmits({});
 
 const ns = useNamespace("col");
+
+const style = computed(() => {
+	const styles: CSSProperties = {};
+
+	if (gutter.value) {
+		styles.paddingLeft = styles.paddingRight = `${gutter.value / 2}px`;
+	}
+
+	return styles;
+});
 
 const classes = computed(() => {
 	const classes: string[] = [];
@@ -53,6 +64,8 @@ const classes = computed(() => {
 </script>
 
 <template>
-	<component :is="tag" :class="[ns.b(), classes]"><slot /></component>
+	<component :is="tag" :class="[ns.b(), classes]" :style="style"
+		><slot
+	/></component>
 </template>
 <style scoped></style>

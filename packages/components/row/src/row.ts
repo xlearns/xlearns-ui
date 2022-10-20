@@ -4,4 +4,8 @@ export const rowProps = {
 		type: String,
 		default: "div",
 	},
+	gutter: {
+		type: Number,
+		default: 0,
+	},
 };

@@ -2,6 +2,7 @@
 import {describe, expect, it,test } from 'vitest'
 import { mount } from '@vue/test-utils'
 import Col from '../src/col.vue'
+import Row from '@element3/components/row'
 
 describe('col test', () => {
 	test('create', () => {
@@ -88,7 +89,41 @@ describe('col test', () => {
 		expect(wrapper.classes()).toContain('el-col-xl-4')
 		expect(wrapper.classes()).toContain('el-col-xl-offset-4')
 	})
+ 
 
+	test('gutter class test', () => {
+		const wrapper = mount({
+			setup(){
+				return () => (
+					<Row gutter={1}><Col ref="col" xl={{ span: 4, offset: 4 }} /></Row>
+				)
+			}
+		})
+    // const colElm = wrapper.findComponent({ ref: 'col' }).element as HTMLElement
+		// console.log(colElm.style)
+
+		const colElm = wrapper.findComponent({ ref: 'col' }).classes()
+		expect(colElm.includes('is-guttered')).toBe(true)
+	})
+
+	test('col gutter style test', () => {
+		const wrapper = mount({
+			setup(){
+				return () => (
+					<Row gutter={10}><Col ref="col" xl={{ span: 4, offset: 4 }} /></Row>
+				)
+			}
+		})
+		const colElm = wrapper.findComponent({ ref: 'col' }).element as HTMLElement;
+    
+		expect(colElm.style.paddingLeft == colElm.style.paddingRight && colElm.style.paddingLeft == '5px').toBe(true)
+	})
+
+	test('row gutter style test', () => {
+		const wrapper = mount(() => <Row gutter={50} />)
+		const el = wrapper.element as HTMLElement;
+		expect(el.style.marginLeft == el.style.marginRight && el.style.marginLeft == '-25px').toBe(true)
+	})
 })
 
 
