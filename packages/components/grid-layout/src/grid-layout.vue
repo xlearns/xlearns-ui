@@ -1,11 +1,7 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+import type { PropType } from "vue";
 import { useNamespace } from "@element3/hooks";
-
-const areas = ref();
-const columns = ref();
-const rows = ref();
-const gap = ref();
 
 type Target = {
 	[x: string]: any;
@@ -15,6 +11,51 @@ type Target = {
 	xs?: { value: number; areas: string | never[] };
 	xl?: { value: number; areas: string | never[] };
 };
+
+type GridAreas = string[][];
+
+type GridReactive = Target[];
+
+defineOptions({
+	name: "ElGridLayout",
+});
+
+const props = defineProps({
+	reactive: {
+		type: Object as PropType<GridReactive>,
+		default: () => [],
+	},
+	columns: {
+		type: String,
+		default: "1fr",
+	},
+	rows: {
+		type: String,
+		default: "1fr",
+	},
+	areas: {
+		type: Object as PropType<GridAreas>,
+		default: () => [],
+	},
+	gap: {
+		type: String,
+		default: "",
+	},
+	height: {
+		type: String,
+		default: "100%",
+	},
+});
+
+defineEmits({});
+
+const areas = ref();
+
+const columns = ref();
+
+const rows = ref();
+
+const gap = ref();
 
 const breakpoint = {
 	lg: {
@@ -56,43 +97,6 @@ const breakpoint = {
 
 const _config = ref();
 
-defineOptions({
-	name: "ElGridLayout",
-});
-
-const props = defineProps({
-	reactive: {
-		type: Object,
-		default: () => {
-			return [];
-		},
-	},
-	columns: {
-		type: String,
-		default: "1fr",
-	},
-	rows: {
-		type: String,
-		default: "1fr",
-	},
-	areas: {
-		type: Object,
-		default: () => {
-			return [];
-		},
-	},
-	gap: {
-		type: String,
-		default: "",
-	},
-	height: {
-		type: String,
-		default: "100%",
-	},
-});
-
-defineEmits({});
-
 const ns = useNamespace("grid-layout");
 
 const style = computed(() => {
@@ -124,10 +128,6 @@ function extend(target: Target, ...args: Record<string, any>[]) {
 function init() {
 	_config.value = extend(breakpoint, props.reactive);
 }
-onMounted(() => {
-	init();
-	getAreas();
-});
 
 function areasTransform(data: string[][]) {
 	let res = "";
@@ -156,6 +156,7 @@ function getAreas() {
 		}
 	}
 }
+
 function setGridAttributes(res: { [x: string]: string[][] }) {
 	Object.entries({
 		columns: columns,
@@ -164,17 +165,24 @@ function setGridAttributes(res: { [x: string]: string[][] }) {
 		areas: areas,
 	}).forEach(([key, val]) => {
 		if (key != "areas") {
-			val.value = res[key] || (props as Record<string, any>)[key] || "";
+			val.value = res[key] || props[key as keyof typeof props] || "";
 		} else {
 			val.value =
 				res[key] && res[key].length > 0
 					? areasTransform(res[key])
-					: areasTransform(props[key] as string[][]) || "";
+					: areasTransform(props[key]) || "";
 		}
 	});
 }
-window.addEventListener("resize", () => {
+
+onMounted(() => {
+	init();
 	getAreas();
+	window.addEventListener("resize", getAreas);
+});
+
+onBeforeUnmount(() => {
+	window.removeEventListener("resize", getAreas);
 });
 </script>
 

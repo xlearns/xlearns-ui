@@ -5,15 +5,15 @@ import { colProps } from "./col";
 import { useNamespace } from "@element3/hooks";
 import { rowContextKey } from "@element3/tokens";
 
+const { gutter } = inject(rowContextKey, { gutter: computed(() => 0) });
+
 defineOptions({
 	name: "ElCol",
 });
 
-const { gutter } = inject(rowContextKey, { gutter: computed(() => 0) });
+defineEmits({});
 
 const props = defineProps({ ...colProps });
-
-defineEmits({});
 
 const ns = useNamespace("col");
 

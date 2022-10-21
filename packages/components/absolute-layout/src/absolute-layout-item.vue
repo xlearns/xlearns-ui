@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from "vue";
+import { computed } from "vue";
+import type { PropType, CSSProperties } from "vue";
 import { useNamespace } from "@element3/hooks";
 
-interface _config {
-	x: string;
-	y: string;
-	w: string;
-	h: string;
-}
-const config = ref<_config>({ x: "0", y: "0", w: "50px", h: "50px" });
+type Option = {
+	x?: string;
+	y?: string;
+	width?: string;
+	height?: string;
+};
 
 defineOptions({
 	name: "ElAbsoluteLayoutItem",
@@ -17,14 +17,14 @@ defineOptions({
 const defaultConfig = {
 	x: "0",
 	y: "0",
-	w: "50px",
-	h: "50px",
+	width: "50px",
+	height: "50px",
 };
 
 const props = defineProps({
 	option: {
-		type: Object,
-		default: {},
+		type: Object as PropType<Option>,
+		default: () => ({}),
 	},
 });
 
@@ -32,18 +32,23 @@ defineEmits({});
 
 const ns = useNamespace("absolute-layout-item");
 
-onMounted(() => {
-	config.value = Object.assign(defaultConfig, props.option);
-});
-
 const style = computed(() => {
-	const { w, h, x, y } = config.value;
-	return {
-		width: w,
-		height: h,
-		left: x,
-		top: y,
-	};
+	const _style: CSSProperties = {};
+	const attrs = [
+		"width",
+		"height",
+		{ name: "x", value: "left" },
+		{ name: "y", value: "top" },
+	] as const;
+
+	attrs.forEach((attr) => {
+		if (typeof attr == "object" && attr != null) {
+			_style[attr.value] = props.option[attr.name] || defaultConfig[attr.name];
+		} else {
+			_style[attr] = props.option[attr] || defaultConfig[attr];
+		}
+	});
+	return _style;
 });
 </script>
 
