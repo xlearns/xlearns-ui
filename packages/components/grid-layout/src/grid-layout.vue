@@ -142,6 +142,7 @@ function areasTransform(data: string[][]) {
 }
 
 // TODO: Not elegant enough rewrite!!
+// fork https://github.com/vueuse/vueuse/blob/main/packages/core/useBreakpoints/index.ts
 function getAreas() {
 	const sizes = ["xs", "sm", "md", "lg", "xl"];
 	const _w = window.innerWidth;
