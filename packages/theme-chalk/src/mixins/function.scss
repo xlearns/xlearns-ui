@@ -1,6 +1,5 @@
 @use "config";
 
-// 
 @function joinVarName($list) {
   $name: "--" + config.$namespace;
   @each $item in $list {
