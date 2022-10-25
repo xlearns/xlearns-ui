@@ -125,25 +125,9 @@ $grid-layout: map.merge(
 
 // Col
 $col: () !default;
-$col: map.merge(
-  (
-    "bg-color": getCssVar("fill-color", "black"),
-    "text-color": getCssVar("color-white"),
-    "opacity": 1,
-  ),
-  $col
-);
 
 // Row
 $row: () !default;
-$row: map.merge(
-  (
-    "bg-color": getCssVar("fill-color", "black"),
-    "text-color": getCssVar("color-white"),
-    "opacity": 1,
-  ),
-  $row
-);
 
 // AbsoluteLayout
 $absolute-layout: () !default;
