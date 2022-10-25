@@ -12,6 +12,7 @@ lerna-debug.log.*
 lib
 .idea
 examples
+example
 coverage
 .envrc
 package-lock.json

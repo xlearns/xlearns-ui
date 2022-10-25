@@ -9,6 +9,8 @@ declare module "@vue/runtime-core" {
 		ElAside: typeof import("../packages/element3")["ElAside"];
 		ElMain: typeof import("../packages/element3")["ElMain"];
 		ElFooter: typeof import("../packages/element3")["ElFooter"];
+		ElCol: typeof import("../packages/element3")["ElCol"];
+		ElRow: typeof import("../packages/element3")["ElRow"];
 	}
 }
 
