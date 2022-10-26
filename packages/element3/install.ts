@@ -1,10 +1,8 @@
-import type { Plugin } from "vue";
-
-const INSTALLED_KEY = Symbol("INSTALLED_KEY");
-const version = "0.0.0";
+import type { App, Plugin } from "@vue/runtime-core";
+import { INSTALLED_KEY, version } from "@element3/tokens";
 
 export const makeInstaller = (components: Plugin[] = []) => {
-	const install = (app: any) => {
+	const install = (app: App) => {
 		if (app[INSTALLED_KEY]) return;
 		app[INSTALLED_KEY] = true;
 		components.forEach((c) => app.use(c));

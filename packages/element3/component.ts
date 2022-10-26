@@ -6,28 +6,27 @@ import { ElLayout, ElLayoutItem } from "@element3/components/layout";
 import { ElButton } from "@element3/components/button";
 import { ElScrollbar } from "@element3/components/scrollbar";
 import {
-  ElAside,
-  ElContainer,
-  ElFooter,
-  ElHeader,
-  ElMain,
+	ElAside,
+	ElContainer,
+	ElFooter,
+	ElHeader,
+	ElMain,
 } from "@element3/components/container";
 
 import type { Plugin } from "vue";
 
 export default [
-  ElButton,
-  ElScrollbar,
-  ElAside,
-  ElContainer,
-  ElFooter,
-  ElHeader,
-  ElMain,
-  ElGridLayout,
-  ElCol,
-  ElRow,
-  ElLayout,
-  ElLayoutItem,
-  ,
-  ElAbsoluteLayout,
+	ElButton,
+	ElScrollbar,
+	ElAside,
+	ElContainer,
+	ElFooter,
+	ElHeader,
+	ElMain,
+	ElGridLayout,
+	ElCol,
+	ElRow,
+	ElLayout,
+	ElLayoutItem,
+	ElAbsoluteLayout,
 ] as Plugin[];
