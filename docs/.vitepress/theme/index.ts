@@ -1,5 +1,4 @@
-import Theme from "vitepress/dist/client/theme-default";
-
+import Theme from "vitepress/theme";
 import Element3 from "snowball-ui";
 import "@element3/theme-chalk/src/index.scss";
 
@@ -12,10 +11,10 @@ import DemoBlock from "vitepress-theme-demoblock/components/DemoBlock.vue";
 import "./style.css";
 
 export default {
-	...Theme,
-	enhanceApp: ({ app }) => {
-		app.use(Element3);
-		app.component("Demo", Demo);
-		app.component("DemoBlock", DemoBlock);
-	},
+  ...Theme,
+  enhanceApp: ({ app }) => {
+    app.use(Element3);
+    app.component("Demo", Demo);
+    app.component("DemoBlock", DemoBlock);
+  },
 };

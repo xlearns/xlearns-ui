@@ -1,19 +1,16 @@
-const sidebar = {
-  "/": [
-    { text: "快速开始", link: "/" },
-    {
-      text: "通用",
-      children: [
-        { text: "Button 按钮", link: "/components/button/" },
-        { text: "Container 容器", link: "/components/container/" },
-      ],
-    },
-  ],
-};
+import { sidebar, nav } from "./config/index";
+
 const config = {
   title: "🚀  Element3",
-  description: "Element3",
+  description: "a Vue 3 based component library for designers and developers",
   themeConfig: {
+    logo: "/images/vite.svg",
+    footer: {
+      message: "Released under the MIT License.",
+      copyright: "Copyright © 2022  xlearns contributors",
+    },
+    socialLinks: [{ icon: "github", link: "https://github.com/xlearns" }],
+    nav,
     sidebar,
   },
   markdown: {
