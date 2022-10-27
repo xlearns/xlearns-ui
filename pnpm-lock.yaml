@@ -118,10 +118,10 @@ importers:
 
   docs:
     specifiers:
-      vitepress: ^1.0.0-alpha.9
+      vitepress: 1.0.0-alpha.8
       vitepress-theme-demoblock: ^1.4.2
     dependencies:
-      vitepress: 1.0.0-alpha.25_sass@1.54.9
+      vitepress: 1.0.0-alpha.8_sass@1.54.9
       vitepress-theme-demoblock: 1.4.2_sass@1.54.9
 
   packages/components:
@@ -1224,7 +1224,7 @@ packages:
       '@vue/shared': 3.2.41
       estree-walker: 2.0.2
       magic-string: 0.25.9
-      postcss: 8.4.16
+      postcss: 8.4.18
       source-map: 0.6.1
     dev: false
 
@@ -6306,14 +6306,6 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /shiki-processor/0.1.0_shiki@0.11.1:
-    resolution: {integrity: sha512-7ty3VouP7AQMlERKeiobVeyhjUW6rPMM1b+xFcFF/XwhkN4//Fg9Ju6hPfIOvO4ztylkbLqYufbJmLJmw7SfQA==}
-    peerDependencies:
-      shiki: ^0.11.1
-    dependencies:
-      shiki: 0.11.1
-    dev: false
-
   /shiki/0.11.1:
     resolution: {integrity: sha512-EugY9VASFuDqOexOgXR18ZV+TbFrQHeCpEYaXamO+SZlsnT/2LxuLBX25GGtIrwaEVFXUAbUQ601SWE2rMwWHA==}
     dependencies:
@@ -7349,8 +7341,8 @@ packages:
       - supports-color
     dev: false
 
-  /vitepress/1.0.0-alpha.25_sass@1.54.9:
-    resolution: {integrity: sha512-qvKQ4aCArGL8nxP7BAeMBY/N9qm6fX5/dVNGESDvpkm/M8BQlIkOIEanlkAEPY9VOCMA1zcX3wtstcEcnjc5fA==}
+  /vitepress/1.0.0-alpha.8_sass@1.54.9:
+    resolution: {integrity: sha512-kTRN5DCagvMqr9OjylSV9/waGg0IHrxL0hBVuJoz7ykleZq2qR02n5CaiFq5QrSB/VRBGqiVsFQzet9vJsXS8g==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.3.0
@@ -7360,7 +7352,6 @@ packages:
       '@vueuse/core': 9.4.0_vue@3.2.41
       body-scroll-lock: 4.0.0-beta.0
       shiki: 0.11.1
-      shiki-processor: 0.1.0_shiki@0.11.1
       vite: 3.2.0_sass@1.54.9
       vue: 3.2.41
     transitivePeerDependencies:

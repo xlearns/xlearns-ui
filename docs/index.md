@@ -14,7 +14,7 @@ hero:
       link: /articles/组件库环境搭建
     - theme: alt
       text: 快速开始
-      link: zh/components/button
+      link: zh/components/button/
 
 features:
   - icon: ⚡️

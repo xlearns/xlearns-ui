@@ -1,9 +1,11 @@
+import { defineConfig } from "vitepress";
 import { sidebar, nav } from "./config/index";
 
-const config = {
+export default defineConfig({
   title: "🚀  Element3",
   description: "a Vue 3 based component library for designers and developers",
   themeConfig: {
+    sidebar,
     logo: "/images/vite.svg",
     footer: {
       message: "Released under the MIT License.",
@@ -11,14 +13,14 @@ const config = {
     },
     socialLinks: [{ icon: "github", link: "https://github.com/xlearns" }],
     nav,
-    sidebar,
   },
   markdown: {
     config: (md) => {
       // 添加DemoBlock插槽
       const { demoBlockPlugin } = require("vitepress-theme-demoblock");
-      md.use(demoBlockPlugin);
+      md.use(demoBlockPlugin, {
+        cssPreprocessor: "scss",
+      });
     },
   },
-};
-export default config;
+});
