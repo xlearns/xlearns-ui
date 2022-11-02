@@ -1,11 +1,10 @@
-
-@use "sass:map";
-@use "common/var" as *;
-@use "mixins/function" as *;
-@use "mixins/mixins" as *;
-@use "mixins/_cols" as *;
-@use "sass:math";
-@use "mixins/config";
+@use 'sass:map';
+@use 'common/var' as *;
+@use 'mixins/function' as *;
+@use 'mixins/mixins' as *;
+@use 'mixins/_cols' as *;
+@use 'sass:math';
+@use 'mixins/config';
 
 [class*='#{config.$namespace}-col-'] {
   box-sizing: border-box;
@@ -17,31 +16,30 @@
 
 @include b(col-0) {
   display: none;
-	@include when(guttered) {
-			display: none;
-	}
+  @include when(guttered) {
+    display: none;
+  }
 }
 
 @for $i from 0 through 24 {
-	@include b(col-#{$i}) {
-		max-width: (math.div(1, 24) * $i * 100) * 1%;
+  @include b(col-#{$i}) {
+    max-width: (math.div(1, 24) * $i * 100) * 1%;
     flex: 0 0 (math.div(1, 24) * $i * 100) * 1%;
-	}
+  }
 
-	@include b(col-offset-#{$i}) {
+  @include b(col-offset-#{$i}) {
     margin-left: (math.div(1, 24) * $i * 100) * 1%;
-	}
+  }
 
-	@include b(col-pull-#{$i}) {
-		position: relative;
+  @include b(col-pull-#{$i}) {
+    position: relative;
     right: (math.div(1, 24) * $i * 100) * 1%;
-	}
+  }
 
-	@include b(col-push-#{$i}) {
-		position: relative;
+  @include b(col-push-#{$i}) {
+    position: relative;
     left: (math.div(1, 24) * $i * 100) * 1%;
-	}
-
+  }
 }
 
 @include col-size(xs);
@@ -53,8 +51,3 @@
 @include col-size(lg);
 
 @include col-size(xl);
-
-
-
-
-	

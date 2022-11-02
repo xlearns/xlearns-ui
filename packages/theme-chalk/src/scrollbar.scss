@@ -1,6 +1,6 @@
-@use "sass:map";
-@use "common/var" as *;
-@use "mixins/mixins" as *;
+@use 'sass:map';
+@use 'common/var' as *;
+@use 'mixins/mixins' as *;
 
 @include b(scrollbar) {
   @include set-component-css-var('scrollbar', $scrollbar);

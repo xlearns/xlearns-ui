@@ -1,8 +1,7 @@
-
-@use "sass:map";
-@use "common/var" as *;
-@use "mixins/function" as *;
-@use "mixins/mixins" as *;
+@use 'sass:map';
+@use 'common/var' as *;
+@use 'mixins/function' as *;
+@use 'mixins/mixins' as *;
 
 // set row var
 
@@ -34,4 +33,3 @@
     align-items: flex-end;
   }
 }
-	

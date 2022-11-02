@@ -1,34 +1,34 @@
-import type { vShow } from "vue";
-import { INSTALLED_KEY } from "@element3/tokens";
-export * from "@vue/runtime-dom";
+import type { vShow } from 'vue'
+import { INSTALLED_KEY } from '@element3/tokens'
+export * from '@vue/runtime-dom'
 
 declare global {
-	const process: {
-		env: {
-			NODE_ENV: string;
-		};
-	};
+  const process: {
+    env: {
+      NODE_ENV: string
+    }
+  }
 
-	namespace JSX {
-		interface IntrinsicAttributes {
-			class?: any;
-			style?: any;
-		}
-	}
+  namespace JSX {
+    interface IntrinsicAttributes {
+      class?: any
+      style?: any
+    }
+  }
 }
 
-declare module "@vue/runtime-core" {
-	export interface App {
-		[INSTALLED_KEY]?: boolean;
-	}
+declare module '@vue/runtime-core' {
+  export interface App {
+    [INSTALLED_KEY]?: boolean
+  }
 
-	export interface GlobalComponents {
-		Component: (props: { is: Component | string }) => void;
-	}
+  export interface GlobalComponents {
+    Component: (props: { is: Component | string }) => void
+  }
 
-	export interface ComponentCustomProperties {
-		vShow: typeof vShow;
-	}
+  export interface ComponentCustomProperties {
+    vShow: typeof vShow
+  }
 }
 
-export {};
+export {}

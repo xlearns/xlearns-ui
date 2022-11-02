@@ -1,6 +1,6 @@
-@use "sass:math";
-@use "sass:map";
-@use "../mixins/function" as *;
+@use 'sass:math';
+@use 'sass:map';
+@use '../mixins/function' as *;
 
 // Break-point
 $sm: 768px !default;
@@ -16,7 +16,6 @@ $breakpoints: (
   'xl': '(min-width: #{$xl})',
 ) !default;
 
-
 // Types
 $types: primary, success, warning, danger, error, info;
 
@@ -24,29 +23,29 @@ $types: primary, success, warning, danger, error, info;
 $color: () !default;
 $color: map.deep-merge(
   (
-    "white": #ffffff,
-    "black": #000000,
-    "primary": (
-      "base": #409eff,
+    'white': #ffffff,
+    'black': #000000,
+    'primary': (
+      'base': #409eff,
     ),
   ),
   $color
 );
-$color-white: map.get($color, "white");
-$color-black: map.get($color, "black");
-$color-primary: map.get($color, "primary", "base");
+$color-white: map.get($color, 'white');
+$color-black: map.get($color, 'black');
+$color-primary: map.get($color, 'primary', 'base');
 
 // Fill
 $fill-color: () !default;
 $fill-color: map.merge(
   (
-    "": #f0f2f5,
-    "light": #f5f7fa,
-    "lighter": #fafafa,
-    "extra-light": #fafcff,
-    "dark": #ebedf0,
-    "darker": #e6e8eb,
-    "black": #000000,
+    '': #f0f2f5,
+    'light': #f5f7fa,
+    'lighter': #fafafa,
+    'extra-light': #fafcff,
+    'dark': #ebedf0,
+    'darker': #e6e8eb,
+    'black': #000000,
   ),
   $fill-color
 );
@@ -55,9 +54,9 @@ $fill-color: map.merge(
 $button: () !default;
 $button: map.merge(
   (
-    "bg-color": getCssVar("fill-color", "light"),
-    "text-color": getCssVar("color-primary"),
-    "opacity": 1,
+    'bg-color': getCssVar('fill-color', 'light'),
+    'text-color': getCssVar('color-primary'),
+    'opacity': 1,
   ),
   $button
 );
@@ -66,8 +65,8 @@ $button: map.merge(
 $scrollbar: () !default;
 $scrollbar: map.merge(
   (
-    "bg-color": getCssVar("fill-color", "black"),
-    "opacity": 1,
+    'bg-color': getCssVar('fill-color', 'black'),
+    'opacity': 1,
   ),
   $scrollbar
 );
@@ -76,7 +75,7 @@ $scrollbar: map.merge(
 $main: () !default;
 $main: map.merge(
   (
-    "padding": 20px,
+    'padding': 20px,
   ),
   $main
 );
@@ -85,8 +84,8 @@ $main: map.merge(
 $footer: () !default;
 $footer: map.merge(
   (
-    "padding": 0 20px,
-    "height": 60px,
+    'padding': 0 20px,
+    'height': 60px,
   ),
   $footer
 );
@@ -94,9 +93,9 @@ $footer: map.merge(
 $layout: () !default;
 $layout: map.merge(
   (
-    "bg-color": getCssVar("fill-color", "black"),
-    "text-color": getCssVar("color-white"),
-    "opacity": 1,
+    'bg-color': getCssVar('fill-color', 'black'),
+    'text-color': getCssVar('color-white'),
+    'opacity': 1,
   ),
   $layout
 );
@@ -105,9 +104,9 @@ $layout: map.merge(
 $layout-item: () !default;
 $layout-item: map.merge(
   (
-    "bg-color": getCssVar("fill-color", "black"),
-    "text-color": getCssVar("color-white"),
-    "opacity": 1,
+    'bg-color': getCssVar('fill-color', 'black'),
+    'text-color': getCssVar('color-white'),
+    'opacity': 1,
   ),
   $layout
 );
@@ -116,9 +115,9 @@ $layout-item: map.merge(
 $grid-layout: () !default;
 $grid-layout: map.merge(
   (
-    "bg-color": getCssVar("fill-color", "black"),
-    "text-color": getCssVar("color-white"),
-    "opacity": 1,
+    'bg-color': getCssVar('fill-color', 'black'),
+    'text-color': getCssVar('color-white'),
+    'opacity': 1,
   ),
   $grid-layout
 );
@@ -133,9 +132,9 @@ $row: () !default;
 $absolute-layout: () !default;
 $absolute-layout: map.merge(
   (
-    "bg-color": getCssVar("fill-color", "black"),
-    "text-color": getCssVar("color-white"),
-    "opacity": 1,
+    'bg-color': getCssVar('fill-color', 'black'),
+    'text-color': getCssVar('color-white'),
+    'opacity': 1,
   ),
   $absolute-layout
 );
@@ -144,9 +143,9 @@ $absolute-layout: map.merge(
 $absolute-layout-item: () !default;
 $absolute-layout-item: map.merge(
   (
-    "bg-color": getCssVar("fill-color", "black"),
-    "text-color": getCssVar("color-white"),
-    "opacity": 1,
+    'bg-color': getCssVar('fill-color', 'black'),
+    'text-color': getCssVar('color-white'),
+    'opacity': 1,
   ),
   $absolute-layout
 );

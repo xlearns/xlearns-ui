@@ -1,14 +1,14 @@
-@use "sass:map";
-@use "common/var" as *;
-@use "mixins/function" as *;
-@use "mixins/mixins" as *;
+@use 'sass:map';
+@use 'common/var' as *;
+@use 'mixins/function' as *;
+@use 'mixins/mixins' as *;
 // set layout-item var
 @include b(layout-item) {
-  @include set-component-css-var("layout-item", $layout-item);
+  @include set-component-css-var('layout-item', $layout-item);
 }
 
 @include b(layout-item) {
   display: inline-block;
   position: absolute;
-  color: getCssVar("layout-item", "text-color");
+  color: getCssVar('layout-item', 'text-color');
 }

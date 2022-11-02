@@ -1,2 +1,2 @@
-export * from "./install";
-export * from "./row";
+export * from './install'
+export * from './row'

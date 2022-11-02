@@ -1,11 +1,11 @@
-@use "sass:map";
-@use "common/var" as *;
-@use "mixins/function" as *;
-@use "mixins/mixins" as *;
-@use "common/stype" as *;
+@use 'sass:map';
+@use 'common/var' as *;
+@use 'mixins/function' as *;
+@use 'mixins/mixins' as *;
+@use 'common/stype' as *;
 // set button var
 @include b(button) {
-  @include set-component-css-var("button", $button);
+  @include set-component-css-var('button', $button);
 }
 
 @include b(button) {
@@ -16,7 +16,7 @@
   cursor: pointer;
   color: getCssVar('button', 'text-color');
   background-color: getCssVar('button', 'bg-color');
-  &:hover{
+  &:hover {
     transform: scale(1.2);
   }
 }

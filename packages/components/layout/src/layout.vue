@@ -1,32 +1,32 @@
 <script setup lang="ts">
-import { useNamespace } from "@element3/hooks";
-import { computed } from "vue";
+import { useNamespace } from '@element3/hooks'
+import { computed } from 'vue'
 
 defineOptions({
-  name: "ElLayout",
-});
+  name: 'ElLayout',
+})
 
 const props = defineProps({
   width: {
     type: String,
-    default: "1920px",
+    default: '1920px',
   },
   height: {
     type: String,
-    default: "1080px",
+    default: '1080px',
   },
-});
+})
 
-defineEmits({});
+defineEmits({})
 
-const ns = useNamespace("layout");
+const ns = useNamespace('layout')
 
 const style = computed(() => {
   return {
     width: props.width,
     height: props.height,
-  };
-});
+  }
+})
 </script>
 
 <template>

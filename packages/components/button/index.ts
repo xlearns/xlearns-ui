@@ -1,7 +1,7 @@
-import { withInstall } from "@element3/utils";
-import Button from "./src/button.vue";
+import { withInstall } from '@element3/utils'
+import Button from './src/button.vue'
 
-export const ElButton = withInstall(Button);
+export const ElButton = withInstall(Button)
 
-export default ElButton;
-export * from "./src/button";
+export default ElButton
+export * from './src/button'

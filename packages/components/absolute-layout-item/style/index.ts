@@ -1,2 +1,2 @@
-import "@element3/theme-chalk/src/base.css";
-import "@element3/theme-chalk/src/absolute-layout-item.scss";
+import '@element3/theme-chalk/src/base.css'
+import '@element3/theme-chalk/src/absolute-layout-item.scss'

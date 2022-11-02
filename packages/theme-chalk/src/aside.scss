@@ -1,8 +1,8 @@
-@use "sass:map";
-@use "common/var" as *;
-@use "mixins/function" as *;
-@use "mixins/mixins" as *;
-@use "common/stype" as *;
+@use 'sass:map';
+@use 'common/var' as *;
+@use 'mixins/function' as *;
+@use 'mixins/mixins' as *;
+@use 'common/stype' as *;
 @include b(aside) {
   // @include set-component-css-var("button", $aside);
 }

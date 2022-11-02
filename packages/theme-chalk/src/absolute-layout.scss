@@ -1,14 +1,14 @@
-@use "sass:map";
-@use "common/var" as *;
-@use "mixins/function" as *;
-@use "mixins/mixins" as *;
+@use 'sass:map';
+@use 'common/var' as *;
+@use 'mixins/function' as *;
+@use 'mixins/mixins' as *;
 // set layout var
 @include b(absolute-layout) {
-  @include set-component-css-var("absolute-layout", $absolute-layout);
+  @include set-component-css-var('absolute-layout', $absolute-layout);
 }
 
 @include b(absolute-layout) {
   display: inline-block;
   position: relative;
-  color: getCssVar("absolute-layout", "text-color");
+  color: getCssVar('absolute-layout', 'text-color');
 }

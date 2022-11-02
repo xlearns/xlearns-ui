@@ -1,8 +1,8 @@
-import { writeFile } from "fs/promises";
-import { buildOutput } from "@element3/build";
-import { resolve } from "path";
-const version = "0.0.1";
-const path = resolve(buildOutput, "package.json");
+import { writeFile } from 'fs/promises'
+import { buildOutput } from '@element3/build'
+import { resolve } from 'path'
+const version = '0.0.1'
+const path = resolve(buildOutput, 'package.json')
 
 let template = `
   {
@@ -54,10 +54,10 @@ let template = `
     "not op_mini all"
   ]
 }
-  `;
+  `
 
 function main() {
-  writeFile(path, template);
+  writeFile(path, template)
 }
 
-main();
+main()

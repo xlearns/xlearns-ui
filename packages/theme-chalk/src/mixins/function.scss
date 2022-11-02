@@ -1,10 +1,10 @@
-@use "config";
+@use 'config';
 
 @function joinVarName($list) {
-  $name: "--" + config.$namespace;
+  $name: '--' + config.$namespace;
   @each $item in $list {
-    @if $item != "" {
-      $name: $name + "-" + $item;
+    @if $item != '' {
+      $name: $name + '-' + $item;
     }
   }
   @return $name;

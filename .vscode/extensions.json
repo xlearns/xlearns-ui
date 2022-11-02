@@ -1,16 +1,16 @@
 {
-	"recommendations": [
-		"Vue.volar",
-		"Vue.vscode-typescript-vue-plugin",
-		"GitHub.copilot",
-		"vscode-icons-team.vscode-icons",
-		"eamodio.gitlens",
-		"xpo.local-history",
-		"eamodio.gitlens",
-		"antfu.vite",
-		"dbaeumer.vscode-eslint",
-		"esbenp.prettier-vscode",
-		"russell.any-rule",
-		"russell.any-type"
-	]
+  "recommendations": [
+    "Vue.volar",
+    "Vue.vscode-typescript-vue-plugin",
+    "GitHub.copilot",
+    "vscode-icons-team.vscode-icons",
+    "eamodio.gitlens",
+    "xpo.local-history",
+    "eamodio.gitlens",
+    "antfu.vite",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "russell.any-rule",
+    "russell.any-type"
+  ]
 }

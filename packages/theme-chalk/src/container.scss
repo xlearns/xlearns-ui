@@ -1,11 +1,11 @@
-@use "sass:map";
-@use "common/var" as *;
-@use "mixins/function" as *;
-@use "mixins/mixins" as *;
-@use "common/stype" as *;
+@use 'sass:map';
+@use 'common/var' as *;
+@use 'mixins/function' as *;
+@use 'mixins/mixins' as *;
+@use 'common/stype' as *;
 
 @include b(container) {
- display: flex;
+  display: flex;
   flex-direction: row;
   flex: 1;
   flex-basis: auto;

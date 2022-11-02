@@ -1,12 +1,12 @@
-import fs from "fs";
-import path from "path";
-import { toCapitalCase, log } from "@element3/utils";
-import { components, epOutput, projRoot } from "@element3/build";
-const devPath = path.resolve(projRoot, "global.d.ts");
-const proPath = path.resolve(epOutput, "global.d.ts");
+import fs from 'fs'
+import path from 'path'
+import { toCapitalCase, log } from '@element3/utils'
+import { components, epOutput, projRoot } from '@element3/build'
+const devPath = path.resolve(projRoot, 'global.d.ts')
+const proPath = path.resolve(epOutput, 'global.d.ts')
 
-const _n = "./dist/es";
-main();
+const _n = './dist/es'
+main()
 async function main() {
   const types = `
     declare module '@vue/runtime-core' {
@@ -18,14 +18,14 @@ async function main() {
                 name
               )}: typeof import('${_n}')['El${toCapitalCase(name)}']`
           )
-          .join(",\n")}
+          .join(',\n')}
       }
     }
 
     export {}
-  `;
+  `
 
-  await fs.writeFileSync(devPath, types, "utf-8");
+  await fs.writeFileSync(devPath, types, 'utf-8')
   // await fs.writeFileSync(proPath, types, "utf-8");
-  log("global.d.ts生成完成", "green");
+  log('global.d.ts生成完成', 'green')
 }
