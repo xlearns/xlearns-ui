@@ -1,0 +1,13 @@
+@use 'sass:map';
+@use 'common/var' as *;
+@use 'mixins/function' as *;
+@use 'mixins/mixins' as *;
+// set tree var
+@include b(tree) {
+  @include set-component-css-var('tree', $tree);
+}
+
+@include b(tree) {
+  display: inline-block;
+  color: getCssVar('tree', 'text-color');
+}

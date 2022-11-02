@@ -1,0 +1,13 @@
+@use 'sass:map';
+@use 'common/var' as *;
+@use 'mixins/function' as *;
+@use 'mixins/mixins' as *;
+// set form var
+@include b(form) {
+  @include set-component-css-var('form', $form);
+}
+
+@include b(form) {
+  display: inline-block;
+  color: getCssVar('form', 'text-color');
+}

@@ -4,6 +4,7 @@ import { resolve, join } from 'path'
 import upperCamelCase from 'uppercamelcase'
 import MagicString from 'magic-string'
 import { log } from '@element3/utils'
+import shell from 'shelljs'
 
 const root = process.cwd()
 const name = process.argv[2]
@@ -57,7 +58,7 @@ async function update_element_com() {
   let text = String(indexText)
   let startIndex = text.indexOf(']')
   const s = new MagicString(text)
-  s.overwrite(startIndex, startIndex + 1, `,El${upper_name}]`)
+  s.overwrite(startIndex, startIndex + 1, `El${upper_name}]`)
   s.prepend(`import { El${upper_name} } from "@element3/components/${name}";`)
   create(path, s.toString())
 }
@@ -198,6 +199,7 @@ async function main() {
     update_com_name_main()
     update_theme_main()
     log('✔ 创建完成', 'green')
+    shell.exec('pnpm format')
   } catch (e) {
     log(e)
   }

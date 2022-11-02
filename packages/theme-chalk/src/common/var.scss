@@ -149,3 +149,41 @@ $absolute-layout-item: map.merge(
   ),
   $absolute-layout
 );
+
+// Table
+$table: () !default;
+$table: map.merge(
+  (
+    'bg-color': getCssVar('fill-color', 'black'),
+    'text-color': getCssVar('color-white'),
+    'opacity': 1,
+  ),
+  $table
+);
+
+// Tree
+$tree: () !default;
+$tree: map.merge(
+  (
+    'bg-color': getCssVar('fill-color', 'black'),
+    'text-color': getCssVar('color-white'),
+    'opacity': 1,
+  ),
+  $tree
+);
+
+// Form
+$form: () !default;
+$form: map.merge(
+  (
+    'bg-color': getCssVar('fill-color', 'black'),
+    'text-color': getCssVar('color-white'),
+    'opacity': 1,
+  ),
+  $form
+);
+
+// Alert
+$alert: () !default;
+$alert: map.merge(('bg-color': getCssVar('fill-color', 'black'),'text-color':getCssVar('color-white'),'opacity': 1),$alert);
+	

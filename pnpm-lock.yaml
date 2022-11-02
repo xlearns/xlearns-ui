@@ -48,6 +48,7 @@ importers:
       rollup-plugin-typescript2: ^0.29.0
       rollup-plugin-vue: ^6.0.0
       sass: ^1.53.0
+      shelljs: ^0.8.5
       snowball-ui: workspace:^0.0.1
       ts-morph: ^10.0.1
       typescript: ^4.7.4
@@ -83,6 +84,7 @@ importers:
       rollup-plugin-terser: 7.0.2_rollup@2.79.0
       rollup-plugin-typescript2: 0.29.0_rollup@2.79.0+typescript@4.8.3
       rollup-plugin-vue: 6.0.0_@vue+compiler-sfc@3.2.39
+      shelljs: 0.8.5
       vite: 2.9.15_sass@1.54.9
     devDependencies:
       '@element3/build': link:build
@@ -5786,7 +5788,6 @@ packages:
         integrity: sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==,
       }
     engines: { node: '>= 0.10' }
-    dev: true
 
   /invert-kv/1.0.0:
     resolution:
@@ -8235,7 +8236,6 @@ packages:
     engines: { node: '>= 0.10' }
     dependencies:
       resolve: 1.22.1
-    dev: true
 
   /redent/1.0.0:
     resolution:
@@ -8863,6 +8863,19 @@ packages:
       }
     engines: { node: '>=8' }
     dev: true
+
+  /shelljs/0.8.5:
+    resolution:
+      {
+        integrity: sha512-TiwcRcrkhHvbrZbnRcFYMLl30Dfov3HKqzp5tO5b4pt6G/SezKcYhmDg15zXVBswHmctSAQKznqNW2LO5tTDow==,
+      }
+    engines: { node: '>=4' }
+    hasBin: true
+    dependencies:
+      glob: 7.2.3
+      interpret: 1.4.0
+      rechoir: 0.6.2
+    dev: false
 
   /shiki/0.11.1:
     resolution:

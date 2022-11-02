@@ -8,7 +8,7 @@
     "bootstrap": "pnpm i",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "format": "prettier --write --cache .",
+    "format": "prettier --write .",
     "test:coverage": "vitest --coverage",
     "dev": "pnpm -C playground dev",
     "preinstall": "npx only-allow pnpm",
@@ -87,6 +87,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.29.0",
     "rollup-plugin-vue": "^6.0.0",
+    "shelljs": "^0.8.5",
     "vite": ">=2.5.10 <3.0.0"
   },
   "pnpm": {

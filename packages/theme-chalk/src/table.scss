@@ -1,0 +1,13 @@
+@use 'sass:map';
+@use 'common/var' as *;
+@use 'mixins/function' as *;
+@use 'mixins/mixins' as *;
+// set table var
+@include b(table) {
+  @include set-component-css-var('table', $table);
+}
+
+@include b(table) {
+  display: inline-block;
+  color: getCssVar('table', 'text-color');
+}
