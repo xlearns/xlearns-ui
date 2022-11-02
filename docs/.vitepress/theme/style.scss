@@ -436,3 +436,32 @@ div[class~="language-vue"]:before {
 .token.inserted {
   color: green;
 }
+
+
+
+.content .el-header,
+.content .el-footer {
+  background-color: #213d5b;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content .el-aside {
+  background-color: #1d3043;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content .el-main {
+  background-color: #18222c;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

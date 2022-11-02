@@ -11,10 +11,10 @@ hero:
   actions:
     - theme: brand
       text: Why Element3
-      link: /articles/组件库环境搭建
+      link: /zh/home/index
     - theme: alt
       text: 快速开始
-      link: zh/components/button/
+      link: zh/components/button
 
 features:
   - icon: ⚡️
