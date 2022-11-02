@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "license": "ISC",
+  "author": "",
   "scripts": {
     "dev": "tsc --watch"
-  },
-  "author": "",
-  "license": "ISC"
+  }
 }

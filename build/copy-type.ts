@@ -1,5 +1,5 @@
-import { copy } from 'fs-extra'
 import path from 'path'
+import { copy } from 'fs-extra'
 import { epOutput } from './paths'
 import { buildConfig } from './info'
 import type { Module } from './info'
