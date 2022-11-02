@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
-import type { CSSProperties } from 'vue'
-import { colProps } from './col'
 import { useNamespace } from '@element3/hooks'
 import { rowContextKey } from '@element3/tokens'
+import { colProps } from './col'
+import type { CSSProperties } from 'vue'
 
 const { gutter } = inject(rowContextKey, { gutter: computed(() => 0) })
 

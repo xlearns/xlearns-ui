@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { alertProps } from './alert'
 import { useNamespace } from '@element3/hooks'
+import { alertProps } from './alert'
 defineOptions({
   name: 'ElAlert',
 })

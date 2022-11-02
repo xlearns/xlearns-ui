@@ -29,6 +29,7 @@ module.exports = {
       files: ['*.ts', '*.vue'],
       rules: {
         'no-undef': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
       },
     },
     {
@@ -121,7 +122,6 @@ module.exports = {
         'no-undef': 'off',
       },
     },
-
     {
       files: ['**/*.md/*.js', '**/*.md/*.ts'],
       rules: {
@@ -133,7 +133,7 @@ module.exports = {
   ],
   rules: {
     camelcase: ['error', { properties: 'never' }],
-    'no-console': ['warn', { allow: ['error'] }],
+    'no-console': 'off',
     'no-debugger': 'warn',
     'no-constant-condition': ['error', { checkLoops: false }],
     'no-restricted-syntax': ['error', 'LabeledStatement', 'WithStatement'],

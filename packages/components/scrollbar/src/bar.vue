@@ -5,7 +5,7 @@ const ns = useNamespace('scrollbar')
 
 <template>
   <div :class="ns.b('bar')">
-    <div :class="ns.b('thumb')"></div>
+    <div :class="ns.b('thumb')" />
   </div>
 </template>
 

@@ -1,15 +1,15 @@
 {
   "name": "@element-plus/docs",
-  "private": true,
   "version": "1.0.0",
+  "private": true,
   "description": "",
+  "license": "ISC",
+  "author": "",
   "scripts": {
     "dev": "vitepress dev . --host",
     "docs:build": "vitepress build .",
     "docs:serve": "vitepress serve ."
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "vitepress": "1.0.0-alpha.8",
     "vitepress-theme-demoblock": "^1.4.2"

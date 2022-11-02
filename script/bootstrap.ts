@@ -1,9 +1,8 @@
 import fs from 'fs'
 import path from 'path'
-import { toCapitalCase, log } from '@element3/utils'
-import { components, epOutput, projRoot } from '@element3/build'
+import { log, toCapitalCase } from '@element3/utils'
+import { components, projRoot } from '@element3/build'
 const devPath = path.resolve(projRoot, 'global.d.ts')
-const proPath = path.resolve(epOutput, 'global.d.ts')
 
 const _n = './dist/es'
 main()

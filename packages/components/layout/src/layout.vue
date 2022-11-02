@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useNamespace } from '@element3/hooks'
 import { computed } from 'vue'
+import { useNamespace } from '@element3/hooks'
 
 defineOptions({
   name: 'ElLayout',

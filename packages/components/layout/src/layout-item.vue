@@ -24,7 +24,7 @@ const defaultConfig = {
 const props = defineProps({
   option: {
     type: Object,
-    default: {},
+    default: () => ({}),
   },
 })
 

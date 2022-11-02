@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed, provide } from 'vue'
-import type { CSSProperties } from 'vue'
-import { rowProps } from './row'
-import { useNamespace } from '@element3/hooks'
 import { rowContextKey } from '@element3/tokens'
+import { useNamespace } from '@element3/hooks'
+import { rowProps } from './row'
+import type { CSSProperties } from 'vue'
 
 defineOptions({
   name: 'ElRow',

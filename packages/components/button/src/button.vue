@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { buttonProps, buttonEmits } from './button'
 import { useNamespace } from '@element3/hooks'
+import { buttonEmits, buttonProps } from './button'
 defineOptions({
   name: 'ElButton',
 })
@@ -21,8 +21,8 @@ defineExpose({ ref: _ref, type: _type })
 
 <template>
   <button
-    :class="[ns.b(), ns.m(_type), ns.is('plain', plain), ns.is('round', round)]"
     ref="_ref"
+    :class="[ns.b(), ns.m(_type), ns.is('plain', plain), ns.is('round', round)]"
     @click="handleClick"
   >
     <template v-if="loading">

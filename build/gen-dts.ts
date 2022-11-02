@@ -1,16 +1,16 @@
-import { Project } from 'ts-morph'
-import process from 'process'
-import type { CompilerOptions, SourceFile } from 'ts-morph'
-import { mkdir, readFile, writeFile } from 'fs/promises'
 import path from 'path'
-import { projRoot, pkgRoot, epRoot, epOutput } from '@element3/build'
+import process from 'process'
+import { mkdir, readFile, writeFile } from 'fs/promises'
+import { Project } from 'ts-morph'
+import { epOutput, epRoot, pkgRoot, projRoot } from '@element3/build'
 import { excludeFiles } from '@element3/utils'
 import glob from 'fast-glob'
 import * as vueCompiler from 'vue/compiler-sfc'
 import chalk from 'chalk'
 
 import consola from 'consola'
-import { buildConfig, PKG_NAME, PKG_PREFIX } from './info'
+import { PKG_NAME, PKG_PREFIX, buildConfig } from './info'
+import type { CompilerOptions, SourceFile } from 'ts-morph'
 
 // todo: build env es or lib component for url error
 
@@ -167,22 +167,6 @@ async function addSourceFiles(project: Project) {
   ])
 
   return sourceFiles
-}
-
-async function build(sourceFiles) {
-  const Tasks = sourceFiles.map(async (sourceFile) => {
-    const emitOutput = sourceFile.getEmitOutput()
-    const emitFiles = emitOutput.getOutputFiles()
-    const subTasks = emitFiles.map(async (outputFile) => {
-      const filepath = outputFile.getFilePath()
-      await mkdir(path.dirname(filepath), {
-        recursive: true,
-      })
-      await writeFile(filepath, outputFile.getText(), 'utf8')
-    })
-    await Promise.all(subTasks)
-  })
-  await Promise.all(Tasks)
 }
 
 export const pathRewriter = (module) => {

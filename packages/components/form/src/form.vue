@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { formProps } from './form'
 import { useNamespace } from '@element3/hooks'
+import { formProps } from './form'
 defineOptions({
   name: 'ElForm',
 })

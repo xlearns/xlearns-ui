@@ -1,10 +1,10 @@
+import { resolve } from 'path'
 import { writeFile } from 'fs/promises'
 import { buildOutput } from '@element3/build'
-import { resolve } from 'path'
 const version = '0.0.1'
 const path = resolve(buildOutput, 'package.json')
 
-let template = `
+const template = `
   {
   "name": "element3",
   "version": "${version}",

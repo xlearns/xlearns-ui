@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { tableProps } from './table'
 import { useNamespace } from '@element3/hooks'
+import { tableProps } from './table'
 defineOptions({
   name: 'ElTable',
 })

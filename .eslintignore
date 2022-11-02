@@ -3,3 +3,5 @@ dist
 pnpm-lock.yaml
 playground
 *.md
+*.test.tsx
+*.test.*

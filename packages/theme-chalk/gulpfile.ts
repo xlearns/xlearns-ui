@@ -1,12 +1,12 @@
-import { dest, parallel, series, src } from 'gulp'
+import path from 'path'
+import { copyFile, mkdir } from 'fs/promises'
 import dartSass from 'sass'
+import { dest, parallel, series, src } from 'gulp'
 import gulpSass from 'gulp-sass'
 import autoprefixer from 'gulp-autoprefixer'
 // css压缩
 // import clearCss from "gulp-clean-css";
-import path from 'path'
 import { epOutput } from '@element3/build'
-import { copyFile, mkdir } from 'fs/promises'
 
 // console美化
 // import consola from "consola";

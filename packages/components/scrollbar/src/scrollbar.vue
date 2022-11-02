@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { CSSProperties } from 'vue'
 import { useNamespace } from '@element3/hooks'
-import Bar from './bar.vue'
 import { scrollbarProps } from './scrollbar'
+import Bar from './bar.vue'
+import type { CSSProperties } from 'vue'
 
 defineOptions({
   name: 'ElScrollbar',

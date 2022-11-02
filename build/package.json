@@ -2,8 +2,8 @@
   "name": "@element3/build",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
   "keywords": [],
+  "license": "ISC",
   "author": "",
-  "license": "ISC"
+  "main": "index.ts"
 }

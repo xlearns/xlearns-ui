@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { treeProps } from './tree'
 import { useNamespace } from '@element3/hooks'
+import { treeProps } from './tree'
 defineOptions({
   name: 'ElTree',
 })

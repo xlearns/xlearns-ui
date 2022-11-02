@@ -1,5 +1,5 @@
-import type { App, Plugin } from '@vue/runtime-core'
 import { INSTALLED_KEY, version } from '@element3/tokens'
+import type { App, Plugin } from '@vue/runtime-core'
 
 export const makeInstaller = (components: Plugin[] = []) => {
   const install = (app: App) => {

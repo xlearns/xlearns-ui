@@ -1,5 +1,4 @@
 import vuePlugin from 'rollup-plugin-vue'
-import path from 'path'
 import scss from 'rollup-plugin-scss'
 import resolve from '@rollup/plugin-node-resolve'
 import json from '@rollup/plugin-json'

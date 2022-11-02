@@ -1,4 +1,4 @@
-import { INSTALLED_KEY } from '@element3/tokens'
+import type { INSTALLED_KEY } from '@element3/tokens'
 import type { vShow } from 'vue'
 export * from '@vue/runtime-dom'
 

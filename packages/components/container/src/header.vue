@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { CSSProperties } from 'vue'
 import { useNamespace } from '@element3/hooks'
+import type { CSSProperties } from 'vue'
 const ns = useNamespace('header')
 defineOptions({
   name: 'ElHeader',

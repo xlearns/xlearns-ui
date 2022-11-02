@@ -1,5 +1,5 @@
 import { resolve } from 'path'
-import { readdirSync, existsSync, statSync } from 'fs'
+import { existsSync, readdirSync, statSync } from 'fs'
 import { compRoot } from '@element3/build'
 //获取所有组件
 

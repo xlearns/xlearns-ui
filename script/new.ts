@@ -1,6 +1,6 @@
-import fileSave from 'file-save'
+import { resolve } from 'path'
 import { promises as fs } from 'fs'
-import { resolve, join } from 'path'
+import fileSave from 'file-save'
 import upperCamelCase from 'uppercamelcase'
 import MagicString from 'magic-string'
 import { log } from '@element3/utils'
@@ -8,19 +8,19 @@ import shell from 'shelljs'
 
 const root = process.cwd()
 const name = process.argv[2]
-let upper_name, pgk_path, components_path, element3_path, theme_path
+let upperName, pgkPath, componentsPath, element3Path, themePath
 
 /**
  * @description init
  */
 function init() {
   return new Promise((res, err) => {
-    pgk_path = resolve(root, 'packages')
-    components_path = resolve(pgk_path, 'components')
-    element3_path = resolve(pgk_path, 'element3')
-    theme_path = resolve(pgk_path, 'theme-chalk')
+    pgkPath = resolve(root, 'packages')
+    componentsPath = resolve(pgkPath, 'components')
+    element3Path = resolve(pgkPath, 'element3')
+    themePath = resolve(pgkPath, 'theme-chalk')
     if (name) {
-      upper_name = upperCamelCase(name)
+      upperName = upperCamelCase(name)
       res(true)
     } else {
       err(
@@ -42,71 +42,71 @@ function create(url, content) {
 /**
  * @description components index
  */
-async function update_com_index() {
-  let path = resolve(components_path, 'index.ts')
-  let indexText = await fs.readFile(path)
-  const tp_com_index = `${indexText}export * from "./${name}";`
-  create(path, tp_com_index)
+async function updateComIndex() {
+  const path = resolve(componentsPath, 'index.ts')
+  const indexText = await fs.readFile(path)
+  const _ = `${indexText}export * from "./${name}";`
+  create(path, _)
 }
 
 /**
  * @description element3 components index
  */
-async function update_element_com() {
-  let path = resolve(element3_path, 'component.ts')
-  let indexText = await fs.readFile(path)
-  let text = String(indexText)
-  let startIndex = text.indexOf(']')
+async function updateElementCom() {
+  const path = resolve(element3Path, 'component.ts')
+  const indexText = await fs.readFile(path)
+  const text = String(indexText)
+  const startIndex = text.indexOf(']')
   const s = new MagicString(text)
-  s.overwrite(startIndex, startIndex + 1, `El${upper_name}]`)
-  s.prepend(`import { El${upper_name} } from "@element3/components/${name}";`)
+  s.overwrite(startIndex, startIndex + 1, `El${upperName}]`)
+  s.prepend(`import { El${upperName} } from "@element3/components/${name}";`)
   create(path, s.toString())
 }
 
 /**
  * @description components name
  */
-function update_com_name_index() {
-  const tp_com_name_index = `
+function updateComNameIndex() {
+  const _ = `
   import { withInstall } from "@element3/utils";
-  import ${upper_name} from "./src/${name}.vue";
-  export const El${upper_name} = withInstall(${upper_name});
-  export default El${upper_name};
+  import ${upperName} from "./src/${name}.vue";
+  export const El${upperName} = withInstall(${upperName});
+  export default El${upperName};
   export * from "./src/${name}";
   `
-  create(resolve(components_path, `${name}/index.ts`), tp_com_name_index)
+  create(resolve(componentsPath, `${name}/index.ts`), _)
 }
 
 /**
  * @description components main
  */
-function update_com_name_main_style_css() {
-  create(resolve(components_path, `${name}/style/css.ts`), '')
+function updateComNameMainStyleCss() {
+  create(resolve(componentsPath, `${name}/style/css.ts`), '')
 }
-function update_com_name_main_style_index() {
+function updateComNameMainStyleIndex() {
   const template = `
 	import "@element3/theme-chalk/src/base.css";
   import "@element3/theme-chalk/src/${name}.scss";
 	`
-  create(resolve(components_path, `${name}/style/index.ts`), template)
+  create(resolve(componentsPath, `${name}/style/index.ts`), template)
 }
 
 // src
-function update_com_name_main_src_ts() {
+function updateComNameMainSrcTs() {
   const template = `
 export const ${name}Types = [] as const;
 export const ${name}Props = {}
 	`
-  create(resolve(components_path, `${name}/src/${name}.ts`), template)
+  create(resolve(componentsPath, `${name}/src/${name}.ts`), template)
 }
 
-function update_com_name_main_src_vue() {
+function updateComNameMainSrcVue() {
   const template = `
 <script setup lang="ts">
 import { ${name}Props } from "./${name}";
 import { useNamespace } from "@element3/hooks";
 	defineOptions({
-		name: "El${upper_name}",
+		name: "El${upperName}",
 	});
 	defineProps({ ...${name}Props });
 	defineEmits({});
@@ -118,11 +118,11 @@ import { useNamespace } from "@element3/hooks";
 </template>
 <style scoped></style>
 	`
-  create(resolve(components_path, `${name}/src/${name}.vue`), template)
+  create(resolve(componentsPath, `${name}/src/${name}.vue`), template)
 }
 
 // test
-function update_com_name_main_test_index() {
+function updateComNameMainTestIndex() {
   const template = `
 import {describe, expect, it } from 'vitest'
 describe('${name} test', () => {
@@ -130,26 +130,23 @@ describe('${name} test', () => {
 		expect(1 + 1).toEqual(2)
 	})
 })`
-  create(
-    resolve(components_path, `${name}/__test__/${name}.test.tsx`),
-    template
-  )
+  create(resolve(componentsPath, `${name}/__test__/${name}.test.tsx`), template)
 }
 
-function update_com_name_main() {
+function updateComNameMain() {
   //style
-  update_com_name_main_style_index()
-  update_com_name_main_style_css()
+  updateComNameMainStyleIndex()
+  updateComNameMainStyleCss()
   //src
-  update_com_name_main_src_vue()
-  update_com_name_main_src_ts()
+  updateComNameMainSrcVue()
+  updateComNameMainSrcTs()
   //__test__
-  update_com_name_main_test_index()
+  updateComNameMainTestIndex()
 }
 
 //theme-chalk
-function update_theme_scss() {
-  let template = `
+function updateThemeScss() {
+  const template = `
 @use "sass:map";
 @use "common/var" as *;
 @use "mixins/function" as *;
@@ -164,40 +161,40 @@ function update_theme_scss() {
   color: getCssVar('${name}', 'text-color');
 }
 	`
-  create(resolve(theme_path, `src/${name}.scss`), template)
+  create(resolve(themePath, `src/${name}.scss`), template)
 }
 
-async function update_theme_index() {
-  let path = resolve(theme_path, `src/index.scss`)
-  let indexText = await fs.readFile(path)
+async function updateThemeIndex() {
+  const path = resolve(themePath, `src/index.scss`)
+  const indexText = await fs.readFile(path)
   const template = `${indexText}@use "./${name}.scss";`
   create(path, template)
 }
 
-async function update_theme_com_var() {
-  let path = resolve(theme_path, `src/common/var.scss`)
-  let indexText = await fs.readFile(path)
+async function updateThemeComVar() {
+  const path = resolve(themePath, `src/common/var.scss`)
+  const indexText = await fs.readFile(path)
   const template = `
-// ${upper_name}
+// ${upperName}
 $${name}: () !default;
 $${name}: map.merge(('bg-color': getCssVar('fill-color', 'black'),'text-color':getCssVar('color-white'),'opacity': 1),$${name});
 	`
   const temp = `${indexText}${template}`
   create(path, temp)
 }
-function update_theme_main() {
-  update_theme_scss()
-  update_theme_index()
-  update_theme_com_var()
+function updateThemeMain() {
+  updateThemeScss()
+  updateThemeIndex()
+  updateThemeComVar()
 }
 async function main() {
   try {
     await init()
-    update_com_name_index()
-    update_com_index()
-    update_element_com()
-    update_com_name_main()
-    update_theme_main()
+    updateComNameIndex()
+    updateComIndex()
+    updateElementCom()
+    updateComNameMain()
+    updateThemeMain()
     log('✔ 创建完成', 'green')
     shell.exec('pnpm format')
   } catch (e) {

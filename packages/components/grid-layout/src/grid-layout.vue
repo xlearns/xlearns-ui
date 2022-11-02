@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
-import type { PropType } from 'vue'
 import { useNamespace } from '@element3/hooks'
+import type { PropType } from 'vue'
 
 type Target = {
   [x: string]: any
@@ -22,7 +22,7 @@ defineOptions({
 
 const props = defineProps({
   reactive: {
-    type: Object as PropType<GridReactive>,
+    type: Array as PropType<GridReactive>,
     default: () => [],
   },
   columns: {
@@ -34,7 +34,7 @@ const props = defineProps({
     default: '1fr',
   },
   areas: {
-    type: Object as PropType<GridAreas>,
+    type: Array as PropType<GridAreas>,
     default: () => [],
   },
   gap: {
@@ -111,10 +111,10 @@ const style = computed(() => {
 
 function extend(target: Target, ...args: Record<string, any>[]) {
   for (let i = 0; i < args.length; ++i) {
-    let from = args[i]
+    const from = args[i]
     if (typeof from !== 'object') continue
-    for (let j in from) {
-      if (from.hasOwnProperty(j)) {
+    for (const j in from) {
+      if (from.prototype.hasOwnProperty.call(j)) {
         target[j] = Array.isArray(from[j])
           ? extend([], target[j], from[j])
           : typeof from[j] === 'object'
@@ -160,10 +160,10 @@ function getAreas() {
 
 function setGridAttributes(res: { [x: string]: string[][] }) {
   Object.entries({
-    columns: columns,
-    rows: rows,
-    gap: gap,
-    areas: areas,
+    columns,
+    rows,
+    gap,
+    areas,
   }).forEach(([key, val]) => {
     if (key != 'areas') {
       val.value = res[key] || props[key as keyof typeof props] || ''

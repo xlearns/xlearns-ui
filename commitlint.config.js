@@ -5,7 +5,7 @@ module.exports = {
      * type[scope]: [function] description
      *      ^^^^^
      */
-    'scope-enum': [2, 'always', scopes],
+    'scope-enum': [2, 'always'],
     /**
      * type[scope]: [function] description
      *

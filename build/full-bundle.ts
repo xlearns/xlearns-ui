@@ -2,19 +2,18 @@ import path from 'path'
 import { promises as fs } from 'fs'
 import DefineOptions from 'unplugin-vue-define-options/vite'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
+import chalk from 'chalk'
 import { rollup } from 'rollup'
-import type { Plugin } from 'rollup'
 import commonjs from '@rollup/plugin-commonjs'
 import vue from 'rollup-plugin-vue'
 import esbuild from 'rollup-plugin-esbuild'
-import { epRoot, epOutput } from './paths'
+import { epOutput, epRoot } from './paths'
 import genDts from './gen-dts'
+import type { Plugin } from 'rollup'
 
-import chalk from 'chalk'
 /**
  * Fock: https://github.com/Dreamerryao/element-plus/blob/85849419f14e2c29eab8354c196ab232be97ba14/build/full-bundle.ts
  */
-const sourceMap = process.env.SOURCE_MAP === 'true'
 const E_PREFIX = '@element3'
 const excludes = ['icons']
 
@@ -79,7 +78,7 @@ const excludes = ['icons']
   const entryBundle = await rollup({
     ...config,
     input: entryPoints,
-    external: (_) => true,
+    external: () => true,
   } as any)
 
   const rewriter = (id) => {
