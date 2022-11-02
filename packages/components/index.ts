@@ -9,4 +9,4 @@ export * from './absolute-layout'
 export * from './table'
 export * from './tree'
 export * from './form'
-export * from "./alert";
+export * from './alert'

@@ -8,7 +8,7 @@
     "bootstrap": "pnpm i",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "format": "prettier --write .",
+    "format": "prettier --write --cache .",
     "test:coverage": "vitest --coverage",
     "dev": "pnpm -C playground dev",
     "preinstall": "npx only-allow pnpm",

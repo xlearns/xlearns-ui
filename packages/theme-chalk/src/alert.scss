@@ -1,15 +1,13 @@
-
-@use "sass:map";
-@use "common/var" as *;
-@use "mixins/function" as *;
-@use "mixins/mixins" as *;
+@use 'sass:map';
+@use 'common/var' as *;
+@use 'mixins/function' as *;
+@use 'mixins/mixins' as *;
 // set alert var
 @include b(alert) {
-	@include set-component-css-var("alert", $alert);
+  @include set-component-css-var('alert', $alert);
 }
 
 @include b(alert) {
-	display: inline-block;
+  display: inline-block;
   color: getCssVar('alert', 'text-color');
 }
-	

@@ -185,5 +185,11 @@ $form: map.merge(
 
 // Alert
 $alert: () !default;
-$alert: map.merge(('bg-color': getCssVar('fill-color', 'black'),'text-color':getCssVar('color-white'),'opacity': 1),$alert);
-	
+$alert: map.merge(
+  (
+    'bg-color': getCssVar('fill-color', 'black'),
+    'text-color': getCssVar('color-white'),
+    'opacity': 1,
+  ),
+  $alert
+);

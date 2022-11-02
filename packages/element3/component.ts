@@ -1,4 +1,5 @@
-import { ElAlert } from "@element3/components/alert";import { ElForm } from '@element3/components/form'
+import { ElAlert } from '@element3/components/alert'
+import { ElForm } from '@element3/components/form'
 import { ElTree } from '@element3/components/tree'
 import { ElTable } from '@element3/components/table'
 import { ElAbsoluteLayout } from '@element3/components/absolute-layout'
@@ -35,5 +36,5 @@ export default [
   ElTable,
   ElTree,
   ElForm,
-ElAlert] as Plugin[]
-
+  ElAlert,
+] as Plugin[]
