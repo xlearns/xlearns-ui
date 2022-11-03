@@ -1,0 +1,13 @@
+@use 'sass:map';
+@use 'common/var' as *;
+@use 'mixins/function' as *;
+@use 'mixins/mixins' as *;
+// set svg var
+@include b(svg) {
+  @include set-component-css-var('svg', $svg);
+}
+
+@include b(svg) {
+  display: inline-block;
+  color: getCssVar('svg', 'text-color');
+}

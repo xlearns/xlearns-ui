@@ -193,3 +193,14 @@ $alert: map.merge(
   ),
   $alert
 );
+
+// Svg
+$svg: () !default;
+$svg: map.merge(
+  (
+    'bg-color': getCssVar('fill-color', 'black'),
+    'text-color': getCssVar('color-white'),
+    'opacity': 1,
+  ),
+  $svg
+);

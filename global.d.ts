@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     Layout: typeof import('./dist/es')['ElLayout']
     Row: typeof import('./dist/es')['ElRow']
     Scrollbar: typeof import('./dist/es')['ElScrollbar']
+    Svg: typeof import('./dist/es')['ElSvg']
     Table: typeof import('./dist/es')['ElTable']
     Tree: typeof import('./dist/es')['ElTree']
   }
