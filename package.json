@@ -94,6 +94,7 @@
     "consola": "^2.15.3",
     "file-save": "^0.2.0",
     "fs-extra": "^10.1.0",
+    "husky": "^8.0.0",
     "jsdom": "^20.0.0",
     "magic-string": "^0.26.3",
     "pinst": "^3.0.0",
@@ -118,6 +119,12 @@
     }
   },
   "lint-staged": {
-    "*.{vue,js,ts,jsx,tsx,md,json}": "eslint --fix"
+    "*.{vue,js,ts,jsx,tsx,mjs,cjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   }
 }
