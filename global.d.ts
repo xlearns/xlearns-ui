@@ -1,6 +1,7 @@
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AbsoluteLayout: typeof import('./dist/es')['ElAbsoluteLayout']
+    Alert: typeof import('./dist/es')['ElAlert']
     Button: typeof import('./dist/es')['ElButton']
     Col: typeof import('./dist/es')['ElCol']
     Container: typeof import('./dist/es')['ElContainer']

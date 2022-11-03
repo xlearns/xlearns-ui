@@ -26,7 +26,7 @@
     "dts": "esno script/gen-dts && pnpm types",
     "types": "esno script/bootstrap",
     "postpublish": "pinst --enable",
-    "build": "rimraf dist && pnpm build:full && pnpm build:theme && pnpm build:module && esno script/gen-pkg && esno script/bootstrap",
+    "build": "rimraf dist && pnpm build:full && pnpm build:theme && pnpm build:module && esno script/gen-pkg && esno script/bootstrap && pnpm format",
     "build:full": "esno build/full-bundle.ts",
     "build:comp": "esno build/components.ts",
     "build:module": "esno build/modules",
