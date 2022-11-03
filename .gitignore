@@ -21,3 +21,4 @@ dist
 history
 coverage
 *.log
+.eslintcache
