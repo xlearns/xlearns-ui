@@ -11,8 +11,5 @@
   },
   "peerDependencies": {
     "vue": "^3.2.0"
-  },
-  "dependencies": {
-    "chalk": "^5.0.1"
   }
 }
