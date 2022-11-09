@@ -2,9 +2,10 @@ import fs from 'fs'
 import path from 'path'
 import { log, toCapitalCase } from '@element3/utils'
 import { components, projRoot } from '@element3/build'
+
+import { name as _n } from '../package.json'
 const devPath = path.resolve(projRoot, 'global.d.ts')
 
-const _n = './dist/es'
 main()
 async function main() {
   const types = `
@@ -13,7 +14,7 @@ async function main() {
         ${components
           .map(
             (name) =>
-              `${toCapitalCase(
+              `El${toCapitalCase(
                 name
               )}: typeof import('${_n}')['El${toCapitalCase(name)}']`
           )

@@ -10,5 +10,5 @@ export const components = readdirSync(compRoot).filter((f) => {
     return false
   }
 
-  return existsSync(`${path}/index.ts`)
+  return existsSync(`${path}/style/index.ts`)
 })
