@@ -3,8 +3,8 @@ import { promises as fs } from 'fs'
 import fileSave from 'file-save'
 import upperCamelCase from 'uppercamelcase'
 import MagicString from 'magic-string'
-import { log } from '@element3/utils'
 import shell from 'shelljs'
+import { log } from '@element3/utils'
 
 const root = process.cwd()
 const name = process.argv[2]
@@ -88,7 +88,14 @@ function updateComNameMainStyleIndex() {
 	import "@element3/theme-chalk/src/base.css";
   import "@element3/theme-chalk/src/${name}.scss";
 	`
+
+  const template2 = `
+  import '@element3/theme-chalk/base.css'
+
+  import '@element3/theme-chalk/el-${name}.css'`
+
   create(resolve(componentsPath, `${name}/style/index.ts`), template)
+  create(resolve(componentsPath, `${name}/style/css.ts`), template2)
 }
 
 // src
