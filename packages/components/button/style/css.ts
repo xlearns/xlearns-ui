@@ -1,2 +1,2 @@
 import '@element3/theme-chalk/base.css'
-import '@element3/theme-chalk/el-button.css'
+import '@element3/theme-chalk/button.css'

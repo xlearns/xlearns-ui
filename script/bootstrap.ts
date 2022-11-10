@@ -1,9 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 import { log, toCapitalCase } from '@element3/utils'
-import { components, projRoot } from '@element3/build'
+import { PKG_NAME, components, projRoot } from '@element3/build'
 
-import { name as _n } from '../package.json'
 const devPath = path.resolve(projRoot, 'global.d.ts')
 
 main()
@@ -16,7 +15,7 @@ async function main() {
             (name) =>
               `El${toCapitalCase(
                 name
-              )}: typeof import('${_n}')['El${toCapitalCase(name)}']`
+              )}: typeof import('${PKG_NAME}')['El${toCapitalCase(name)}']`
           )
           .join(',\n')}
       }

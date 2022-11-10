@@ -1,2 +1,2 @@
 import '@element3/theme-chalk/base.css'
-import '@element3/theme-chalk/el-table.css'
+import '@element3/theme-chalk/table.css'

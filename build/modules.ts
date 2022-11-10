@@ -7,13 +7,18 @@ import { nodeResolve } from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import esbuild from 'rollup-plugin-esbuild'
 import glob from 'fast-glob'
-import { ePackage, epOutput, epRoot, pkgRoot } from '@element3/build'
+import {
+  PKG_NAME,
+  PKG_PREFIX,
+  ePackage,
+  epOutput,
+  epRoot,
+  pkgRoot,
+} from '@element3/build'
 import { excludeFiles } from '@element3/utils'
 import copyType from './copy-type'
-import type { OutputOptions, Plugin } from 'rollup'
+import type { OutputOptions, Plugin, RollupBuild } from 'rollup'
 
-const PKG_NAME = 'element3'
-const PKG_PREFIX = '@element3'
 const target = 'es2018'
 export const buildModules = async () => {
   const input = excludeFiles(
@@ -59,7 +64,7 @@ export const buildModules = async () => {
         path: path.resolve(epOutput, 'es'),
       },
       bundle: {
-        path: `es`,
+        path: `${PKG_NAME}/es`,
       },
     },
     cjs: {
@@ -71,7 +76,7 @@ export const buildModules = async () => {
         path: path.resolve(epOutput, 'lib'),
       },
       bundle: {
-        path: `lib`,
+        path: `${PKG_NAME}/lib`,
       },
     },
   }
@@ -95,7 +100,7 @@ export const buildModules = async () => {
   await copyType()
 }
 
-function writeBundles(bundle, options: OutputOptions[]) {
+function writeBundles(bundle: RollupBuild, options: OutputOptions[]) {
   return Promise.all(options.map((option) => bundle.write(option)))
 }
 
@@ -119,15 +124,20 @@ type ResponseData = { full: boolean }
 
 async function generateExternal(options: ResponseData) {
   const { dependencies, peerDependencies } = getPackageDependencies(ePackage)
+
   return (id: string) => {
     const packages: string[] = peerDependencies
     if (!options.full) {
       packages.push('@vue', ...dependencies)
     }
 
-    return [...new Set(packages)].some(
-      (pkg) => id === pkg || id.startsWith(`${pkg}/`)
-    )
+    return [...new Set(packages)].some((pkg) => {
+      if (id.startsWith(`${pkg}/`)) {
+        console.log(id, pkg)
+      }
+
+      return id === pkg || id.startsWith(`${pkg}/`)
+    })
   }
 }
 const getPackageDependencies = (

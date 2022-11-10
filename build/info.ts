@@ -1,11 +1,12 @@
 import path from 'path'
+import { name } from '../package.json'
 import { epOutput } from './paths'
 
 export type Module = 'esm' | 'cjs'
 
 // export const PKG_NAME = "element3";
 
-export const PKG_NAME = '..'
+export const PKG_NAME = name || '..'
 
 export const PKG_PREFIX = '@element3'
 

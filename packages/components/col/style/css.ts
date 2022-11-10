@@ -1,2 +1,2 @@
 import '@element3/theme-chalk/base.css'
-import '@element3/theme-chalk/el-col.css'
+import '@element3/theme-chalk/col.css'

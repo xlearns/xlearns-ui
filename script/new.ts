@@ -90,9 +90,9 @@ function updateComNameMainStyleIndex() {
 	`
 
   const template2 = `
-  import '@element3/theme-chalk/base.css'
-
-  import '@element3/theme-chalk/el-${name}.css'`
+  import '@element3/theme-chalk/base.css';
+  import '@element3/theme-chalk/${name}.css';
+  `
 
   create(resolve(componentsPath, `${name}/style/index.ts`), template)
   create(resolve(componentsPath, `${name}/style/css.ts`), template2)
