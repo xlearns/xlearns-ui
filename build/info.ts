@@ -12,6 +12,9 @@ export const PKG_PREFIX = '@element3'
 
 export const buildConfig = {
   esm: {
+    module: 'ESNext',
+    format: 'esm',
+    ext: 'mjs',
     output: {
       name: 'es',
       path: path.resolve(epOutput, 'es'),
@@ -21,6 +24,9 @@ export const buildConfig = {
     },
   },
   cjs: {
+    module: 'CommonJS',
+    format: 'cjs',
+    ext: 'js',
     output: {
       name: 'lib',
       path: path.resolve(epOutput, 'lib'),
@@ -30,3 +36,5 @@ export const buildConfig = {
     },
   },
 }
+
+export const target = 'es2018'

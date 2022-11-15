@@ -30,6 +30,7 @@
     "build:full": "esno build/full-bundle.ts",
     "build:comp": "esno build/components.ts",
     "build:module": "esno build/modules",
+    "test123": "rimraf dist && pnpm build:module",
     "build:theme": "pnpm run -C packages/theme-chalk build",
     "docs:dev": "pnpm -C docs dev",
     "typecheck:web": "vue-tsc -p tsconfig.web.json --composite false --noEmit",
