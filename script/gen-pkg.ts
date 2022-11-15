@@ -1,12 +1,12 @@
 import { resolve } from 'path'
 import { writeFile } from 'fs/promises'
-import { buildOutput } from '@element3/build'
+import { PKG_NAME, buildOutput } from '@element3/build'
 const version = '0.0.1'
 const path = resolve(buildOutput, 'package.json')
 
 const template = `
   {
-  "name": "element3",
+  "name": "${PKG_NAME}",
   "version": "${version}",
   "description": "A Component Library for Vue 3",
   "license": "MIT",
