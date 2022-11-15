@@ -1,3 +1,5 @@
 export * from './paths'
 export * from './tools'
 export * from './info'
+export * from './pkg'
+export * from './log'

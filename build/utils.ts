@@ -1,32 +1,18 @@
-import { ePackage } from '@element3/build'
+import type { OutputOptions, RollupBuild } from 'rollup'
 
-type ResponseData = { full: boolean }
-
-export async function generateExternal(options: ResponseData) {
-  const { dependencies, peerDependencies } = getPackageDependencies(ePackage)
-
+export async function generateExternal(
+  dependencies: Iterable<unknown> | null | undefined
+) {
   return (id: string) => {
-    const packages: string[] = peerDependencies
-    if (!options.full) {
-      packages.push('@vue', ...dependencies)
-    }
-
-    return [...new Set(packages)].some((pkg) => {
-      if (id.startsWith(`${pkg}/`)) {
-        console.log(id, pkg)
-      }
-      return id === pkg || id.startsWith(`${pkg}/`)
-    })
+    return [...new Set(dependencies)].some(
+      (pkg) => id === pkg || id.startsWith(`${pkg}/`)
+    )
   }
 }
-const getPackageDependencies = (
-  pkgPath: string
-): Record<'dependencies' | 'peerDependencies', string[]> => {
-  const manifest = require(pkgPath)
-  const { dependencies = {}, peerDependencies = {} } = manifest
 
-  return {
-    dependencies: Object.keys(dependencies),
-    peerDependencies: Object.keys(peerDependencies),
-  }
+export async function writeBundles(
+  bundle: RollupBuild,
+  options: OutputOptions[]
+) {
+  return Promise.all(options.map((option) => bundle.write(option)))
 }

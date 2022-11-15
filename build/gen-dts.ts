@@ -6,8 +6,8 @@ import glob from 'fast-glob'
 import * as vueCompiler from 'vue/compiler-sfc'
 import chalk from 'chalk'
 import consola from 'consola'
-import { excludeFiles } from '@element3/utils'
 import { epOutput, epRoot, pkgRoot, projRoot } from '@element3/build'
+import { excludeFiles } from './pkg'
 import { PKG_NAME, PKG_PREFIX, buildConfig } from './info'
 import type { CompilerOptions, SourceFile } from 'ts-morph'
 
@@ -168,7 +168,7 @@ async function addSourceFiles(project: Project) {
   return sourceFiles
 }
 
-export const pathRewriter = (module) => {
+export const pathRewriter = (module: string) => {
   const config = buildConfig[module]
   return (id: any) => {
     id = id.replaceAll(`${PKG_PREFIX}/theme-chalk`, `${PKG_NAME}/theme-chalk`)

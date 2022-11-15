@@ -4,7 +4,7 @@ import fileSave from 'file-save'
 import upperCamelCase from 'uppercamelcase'
 import MagicString from 'magic-string'
 import shell from 'shelljs'
-import { log } from '@element3/utils'
+import { log } from '@element3/build'
 
 const root = process.cwd()
 const name = process.argv[2]

@@ -40,14 +40,6 @@ const template = `
   "peerDependencies": {
     "vue": "^3.2.0"
   },
-  "dependencies": {
-
-  },
-  "devDependencies": {
-    "@types/node": "*",
-    "vue": "^3.2.37",
-    "vue-router": "^4.0.16"
-  },
   "browserslist": [
     "> 1%",
     "not ie 11",

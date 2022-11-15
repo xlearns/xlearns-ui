@@ -81,7 +81,7 @@ const excludes = ['icons']
     external: () => true,
   } as any)
 
-  const rewriter = (id) => {
+  const rewriter = (id: string) => {
     if (id.startsWith(`${E_PREFIX}/components`))
       return id.replace(`${E_PREFIX}/components`, './components')
     if (id.startsWith(E_PREFIX) && excludes.every((e) => !id.endsWith(e)))

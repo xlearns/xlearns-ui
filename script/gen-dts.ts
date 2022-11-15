@@ -6,7 +6,7 @@ import glob from 'fast-glob'
 import * as vueCompiler from 'vue/compiler-sfc'
 
 import consola from 'consola'
-import { excludeFiles } from '@element3/utils'
+import { excludeFiles } from '@element3/build/pkg'
 import { epOutput, epRoot, pkgRoot, projRoot } from '@element3/build'
 import type { CompilerOptions, SourceFile } from 'ts-morph'
 /**

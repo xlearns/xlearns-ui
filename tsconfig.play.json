@@ -11,6 +11,8 @@
     // playground
     "playground/main.ts",
     "playground/env.d.ts",
-    "playground/src/**/*"
+    "playground/src/**/*",
+    "build/log.ts",
+    "build/pkg.ts"
   ]
 }

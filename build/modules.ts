@@ -1,7 +1,8 @@
-import path from 'path'
 import { rollup } from 'rollup'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import VueMacros from 'unplugin-vue-macros/rollup'
+
 import DefineOptions from 'unplugin-vue-define-options/rollup'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
@@ -10,17 +11,17 @@ import glob from 'fast-glob'
 import {
   PKG_NAME,
   PKG_PREFIX,
-  buildConfig,
+  buildConfigEntries,
   epRoot,
   pkgRoot,
   target,
 } from '@element3/build'
-import { excludeFiles } from '@element3/utils'
+import { excludeFiles } from './pkg'
 
 import copyType from './copy-type'
 
-import { generateExternal } from './utils'
-import type { OutputOptions, Plugin, RollupBuild } from 'rollup'
+import { generateExternal, writeBundles } from './utils'
+import type { OutputOptions, Plugin } from 'rollup'
 
 export const buildModules = async () => {
   const input = excludeFiles(
@@ -36,10 +37,16 @@ export const buildModules = async () => {
     plugins: [
       plugin(),
       DefineOptions(),
-      vue({
-        isProduction: false,
+      VueMacros({
+        setupComponent: false,
+        setupSFC: false,
+        plugins: {
+          vue: vue({
+            isProduction: true,
+          }),
+          vueJsx: vueJsx(),
+        },
       }),
-      vueJsx(),
       nodeResolve({
         extensions: ['.mjs', '.js', '.json', '.ts'],
       }),
@@ -51,32 +58,27 @@ export const buildModules = async () => {
           '.vue': 'ts',
         },
       }),
-    ] as any,
-    external: await generateExternal({ full: false }),
+    ],
+    external: await generateExternal(['vue', '@vue']),
     treeshake: false,
   })
 
-  const buildConfigEntries = Object.entries(buildConfig)
+  await writeBundles(
+    bundle,
+    buildConfigEntries.map(([module, config]): OutputOptions => {
+      return {
+        format: config.format,
+        dir: config.output.path,
+        exports: module === 'cjs' ? 'named' : undefined,
+        preserveModules: true,
+        preserveModulesRoot: epRoot,
+        sourcemap: true,
+        entryFileNames: `[name].${config.ext}`,
+      }
+    })
+  )
 
-  const _b = buildConfigEntries.map(([module, config]): OutputOptions => {
-    return {
-      format: config.format as any,
-      dir: config.output.path,
-      exports: module === 'cjs' ? 'named' : undefined,
-      preserveModules: true,
-      preserveModulesRoot: epRoot,
-      sourcemap: true,
-      entryFileNames: `[name].${config.ext}`,
-    }
-  })
-
-  await writeBundles(bundle, _b)
-
-  // await copyType()
-}
-
-function writeBundles(bundle: RollupBuild, options: OutputOptions[]) {
-  return Promise.all(options.map((option) => bundle.write(option)))
+  await copyType()
 }
 
 function plugin(): Plugin {

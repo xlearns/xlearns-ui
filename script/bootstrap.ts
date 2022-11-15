@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
-import { log, toCapitalCase } from '@element3/utils'
-import { PKG_NAME, components, projRoot } from '@element3/build'
+import { toCapitalCase } from '@element3/utils'
+import { PKG_NAME, components, log, projRoot } from '@element3/build'
 
 const devPath = path.resolve(projRoot, 'global.d.ts')
 

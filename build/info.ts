@@ -1,16 +1,28 @@
 import path from 'path'
 import { name } from '../package.json'
 import { epOutput } from './paths'
+import type { ModuleFormat } from 'rollup'
 
 export type Module = 'esm' | 'cjs'
+export interface BuildInfo {
+  module: 'ESNext' | 'CommonJS'
+  format: ModuleFormat
+  ext: 'mjs' | 'cjs' | 'js'
+  output: {
+    name: string
+    path: string
+  }
 
-// export const PKG_NAME = "element3";
+  bundle: {
+    path: string
+  }
+}
 
 export const PKG_NAME = name || '..'
 
 export const PKG_PREFIX = '@element3'
 
-export const buildConfig = {
+export const buildConfig: Record<Module, BuildInfo> = {
   esm: {
     module: 'ESNext',
     format: 'esm',
@@ -38,3 +50,5 @@ export const buildConfig = {
 }
 
 export const target = 'es2018'
+
+export const buildConfigEntries = Object.entries(buildConfig)
