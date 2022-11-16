@@ -1,9 +1,10 @@
 import fs from 'fs'
 import path from 'path'
 import { toCapitalCase } from '@element3/utils'
-import { PKG_NAME, components, log, projRoot } from '@element3/build'
+import { PKG_NAME, components, epOutput, log, projRoot } from '@element3/build'
 
 const devPath = path.resolve(projRoot, 'global.d.ts')
+const proPath = path.resolve(epOutput, 'global.d.ts')
 
 main()
 async function main() {
@@ -25,6 +26,6 @@ async function main() {
   `
 
   await fs.writeFileSync(devPath, types, 'utf-8')
-  // await fs.writeFileSync(proPath, types, "utf-8");
+  await fs.writeFileSync(proPath, types, 'utf-8')
   log('global.d.ts生成完成', 'green')
 }
