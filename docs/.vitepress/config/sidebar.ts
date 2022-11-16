@@ -8,7 +8,5 @@ export const sidebar = {
         { text: 'Container', link: 'zh/components/container' },
       ],
     },
-    { text: '导航', items: [] },
-    { text: '反馈', items: [] },
   ],
 }
