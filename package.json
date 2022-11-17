@@ -28,7 +28,6 @@
     "postpublish": "pinst --enable",
     "build": "rimraf dist && pnpm build:full && pnpm build:theme && pnpm build:module && esno script/gen-pkg && esno script/bootstrap && pnpm format",
     "build:full": "esno build/full-bundle.ts",
-    "build:comp": "esno build/components.ts",
     "build:module": "esno build/modules",
     "build:theme": "pnpm run -C packages/theme-chalk build",
     "docs:dev": "pnpm -C docs dev",

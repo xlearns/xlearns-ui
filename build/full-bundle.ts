@@ -9,12 +9,11 @@ import vue from 'rollup-plugin-vue'
 import esbuild from 'rollup-plugin-esbuild'
 import { epOutput, epRoot } from './paths'
 import genDts from './gen-dts'
+import { PKG_PREFIX } from './info'
 import type { Plugin } from 'rollup'
-
 /**
  * Fock: https://github.com/Dreamerryao/element-plus/blob/85849419f14e2c29eab8354c196ab232be97ba14/build/full-bundle.ts
  */
-const E_PREFIX = '@element3'
 const excludes = ['icons']
 
 ;(async () => {
@@ -82,10 +81,10 @@ const excludes = ['icons']
   } as any)
 
   const rewriter = (id: any) => {
-    if (id.startsWith(`${E_PREFIX}/components`))
-      return id.replace(`${E_PREFIX}/components`, './components')
-    if (id.startsWith(E_PREFIX) && excludes.every((e) => !id.endsWith(e)))
-      return id.replace(E_PREFIX, '.')
+    if (id.startsWith(`${PKG_PREFIX}/components`))
+      return id.replace(`${PKG_PREFIX}/components`, './components')
+    if (id.startsWith(PKG_PREFIX) && excludes.every((e) => !id.endsWith(e)))
+      return id.replace(PKG_PREFIX, '.')
   }
 
   console.log(chalk.yellow('Generating cjs entry'))
