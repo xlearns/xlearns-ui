@@ -12,8 +12,6 @@
     "typings/components.d.ts",
     "typings/env.d.ts",
     "build/log.ts",
-    "build/log.ts",
-    "build/pkg.ts",
     "build/pkg.ts"
   ],
   "exclude": [
