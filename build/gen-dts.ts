@@ -9,6 +9,7 @@ import consola from 'consola'
 import { epOutput, epRoot, pkgRoot, projRoot } from '@element3/build'
 import { excludeFiles } from './pkg'
 import { PKG_NAME, PKG_PREFIX, buildConfig } from './info'
+import type { Module } from './info'
 import type { CompilerOptions, SourceFile } from 'ts-morph'
 
 // todo: build env es or lib component for url error
@@ -168,9 +169,9 @@ async function addSourceFiles(project: Project) {
   return sourceFiles
 }
 
-export const pathRewriter = (module: string) => {
+export const pathRewriter = (module: Module) => {
   const config = buildConfig[module]
-  return (id: any) => {
+  return (id: string) => {
     id = id.replaceAll(`${PKG_PREFIX}/theme-chalk`, `${PKG_NAME}/theme-chalk`)
     id = id.replaceAll(`${PKG_PREFIX}/`, `${config.bundle.path}/`)
     return id
