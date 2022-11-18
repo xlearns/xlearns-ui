@@ -9,8 +9,8 @@ import vue from 'rollup-plugin-vue'
 import esbuild from 'rollup-plugin-esbuild'
 import { epOutput, epRoot } from './paths'
 import genDts from './gen-dts'
-import { PKG_PREFIX } from './info'
-import type { Plugin } from 'rollup'
+import { PKG_NAME, PKG_PREFIX } from './info'
+import { entryPlugin } from './rollup.plugin'
 /**
  * Fock: https://github.com/Dreamerryao/element-plus/blob/85849419f14e2c29eab8354c196ab232be97ba14/build/full-bundle.ts
  */
@@ -31,14 +31,16 @@ const excludes = ['icons']
         minify: false,
       }),
     ],
-    external: ['vue'],
+    external(id: string) {
+      return /^vue/.test(id)
+    },
   }
 
   const umd = {
     format: 'umd',
     file: path.resolve(epOutput, 'dist/index.js'),
     exports: 'named',
-    name: 'Element3',
+    name: PKG_NAME,
     globals: {
       vue: 'Vue',
     },
@@ -116,24 +118,3 @@ const excludes = ['icons']
 
   console.log(chalk.green('Entry file definitions generated'))
 })()
-
-function entryPlugin(): Plugin {
-  return {
-    name: 'element3-entry-plugin',
-    transform(code, id) {
-      if (id.includes('packages')) {
-        return {
-          code: code.replace(
-            /@element3\//g,
-            `${path.relative(
-              path.dirname(id),
-              path.resolve(__dirname, '../packages')
-            )}/`
-          ),
-          map: null,
-        }
-      }
-      return { code, map: null }
-    },
-  }
-}
