@@ -1,2 +1,3 @@
-export * from './vue'
-export * from './node'
+export * from './tools'
+export * from './install'
+export * from './autoResize'

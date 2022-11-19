@@ -1,3 +1,4 @@
+import { ElScrollboard } from '@element3/components/scrollboard'
 import { ElSvg } from '@element3/components/svg'
 import { ElAlert } from '@element3/components/alert'
 import { ElForm } from '@element3/components/form'
@@ -39,4 +40,5 @@ export default [
   ElForm,
   ElAlert,
   ElSvg,
+  ElScrollboard,
 ] as Plugin[]

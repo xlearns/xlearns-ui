@@ -204,3 +204,14 @@ $svg: map.merge(
   ),
   $svg
 );
+
+// Scrollboard
+$scrollboard: () !default;
+$scrollboard: map.merge(
+  (
+    'bg-color': getCssVar('fill-color', 'black'),
+    'text-color': getCssVar('color-white'),
+    'opacity': 1,
+  ),
+  $scrollboard
+);

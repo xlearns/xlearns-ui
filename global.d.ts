@@ -15,6 +15,7 @@ declare module '@vue/runtime-core' {
     ElMain: typeof import('snowball-ui')['ElMain']
     ElRow: typeof import('snowball-ui')['ElRow']
     ElScrollbar: typeof import('snowball-ui')['ElScrollbar']
+    ElScrollboard: typeof import('snowball-ui')['ElScrollboard']
     ElSvg: typeof import('snowball-ui')['ElSvg']
     ElTable: typeof import('snowball-ui')['ElTable']
     ElTree: typeof import('snowball-ui')['ElTree']

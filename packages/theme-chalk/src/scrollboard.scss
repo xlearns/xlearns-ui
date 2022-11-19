@@ -1,0 +1,13 @@
+@use 'sass:map';
+@use 'common/var' as *;
+@use 'mixins/function' as *;
+@use 'mixins/mixins' as *;
+// set scrollboard var
+@include b(scrollboard) {
+  @include set-component-css-var('scrollboard', $scrollboard);
+}
+
+@include b(scrollboard) {
+  display: inline-block;
+  color: getCssVar('scrollboard', 'text-color');
+}

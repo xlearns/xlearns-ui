@@ -52,7 +52,7 @@ export const buildModules = async () => {
         },
       }),
     ],
-    external: await generateExternal(['vue', '@vue']),
+    external: await generateExternal(['@vue', 'vue', '@vueuse/core']),
     treeshake: false,
   })
 
