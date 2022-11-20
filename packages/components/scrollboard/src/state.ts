@@ -1,31 +1,11 @@
-import { reactive, ref } from 'vue'
+import { reactive } from 'vue'
 import { autoResize, deepClone, deepMerge } from '@element3/utils'
+import type { Attrs, Sizes, State } from './type'
 
-interface Attrs {
-  header: string[]
-  data: string[][]
-  headerBGC: string
-  waitTime: number
-  columnWidth: number[]
-  rowNum: number
-  index: boolean
-  indexHeader: string
-  headerHeight: number
-}
-
-type RowsData = { ceils: [] }
-
-interface State {
-  defaultConfig: Attrs
-  mergedConfig: Attrs
-  header: string[]
-  avgHeight: number
-  heights: number[]
-  widths: number[]
-  rowsData: RowsData[]
-}
-
-const sizes = ref()
+const sizes: Sizes = reactive<Sizes>({
+  width: 0,
+  height: 0,
+})
 
 const state = reactive<State>({
   defaultConfig: {
@@ -38,6 +18,8 @@ const state = reactive<State>({
     index: false,
     indexHeader: '#',
     headerHeight: 35,
+    align: [],
+    carousel: 'single',
   },
   mergedConfig: {} as Attrs,
   header: [],
@@ -45,7 +27,14 @@ const state = reactive<State>({
   heights: [],
   widths: [],
   rowsData: [],
+  aligns: [],
+  needCalc: false,
+  updater: 0,
+  animationIndex: 0,
+  animationHandler: null,
+  rows: [],
 })
+
 function mergeConfig(config: any = {}) {
   state.mergedConfig = deepMerge(deepClone(state.defaultConfig, true), config)
 }
@@ -82,7 +71,7 @@ function calcRowsData() {
 
 function calcHeights(onresize = false) {
   const { headerHeight, rowNum, data } = state.mergedConfig
-  let allHeight = sizes.value.height.value
+  let allHeight = sizes.height
   if (state.header.length) allHeight -= headerHeight
   const avgHeight = allHeight / rowNum
   state.avgHeight = avgHeight
@@ -99,23 +88,96 @@ function calcWidths() {
   if (state.rowsData[0]) columnNum = state.rowsData[0].ceils.length
   else if (header.length) columnNum = header.length
 
-  const avgWidth =
-    (sizes.value.width.value - usedWidth) / (columnNum - columnWidth.length)
+  const avgWidth = (sizes.width - usedWidth) / (columnNum - columnWidth.length)
 
   const widths = new Array(columnNum).fill(avgWidth)
 
   state.widths = deepMerge(widths, columnWidth)
 }
 
+function calcAligns() {
+  const columnNum = state.header.length
+
+  const aligns = new Array(columnNum).fill('left')
+
+  const { align } = state.mergedConfig
+
+  state.aligns = deepMerge(aligns, align)
+}
+
+async function animation(start = false) {
+  if (state.needCalc) {
+    calcRowsData()
+    calcHeights()
+    state.needCalc = false
+  }
+
+  const { waitTime, carousel, rowNum } = state.mergedConfig
+  const { updater } = state
+
+  const rowLength = state.rowsData.length
+
+  if (rowNum >= rowLength) return
+
+  if (start) await new Promise((resolve) => setTimeout(resolve, waitTime))
+  if (updater !== state.updater) return
+
+  const animationNum = carousel === 'single' ? 1 : rowNum
+
+  const rows = state.rowsData.slice(state.animationIndex)
+  rows.push(...state.rowsData.slice(0, state.animationIndex))
+
+  state.rows = rows.slice(0, carousel === 'page' ? rowNum * 2 : rowNum + 1)
+  state.heights = new Array(rowLength).fill(state.avgHeight)
+
+  await new Promise((resolve) => setTimeout(resolve, 300))
+  if (updater !== state.updater) return
+
+  state.heights.splice(0, animationNum, ...new Array(animationNum).fill(0))
+
+  state.animationIndex += animationNum
+
+  const back = state.animationIndex - rowLength
+  if (back >= 0) state.animationIndex = back
+
+  // state.animationIndex = animationIndex
+  state.animationHandler = setTimeout(animation, waitTime - 300)
+}
+
+function stopAnimation() {
+  state.updater = (state.updater + 1) % 999999
+  if (!state.animationHandler) return
+  clearTimeout(state.animationHandler)
+}
+
+function calcData(config: any = {}) {
+  mergeConfig(config)
+  calcHeaderData()
+  calcRowsData()
+  calcWidths()
+  calcHeights()
+  calcAligns()
+  animation(true)
+}
+
 export default function useState(dom: any) {
-  const _ = autoResize(dom)
-  sizes.value = _
+  const _autoResizeConst = autoResize(dom)
+
+  Object.entries(sizes).forEach(([k]) => {
+    const key = k as keyof typeof _autoResizeConst
+    sizes[key] = _autoResizeConst[key] as unknown as number
+  })
+
   return {
+    calcData,
+    animation,
+    calcAligns,
     mergeConfig,
     state,
     calcHeaderData,
     calcHeights,
     calcRowsData,
     calcWidths,
+    stopAnimation,
   }
 }

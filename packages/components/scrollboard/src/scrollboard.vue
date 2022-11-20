@@ -7,14 +7,12 @@ defineOptions({
   name: 'ElScrollboard',
 })
 const props = defineProps({ ...scrollboardProps })
-const scrollBoard = ref()
-const { mergeConfig } = useState(scrollBoard)
+const scrollBoard = ref(null)
+const { calcData, stopAnimation } = useState(scrollBoard)
 
-function init() {
-  mergeConfig(props.config)
-}
 watchEffect(() => {
-  init()
+  stopAnimation()
+  calcData(props.config)
 })
 defineEmits({})
 const ns = useNamespace('scrollboard')

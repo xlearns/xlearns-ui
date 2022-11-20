@@ -8,7 +8,7 @@ import { log } from '@element3/build'
 
 const root = process.cwd()
 const name = process.argv[2]
-let upperName, pgkPath, componentsPath, element3Path, themePath
+let upperName, pgkPath, componentsPath, element3Path, themePath, typePath
 
 /**
  * @description init
@@ -19,6 +19,7 @@ function init() {
     componentsPath = resolve(pgkPath, 'components')
     element3Path = resolve(pgkPath, 'element3')
     themePath = resolve(pgkPath, 'theme-chalk')
+    typePath = resolve(root, 'typings')
     if (name) {
       upperName = upperCamelCase(name)
       res(true)
@@ -140,6 +141,21 @@ describe('${name} test', () => {
   create(resolve(componentsPath, `${name}/__test__/${name}.test.tsx`), template)
 }
 
+//type
+async function updateTypeCompontns() {
+  const path = resolve(typePath, 'components.d.ts')
+  const indexText = await fs.readFile(path)
+  const text = String(indexText)
+  const startIndex = text.indexOf('export interface GlobalComponents {')
+  const s = new MagicString(text)
+  s.overwrite(
+    startIndex,
+    startIndex + 1,
+    `El${upperName}:typeof import('../packages/element3')['El${upperName}']`
+  )
+  create(path, s.toString())
+}
+
 function updateComNameMain() {
   //style
   updateComNameMainStyleIndex()
@@ -149,6 +165,8 @@ function updateComNameMain() {
   updateComNameMainSrcTs()
   //__test__
   updateComNameMainTestIndex()
+  //typys
+  updateTypeCompontns()
 }
 
 //theme-chalk

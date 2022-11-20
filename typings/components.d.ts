@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
     ElFooter: typeof import('../packages/element3')['ElFooter']
     ElCol: typeof import('../packages/element3')['ElCol']
     ElRow: typeof import('../packages/element3')['ElRow']
+    ElScrollboard: typeof import('../packages/element3')['ElScrollboard']
   }
 }
 
