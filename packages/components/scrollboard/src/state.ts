@@ -1,12 +1,13 @@
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import { autoResize, deepClone, deepMerge } from '@element3/utils'
-import type { Attrs, Sizes, State } from './type'
+import type { Attrs, RowsData, Sizes, State } from './type'
 
 const sizes: Sizes = reactive<Sizes>({
   width: 0,
   height: 0,
+  show: false,
 })
-
+const config = ref({})
 const state = reactive<State>({
   defaultConfig: {
     header: [],
@@ -20,6 +21,9 @@ const state = reactive<State>({
     headerHeight: 35,
     align: [],
     carousel: 'single',
+    evenRowBGC: '#0A2732',
+    oddRowBGC: '#003B51',
+    hoverPause: true,
   },
   mergedConfig: {} as Attrs,
   header: [],
@@ -35,8 +39,11 @@ const state = reactive<State>({
   rows: [],
 })
 
-function mergeConfig(config: any = {}) {
-  state.mergedConfig = deepMerge(deepClone(state.defaultConfig, true), config)
+function mergeConfig() {
+  state.mergedConfig = deepMerge(
+    deepClone(state.defaultConfig, true),
+    config.value
+  )
 }
 
 function calcHeaderData() {
@@ -52,21 +59,24 @@ function calcHeaderData() {
 }
 
 function calcRowsData() {
-  const { data } = state.mergedConfig
-  const { index, headerBGC } = state.mergedConfig
+  let { data }: { data: string[][] | RowsData[] } = state.mergedConfig
+  const { index, headerBGC, rowNum } = state.mergedConfig
   if (index) {
-    data.map((row, i) => {
+    data = data.map((row, i) => {
       row = [...row]
-
       const indexTag = `<span class="index" style="background-color: ${headerBGC};">${
         i + 1
       }</span>`
-
       row.unshift(indexTag)
-
       return row
     })
   }
+  data = data.map((ceils, i) => ({ ceils, rowIndex: i }))
+  const rowLength = data.length
+  if (rowLength > rowNum && rowLength < 2 * rowNum) data = [...data, ...data]
+  data = data.map((d, i) => ({ ...d, scroll: i }))
+  state.rowsData = data
+  state.rows = data
 }
 
 function calcHeights(onresize = false) {
@@ -150,8 +160,8 @@ function stopAnimation() {
   clearTimeout(state.animationHandler)
 }
 
-function calcData(config: any = {}) {
-  mergeConfig(config)
+function calcData() {
+  mergeConfig()
   calcHeaderData()
   calcRowsData()
   calcWidths()
@@ -160,9 +170,16 @@ function calcData(config: any = {}) {
   animation(true)
 }
 
-export default function useState(dom: any) {
-  const _autoResizeConst = autoResize(dom)
+function onResize() {
+  if (!state.mergedConfig) return
+  calcWidths()
+  calcHeights()
+}
 
+export default function useState(dom: any) {
+  const _autoResizeConst = autoResize(dom, onResize, () => {
+    calcData()
+  })
   Object.entries(sizes).forEach(([k]) => {
     const key = k as keyof typeof _autoResizeConst
     sizes[key] = _autoResizeConst[key] as unknown as number
@@ -174,10 +191,12 @@ export default function useState(dom: any) {
     calcAligns,
     mergeConfig,
     state,
+    config,
     calcHeaderData,
     calcHeights,
     calcRowsData,
     calcWidths,
     stopAnimation,
+    sizes,
   }
 }

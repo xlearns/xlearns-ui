@@ -69,3 +69,17 @@ export function deepMerge(target: any, merged: any) {
 export default function isObject(obj: unknown) {
   return typeof obj === 'object' && obj !== null
 }
+
+export function observerDomResize(dom: HTMLElement, callback: () => void) {
+  const MutationObserver = window.MutationObserver
+
+  const observer = new MutationObserver(callback)
+
+  observer.observe(dom, {
+    attributes: true,
+    attributeFilter: ['style'],
+    attributeOldValue: true,
+  })
+
+  return observer
+}

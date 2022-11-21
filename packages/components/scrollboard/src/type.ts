@@ -12,9 +12,12 @@ export interface Attrs {
   indexHeader: string
   headerHeight: number
   carousel: Carousel
+  evenRowBGC: string
+  oddRowBGC: string
+  hoverPause: boolean
 }
 
-type RowsData = { ceils: [] }
+export type RowsData = { ceils: string[]; scroll?: number; rowIndex: number }
 
 export interface State {
   defaultConfig: Attrs
@@ -36,4 +39,10 @@ export type SizesAttr = number
 export interface Sizes {
   width: SizesAttr
   height: SizesAttr
+  initWH?: any
+  show?: boolean
+}
+
+export type Options<T> = {
+  [P in keyof T]?: T[P]
 }
