@@ -27,4 +27,5 @@ export default defineConfig({
       })
     },
   },
+  base: '/element3/',
 })
