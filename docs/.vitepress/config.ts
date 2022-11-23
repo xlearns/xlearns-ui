@@ -7,6 +7,10 @@ export default defineConfig({
   themeConfig: {
     sidebar,
     logo: '/images/vite.svg',
+    // docFooter: {
+    //   prev: '上一章',
+    //   next: '下一章',
+    // },
     footer: {
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2022  xlearns contributors',

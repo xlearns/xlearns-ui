@@ -19,9 +19,9 @@ export const autoResize = (
     return new Promise((resolve) => {
       nextTick(() => {
         domHtml = dom.value
-        show.value = true
         width.value = dom.value ? dom.value.clientWidth : 0
         height.value = dom.value ? dom.value.clientHeight : 0
+        show.value = true
         if (!dom.value)
           console.warn(
             'Failed to get dom node, component rendering may be abnormal!'

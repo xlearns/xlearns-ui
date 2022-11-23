@@ -14,7 +14,7 @@ hero:
       link: /zh/home/index
     - theme: alt
       text: 快速开始
-      link: zh/components/button
+      link: zh/components/container
 
 features:
   - icon: ⚡️

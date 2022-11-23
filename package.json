@@ -31,6 +31,7 @@
     "build:module": "esno build/modules",
     "build:theme": "pnpm run -C packages/theme-chalk build",
     "docs:dev": "pnpm -C docs dev",
+    "docs:build": "pnpm -C docs docs:build",
     "typecheck:web": "vue-tsc -p tsconfig.web.json --composite false --noEmit",
     "prepare": "husky install"
   },
