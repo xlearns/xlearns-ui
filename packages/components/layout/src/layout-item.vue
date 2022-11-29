@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
-import { useNamespace } from '@element3/hooks'
+import { useNamespace } from '@snowball/hooks'
 
 interface _config {
   x: string

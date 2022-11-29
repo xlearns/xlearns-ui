@@ -1,4 +1,4 @@
-import { withInstall, withNoopInstall } from '@element3/utils'
+import { withInstall, withNoopInstall } from '@snowball/utils'
 
 import Container from './src/container.vue'
 import Aside from './src/aside.vue'

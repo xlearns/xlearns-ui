@@ -9,7 +9,7 @@ import ts from 'rollup-plugin-typescript2'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import { terser } from 'rollup-plugin-terser'
 
-const name = 'Element3'
+const name = 'snowball'
 const cjsConfig = {
   plugins: [
     replace({
@@ -101,7 +101,7 @@ function createPackageConfigs() {
 }
 
 function createFileName(formatName) {
-  return `dist/element3.${formatName}.js`
+  return `dist/snowball.${formatName}.js`
 }
 
 export default createPackageConfigs()

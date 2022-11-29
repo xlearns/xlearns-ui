@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref, watch } from 'vue'
-import { useNamespace } from '@element3/hooks'
+import { useNamespace } from '@snowball/hooks'
 import { scrollboardProps } from './scrollboard'
 import useState from './state'
 import type { Options, RowsData } from './type'

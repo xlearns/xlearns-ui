@@ -8,7 +8,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import esbuild from 'rollup-plugin-esbuild'
 import glob from 'fast-glob'
-import { buildConfigEntries, epRoot, pkgRoot, target } from '@element3/build'
+import { buildConfigEntries, epRoot, pkgRoot, target } from '@snowball/build'
 import { excludeFiles } from './pkg'
 
 import copyType from './copy-type'

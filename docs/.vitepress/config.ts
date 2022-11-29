@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 import { sidebar, nav } from './config/index'
 
 export default defineConfig({
-  title: '🚀  Element3',
+  title: '🚀  snowball',
   description: 'a Vue 3 based component library for designers and developers',
   themeConfig: {
     sidebar,
@@ -27,5 +27,5 @@ export default defineConfig({
       })
     },
   },
-  base: '/element3/',
+  base: '/snowball/',
 })

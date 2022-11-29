@@ -2,15 +2,15 @@
 layout: home
 
 hero:
-  name: Element3
+  name: snowball
   text:
   tagline: 基于 Vue 3，面向设计师和开发者的组件库
   image:
     src: /images/vite.svg
-    alt: Element3
+    alt: snowball
   actions:
     - theme: brand
-      text: Why Element3
+      text: Why snowball
       link: /zh/home/index
     - theme: alt
       text: 快速开始

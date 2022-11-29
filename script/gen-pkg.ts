@@ -1,6 +1,6 @@
 import { resolve } from 'path'
 import { writeFile } from 'fs/promises'
-import { PKG_NAME, buildOutput } from '@element3/build'
+import { PKG_NAME, buildOutput } from '@snowball/build'
 const version = '0.0.1'
 const path = resolve(buildOutput, 'package.json')
 

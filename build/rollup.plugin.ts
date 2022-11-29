@@ -3,12 +3,12 @@ import type { Plugin } from 'rollup'
 
 export function entryPlugin(): Plugin {
   return {
-    name: 'element3-entry-plugin',
+    name: 'snowball-entry-plugin',
     transform(code, id) {
       if (id.includes('packages')) {
         return {
           code: code.replace(
-            /@element3\//g,
+            /@snowball\//g,
             `${relative(dirname(id), resolve(__dirname, '../packages'))}/`
           ),
           map: null,

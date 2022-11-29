@@ -1,4 +1,4 @@
-import { withInstall, withNoopInstall } from '@element3/utils'
+import { withInstall, withNoopInstall } from '@snowball/utils'
 import GridLayoutItem from './src/grid-layout-item.vue'
 import GridLayout from './src/grid-layout.vue'
 

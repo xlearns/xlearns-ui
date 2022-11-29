@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, provide } from 'vue'
-import { rowContextKey } from '@element3/tokens'
-import { useNamespace } from '@element3/hooks'
+import { rowContextKey } from '@snowball/tokens'
+import { useNamespace } from '@snowball/hooks'
 import { rowProps } from './row'
 import type { CSSProperties } from 'vue'
 

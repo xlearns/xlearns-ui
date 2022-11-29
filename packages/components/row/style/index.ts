@@ -1,2 +1,2 @@
-import '@element3/theme-chalk/src/base.css'
-import '@element3/theme-chalk/src/row.scss'
+import '@snowball/theme-chalk/src/base.css'
+import '@snowball/theme-chalk/src/row.scss'

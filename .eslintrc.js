@@ -240,7 +240,7 @@ module.exports = {
             position: 'before',
           },
           {
-            pattern: '@element3/**',
+            pattern: '@snowball/**',
             group: 'internal',
           },
         ],

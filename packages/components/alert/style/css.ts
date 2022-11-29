@@ -1,2 +1,2 @@
-import '@element3/theme-chalk/base.css'
-import '@element3/theme-chalk/alert.css'
+import '@snowball/theme-chalk/base.css'
+import '@snowball/theme-chalk/alert.css'

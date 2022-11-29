@@ -2,10 +2,10 @@ function resolveComponent(name: string) {
   if (!name.match(/^El[A-Z]/)) return
   return {
     name,
-    from: `@element3/components`,
+    from: `@snowball/components`,
   }
 }
-export function Element3Resolver(): any {
+export function snowballResolver(): any {
   return {
     type: 'component',
     resolve: (name: string) => {

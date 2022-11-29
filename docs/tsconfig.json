@@ -11,7 +11,7 @@
     "noImplicitAny": false,
     "skipLibCheck": true,
     "paths": {
-      "snowball-ui": ["../packages/element3"],
+      "snowball-ui": ["../packages/snowball"],
       "~/*": ["./.vitepress/vitepress/*"]
     },
     "types": ["../typings/components"],

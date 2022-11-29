@@ -6,7 +6,7 @@ import glob from 'fast-glob'
 import * as vueCompiler from 'vue/compiler-sfc'
 import chalk from 'chalk'
 import consola from 'consola'
-import { epOutput, epRoot, pkgRoot, projRoot } from '@element3/build'
+import { epOutput, epRoot, pkgRoot, projRoot } from '@snowball/build'
 import { excludeFiles } from './pkg'
 import { PKG_NAME, PKG_PREFIX, buildConfig } from './info'
 import type { Module } from './info'
@@ -110,7 +110,7 @@ async function addSourceFiles(project: Project) {
   // project.addSourceFileAtPath(path.resolve(projRoot, "typings/env.d.ts"));
   const globSourceFile = '**/*.{js?(x),ts?(x),vue}'
   const filePaths = excludeFiles(
-    await glob([globSourceFile, '!element3/**/*'], {
+    await glob([globSourceFile, '!snowball/**/*'], {
       cwd: pkgRoot,
       absolute: true,
       onlyFiles: true,

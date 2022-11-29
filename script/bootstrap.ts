@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
-import { toCapitalCase } from '@element3/utils'
-import { PKG_NAME, components, epOutput, log, projRoot } from '@element3/build'
+import { toCapitalCase } from '@snowball/utils'
+import { PKG_NAME, components, epOutput, log, projRoot } from '@snowball/build'
 
 const devPath = path.resolve(projRoot, 'global.d.ts')
 const proPath = path.resolve(epOutput, 'global.d.ts')

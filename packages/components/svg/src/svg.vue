@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useNamespace } from '@element3/hooks'
+import { useNamespace } from '@snowball/hooks'
 import { svgProps } from './svg'
 defineOptions({
   name: 'ElSvg',

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, useSlots } from 'vue'
-import { useNamespace } from '@element3/hooks'
+import { useNamespace } from '@snowball/hooks'
 import type { Component, VNode } from 'vue'
 
 const slots = useSlots()

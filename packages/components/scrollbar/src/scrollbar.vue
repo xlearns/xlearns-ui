@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useNamespace } from '@element3/hooks'
+import { useNamespace } from '@snowball/hooks'
 import { scrollbarProps } from './scrollbar'
 import Bar from './bar.vue'
 import type { CSSProperties } from 'vue'

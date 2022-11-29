@@ -1,4 +1,4 @@
-import { withInstall } from '@element3/utils'
+import { withInstall } from '@snowball/utils'
 import Row from './src/row.vue'
 export const ElRow = withInstall(Row)
 export default ElRow

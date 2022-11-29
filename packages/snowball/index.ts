@@ -1,6 +1,6 @@
 import installer from './defaults'
 export * from './install'
-export * from '@element3/components'
+export * from '@snowball/components'
 
 export const install = installer.install
 export const version = installer.version

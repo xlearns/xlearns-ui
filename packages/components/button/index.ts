@@ -1,4 +1,4 @@
-import { withInstall } from '@element3/utils'
+import { withInstall } from '@snowball/utils'
 import Button from './src/button.vue'
 
 export const ElButton = withInstall(Button)

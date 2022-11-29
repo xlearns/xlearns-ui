@@ -20,7 +20,7 @@ export interface BuildInfo {
 
 export const PKG_NAME = name || '..'
 
-export const PKG_PREFIX = '@element3'
+export const PKG_PREFIX = '@snowball'
 
 export const buildConfig: Record<Module, BuildInfo> = {
   esm: {

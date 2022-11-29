@@ -4,11 +4,11 @@ import fileSave from 'file-save'
 import upperCamelCase from 'uppercamelcase'
 import MagicString from 'magic-string'
 import shell from 'shelljs'
-import { log } from '@element3/build'
+import { log } from '@snowball/build'
 
 const root = process.cwd()
 const name = process.argv[2]
-let upperName, pgkPath, componentsPath, element3Path, themePath, typePath
+let upperName, pgkPath, componentsPath, snowballPath, themePath, typePath
 
 /**
  * @description init
@@ -17,7 +17,7 @@ function init() {
   return new Promise((res, err) => {
     pgkPath = resolve(root, 'packages')
     componentsPath = resolve(pgkPath, 'components')
-    element3Path = resolve(pgkPath, 'element3')
+    snowballPath = resolve(pgkPath, 'snowball')
     themePath = resolve(pgkPath, 'theme-chalk')
     typePath = resolve(root, 'typings')
     if (name) {
@@ -51,16 +51,16 @@ async function updateComIndex() {
 }
 
 /**
- * @description element3 components index
+ * @description snowball components index
  */
 async function updateElementCom() {
-  const path = resolve(element3Path, 'component.ts')
+  const path = resolve(snowballPath, 'component.ts')
   const indexText = await fs.readFile(path)
   const text = String(indexText)
   const startIndex = text.indexOf(']')
   const s = new MagicString(text)
   s.overwrite(startIndex, startIndex + 1, `El${upperName}]`)
-  s.prepend(`import { El${upperName} } from "@element3/components/${name}";`)
+  s.prepend(`import { El${upperName} } from "@snowball/components/${name}";`)
   create(path, s.toString())
 }
 
@@ -69,7 +69,7 @@ async function updateElementCom() {
  */
 function updateComNameIndex() {
   const _ = `
-  import { withInstall } from "@element3/utils";
+  import { withInstall } from "@snowball/utils";
   import ${upperName} from "./src/${name}.vue";
   export const El${upperName} = withInstall(${upperName});
   export default El${upperName};
@@ -86,13 +86,13 @@ function updateComNameMainStyleCss() {
 }
 function updateComNameMainStyleIndex() {
   const template = `
-	import "@element3/theme-chalk/src/base.css";
-  import "@element3/theme-chalk/src/${name}.scss";
+	import "@snowball/theme-chalk/src/base.css";
+  import "@snowball/theme-chalk/src/${name}.scss";
 	`
 
   const template2 = `
-  import '@element3/theme-chalk/base.css';
-  import '@element3/theme-chalk/${name}.css';
+  import '@snowball/theme-chalk/base.css';
+  import '@snowball/theme-chalk/${name}.css';
   `
 
   create(resolve(componentsPath, `${name}/style/index.ts`), template)
@@ -112,7 +112,7 @@ function updateComNameMainSrcVue() {
   const template = `
 <script setup lang="ts">
 import { ${name}Props } from "./${name}";
-import { useNamespace } from "@element3/hooks";
+import { useNamespace } from "@snowball/hooks";
 	defineOptions({
 		name: "El${upperName}",
 	});
@@ -151,7 +151,7 @@ async function updateTypeCompontns() {
   s.overwrite(
     startIndex,
     startIndex + 1,
-    `El${upperName}:typeof import('../packages/element3')['El${upperName}']`
+    `El${upperName}:typeof import('../packages/snowball')['El${upperName}']`
   )
   create(path, s.toString())
 }

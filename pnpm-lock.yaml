@@ -6,14 +6,14 @@ importers:
       '@babel/core': 7.0.0
       '@commitlint/cli': ^17.2.0
       '@commitlint/config-conventional': ^17.2.0
-      '@element3/build': workspace:^1.0.0
-      '@element3/components': workspace:^1.0.0
-      '@element3/directives': workspace:^1.0.0
-      '@element3/hooks': workspace:^1.0.0
-      '@element3/locale': workspace:^1.0.0
-      '@element3/theme-chalk': workspace:^1.0.0
-      '@element3/tokens': workspace:^1.0.0
-      '@element3/utils': workspace:^1.0.0
+      '@snowball/build': workspace:^1.0.0
+      '@snowball/components': workspace:^1.0.0
+      '@snowball/directives': workspace:^1.0.0
+      '@snowball/hooks': workspace:^1.0.0
+      '@snowball/locale': workspace:^1.0.0
+      '@snowball/theme-chalk': workspace:^1.0.0
+      '@snowball/tokens': workspace:^1.0.0
+      '@snowball/utils': workspace:^1.0.0
       '@rollup/plugin-babel': ^5.2.2
       '@rollup/plugin-commonjs': ^17.0.0
       '@rollup/plugin-json': ^4.1.0
@@ -79,12 +79,12 @@ importers:
       '@babel/core': 7.0.0
       '@commitlint/cli': 17.2.0
       '@commitlint/config-conventional': 17.2.0
-      '@element3/components': link:packages/components
-      '@element3/directives': link:packages/directives
-      '@element3/hooks': link:packages/hooks
-      '@element3/locale': link:packages/locale
-      '@element3/theme-chalk': link:packages/theme-chalk
-      '@element3/utils': link:packages/utils
+      '@snowball/components': link:packages/components
+      '@snowball/directives': link:packages/directives
+      '@snowball/hooks': link:packages/hooks
+      '@snowball/locale': link:packages/locale
+      '@snowball/theme-chalk': link:packages/theme-chalk
+      '@snowball/utils': link:packages/utils
       '@rollup/plugin-babel': 5.3.1_@babel+core@7.0.0+rollup@2.79.0
       '@rollup/plugin-commonjs': 17.1.0_rollup@2.79.0
       '@rollup/plugin-json': 4.1.0_rollup@2.79.0
@@ -119,8 +119,8 @@ importers:
       shelljs: 0.8.5
       vite: 2.9.15_sass@1.54.9
     devDependencies:
-      '@element3/build': link:build
-      '@element3/tokens': link:packages/tokens
+      '@snowball/build': link:build
+      '@snowball/tokens': link:packages/tokens
       '@types/fs-extra': 9.0.13
       '@types/jsdom': 20.0.0
       '@types/node': 18.7.18
@@ -140,7 +140,7 @@ importers:
       prettier: 2.7.1
       rollup: 2.79.0
       sass: 1.54.9
-      snowball-ui: link:packages/element3
+      snowball-ui: link:packages/snowball
       ts-morph: 14.0.0
       typescript: 4.8.3
       unplugin-vue-define-options: 0.6.2_6157a384c70142961a2d54a839ccac66
@@ -167,7 +167,7 @@ importers:
   packages/directives:
     specifiers: {}
 
-  packages/element3:
+  packages/snowball:
     specifiers: {}
 
   packages/hooks:
@@ -178,7 +178,7 @@ importers:
 
   packages/theme-chalk:
     specifiers:
-      '@element3/build': workspace:^1.0.0
+      '@snowball/build': workspace:^1.0.0
       '@esbuild-kit/cjs-loader': ^2.3.2
       gulp: ^4.0.2
       gulp-autoprefixer: ^8.0.0
@@ -186,7 +186,7 @@ importers:
       path: ^0.12.7
       sass: ^1.54.3
     dependencies:
-      '@element3/build': link:../../build
+      '@snowball/build': link:../../build
     devDependencies:
       '@esbuild-kit/cjs-loader': 2.3.3
       gulp: 4.0.2

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
-import { useNamespace } from '@element3/hooks'
+import { useNamespace } from '@snowball/hooks'
 import type { PropType } from 'vue'
 
 type Target = {

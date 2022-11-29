@@ -4,7 +4,7 @@ import vue from '@vitejs/plugin-vue'
 import Inspect from 'vite-plugin-inspect'
 import Components from 'unplugin-vue-components/vite'
 import DefineOptions from 'unplugin-vue-define-options/vite'
-import { Element3Resolver } from './resolvers'
+import { snowballResolver } from './resolvers'
 
 export default defineConfig(() => {
   return {
@@ -13,7 +13,7 @@ export default defineConfig(() => {
       DefineOptions(),
       Components({
         include: `${__dirname}/**`,
-        resolvers: Element3Resolver(),
+        resolvers: snowballResolver(),
         dts: false,
       }),
       Inspect(),

@@ -1,4 +1,4 @@
-import { withInstall, withNoopInstall } from '@element3/utils'
+import { withInstall, withNoopInstall } from '@snowball/utils'
 import LayoutItem from './src/layout-item.vue'
 import Layout from './src/layout.vue'
 

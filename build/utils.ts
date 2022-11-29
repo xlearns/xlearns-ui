@@ -24,7 +24,7 @@ export function TcPlugin(): Plugin {
   const bundleThemeChalk = `${PKG_NAME}/${themeChalk}` as const
 
   return {
-    name: 'element3-alias-plugin',
+    name: 'snowball-alias-plugin',
     resolveId(id: any) {
       if (!id.startsWith(sourceThemeChalk)) return
       return {

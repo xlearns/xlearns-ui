@@ -1,5 +1,5 @@
 {
-  "name": "@element3/theme-chalk",
+  "name": "@snowball/theme-chalk",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
@@ -11,7 +11,7 @@
     "clean:dist": "rimraf dist"
   },
   "dependencies": {
-    "@element3/build": "workspace:^1.0.0"
+    "@snowball/build": "workspace:^1.0.0"
   },
   "devDependencies": {
     "@esbuild-kit/cjs-loader": "^2.3.2",

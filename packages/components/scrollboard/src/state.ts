@@ -1,5 +1,5 @@
 import { reactive, ref } from 'vue'
-import { autoResize, deepClone, deepMerge } from '@element3/utils'
+import { autoResize, deepClone, deepMerge } from '@snowball/utils'
 import type { Attrs, RowsData, Sizes, State } from './type'
 
 const sizes: Sizes = reactive<Sizes>({

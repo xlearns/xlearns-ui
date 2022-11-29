@@ -1,7 +1,7 @@
 import { describe, expect, it, test } from 'vitest'
 import { mount } from '@vue/test-utils'
 import Col from '../src/col.vue'
-import Row from '@element3/components/row'
+import Row from '@snowball/components/row'
 
 describe('col test', () => {
   test('create', () => {

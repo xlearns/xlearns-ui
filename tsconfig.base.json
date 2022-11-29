@@ -16,7 +16,7 @@
     "rootDir": ".",
     "types": [],
     "paths": {
-      "@element3/*": ["packages/*"]
+      "@snowball/*": ["packages/*"]
     }
   }
 }

@@ -1,4 +1,4 @@
-import { INSTALLED_KEY, version } from '@element3/tokens'
+import { INSTALLED_KEY, version } from '@snowball/tokens'
 import type { App, Plugin } from '@vue/runtime-core'
 
 export const makeInstaller = (components: Plugin[] = []) => {

@@ -6,8 +6,8 @@ import glob from 'fast-glob'
 import * as vueCompiler from 'vue/compiler-sfc'
 
 import consola from 'consola'
-import { excludeFiles } from '@element3/build/pkg'
-import { epOutput, epRoot, pkgRoot, projRoot } from '@element3/build'
+import { excludeFiles } from '@snowball/build/pkg'
+import { epOutput, epRoot, pkgRoot, projRoot } from '@snowball/build'
 import type { CompilerOptions, SourceFile } from 'ts-morph'
 /**
  * fork = require( https://github.com/egoist/vue-dts-gen/blob/main/src/index.ts
@@ -59,7 +59,7 @@ async function addSourceFiles(project: Project) {
   // project.addSourceFileAtPath(path.resolve(projRoot, "typings/env.d.ts"));
   const globSourceFile = '**/*.{js?(x),ts?(x),vue}'
   const filePaths = excludeFiles(
-    await glob([globSourceFile, '!element3/**/*'], {
+    await glob([globSourceFile, '!snowball/**/*'], {
       cwd: pkgRoot,
       absolute: true,
       onlyFiles: true,

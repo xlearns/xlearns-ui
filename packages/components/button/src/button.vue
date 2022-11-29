@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useNamespace } from '@element3/hooks'
+import { useNamespace } from '@snowball/hooks'
 import { buttonEmits, buttonProps } from './button'
 defineOptions({
   name: 'ElButton',

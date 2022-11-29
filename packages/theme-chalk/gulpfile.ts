@@ -6,7 +6,7 @@ import gulpSass from 'gulp-sass'
 import autoprefixer from 'gulp-autoprefixer'
 // css压缩
 // import clearCss from "gulp-clean-css";
-import { epOutput } from '@element3/build'
+import { epOutput } from '@snowball/build'
 
 // console美化
 // import consola from "consola";
