@@ -27,5 +27,5 @@ export default defineConfig({
       })
     },
   },
-  base: '/snowball/',
+  base: '/xlearns-ui/',
 })
