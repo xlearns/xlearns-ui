@@ -1,3 +1,6 @@
+<script setup lang="ts">
+import { vDrag } from 'snowball-ui'
+</script>
 <template>
   <div class="content">
     <ElContainer style="height: 100%">
@@ -5,7 +8,7 @@
       <ElContainer>
         <ElAside width="200px">Aside</ElAside>
         <ElMain>
-          <ElButton>hello world</ElButton>
+          <ElButton v-drag>hello world</ElButton>
         </ElMain>
       </ElContainer>
       <ElFooter>Footer</ElFooter>
