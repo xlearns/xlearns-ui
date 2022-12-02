@@ -7,7 +7,7 @@
 
 # api
 
-- title
+- label
   - 节点标题
 - expand
   - 是否展开直子节点
@@ -19,29 +19,29 @@
 ```js
 ;[
   {
-    title: 'parent 1',
+    label: 'parent 1',
     expand: true,
     children: [
       {
-        title: 'parent 1-1',
+        label: 'parent 1-1',
         expand: true,
         children: [
           {
-            title: 'leaf 1-1-1',
+            label: 'leaf 1-1-1',
           },
           {
-            title: 'leaf 1-1-2',
+            label: 'leaf 1-1-2',
           },
         ],
       },
       {
-        title: 'parent 1-2',
+        label: 'parent 1-2',
         children: [
           {
-            title: 'leaf 1-2-1',
+            label: 'leaf 1-2-1',
           },
           {
-            title: 'leaf 1-2-1',
+            label: 'leaf 1-2-1',
           },
         ],
       },

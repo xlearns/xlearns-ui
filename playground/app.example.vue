@@ -8,7 +8,7 @@ import { vDrag } from 'snowball-ui'
       <ElContainer>
         <ElAside width="200px">Aside</ElAside>
         <ElMain>
-          <ElButton v-drag>hello world</ElButton>
+          <ElButton v-drag style="position: absolute">hello world</ElButton>
         </ElMain>
       </ElContainer>
       <ElFooter>Footer</ElFooter>

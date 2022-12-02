@@ -52,7 +52,13 @@ export const buildModules = async () => {
         },
       }),
     ],
-    external: await generateExternal(['@vue', 'vue', '@vueuse/core']),
+    external: await generateExternal([
+      '@vue',
+      'vue',
+      '@vueuse/core',
+      'lodash-unified',
+      '@types/lodash-es',
+    ]),
     treeshake: false,
   })
 
