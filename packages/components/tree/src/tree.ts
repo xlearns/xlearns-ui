@@ -11,17 +11,9 @@ export const treeProps = {
 }
 
 export const treeNodeProps = {
-  label: {
-    type: String,
-  },
-  expand: {
-    type: Boolean,
-  },
-  checked: {
-    type: Boolean,
-  },
-  children: {
-    type: Array as PropType<TreeProps[]>,
+  data: {
+    type: Object as PropType<TreeProps>,
+    default: () => ({}),
   },
   showCheckbox: {
     type: Boolean,

@@ -35,4 +35,3 @@ const ns = useNamespace('tree')
     />
   </div>
 </template>
-<style scoped></style>

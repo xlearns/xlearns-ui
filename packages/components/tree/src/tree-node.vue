@@ -1,50 +1,38 @@
 <script setup lang="ts">
-import { onMounted, reactive } from 'vue'
-import { cloneDeep } from 'lodash-unified'
 import { useNamespace } from '@snowball/hooks'
-import { treeProps } from './tree'
-import type { TreeNode, TreeProps } from './type'
+import { treeNodeProps } from './tree'
 
-const state = reactive<TreeNode>({
-  data: {},
-})
 defineOptions({
-  name: 'ElTree',
+  name: 'TreeNode',
 })
-const props = defineProps({ ...treeProps })
+
+defineProps({ ...treeNodeProps })
+
 defineEmits({})
 
-function init() {
-  state.data = cloneDeep(props.data) as TreeProps
-}
-
-onMounted(() => {
-  init()
-})
 const ns = useNamespace('tree-node')
 </script>
 <template>
   <ul :class="ns.b()">
     <li :class="ns.b('li')">
       <span :class="ns.b('tree-expand')">
-        <span
-          v-if="
-            state.data.children &&
-            state.data.children.length &&
-            !state.data.expand
-          "
+        <span v-if="data.children && data.children.length && !data.expand"
           >+</span
         >
-        <span
-          v-if="
-            state.data.children &&
-            state.data.children.length &&
-            state.data.expand
-          "
+        <span v-else-if="data.children && data.children.length && data.expand"
           >-</span
         >
       </span>
-      <!-- <input v-if="showCheckbox" :value="state.data.checked" /> -->
+      <input v-if="showCheckbox" :value="data.checked" />
+      <span>{{ data.label }}</span>
+      <template v-if="data.expand">
+        <tree-node
+          v-for="(item, index) in data.children"
+          :key="index"
+          :data="item"
+          :show-checkbox="showCheckbox"
+        />
+      </template>
     </li>
   </ul>
 </template>

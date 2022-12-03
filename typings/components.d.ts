@@ -12,6 +12,7 @@ declare module '@vue/runtime-core' {
     ElCol: typeof import('../packages/snowball')['ElCol']
     ElRow: typeof import('../packages/snowball')['ElRow']
     ElScrollboard: typeof import('../packages/snowball')['ElScrollboard']
+    ElTree: typeof import('../packages/snowball')['ElTree']
   }
 }
 

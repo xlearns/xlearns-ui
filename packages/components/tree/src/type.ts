@@ -8,3 +8,7 @@ export interface TreeProps {
 export interface TreeNode {
   data: TreeProps
 }
+
+export interface State {
+  data: TreeProps[]
+}
