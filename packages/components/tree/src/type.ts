@@ -1,10 +1,10 @@
 export interface TreeProps {
-  label: string
+  label?: string
   expand?: boolean
   checked?: boolean
   children?: TreeProps[]
 }
 
-export interface State {
-  data: TreeProps[]
+export interface TreeNode {
+  data: TreeProps
 }
