@@ -10,12 +10,16 @@ defineProps({ ...treeNodeProps })
 
 defineEmits({})
 
+function handleExpand() {
+  //
+}
+
 const ns = useNamespace('tree-node')
 </script>
 <template>
-  <ul :class="ns.b()">
+  <ul :class="ns.b('ul')">
     <li :class="ns.b('li')">
-      <span :class="ns.b('tree-expand')">
+      <span :class="ns.b('tree-expand')" @click="handleExpand">
         <span v-if="data.children && data.children.length && !data.expand"
           >+</span
         >
@@ -23,7 +27,7 @@ const ns = useNamespace('tree-node')
           >-</span
         >
       </span>
-      <input v-if="showCheckbox" :value="data.checked" />
+      <input v-if="showCheckbox" type="checkbox" :value="data.checked" />
       <span>{{ data.label }}</span>
       <template v-if="data.expand">
         <tree-node

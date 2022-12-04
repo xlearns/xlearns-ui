@@ -11,3 +11,14 @@
   display: inline-block;
   color: getCssVar('tree', 'text-color');
 }
+
+@include b(tree-node) {
+  &-ui,
+  &-li {
+    list-style: none;
+    padding-left: 10px;
+  }
+  &-tree-expand {
+    cursor: pointer;
+  }
+}

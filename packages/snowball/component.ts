@@ -1,3 +1,4 @@
+import { ElCollapseTransition } from '@snowball/components/collapse-transition'
 import { ElScrollboard } from '@snowball/components/scrollboard'
 import { ElSvg } from '@snowball/components/svg'
 import { ElAlert } from '@snowball/components/alert'
@@ -41,4 +42,5 @@ export default [
   ElAlert,
   ElSvg,
   ElScrollboard,
+  ElCollapseTransition,
 ] as Plugin[]

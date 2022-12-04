@@ -2,6 +2,7 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ElCollapseTransition: typeof import('../packages/snowball')['ElCollapseTransition']
     ElButton: typeof import('../packages/snowball')['ElButton']
     ElScrollbar: typeof import('../packages/snowball')['ElScrollbar']
     ElContainer: typeof import('../packages/snowball')['ElContainer']

@@ -215,3 +215,14 @@ $scrollboard: map.merge(
   ),
   $scrollboard
 );
+
+// CollapseTransition
+$collapse-transition: () !default;
+$collapse-transition: map.merge(
+  (
+    'bg-color': getCssVar('fill-color', 'black'),
+    'text-color': getCssVar('color-white'),
+    'opacity': 1,
+  ),
+  $collapse-transition
+);

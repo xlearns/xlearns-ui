@@ -6,6 +6,7 @@ declare module '@vue/runtime-core' {
     ElAside: typeof import('snowball-ui')['ElAside']
     ElButton: typeof import('snowball-ui')['ElButton']
     ElCol: typeof import('snowball-ui')['ElCol']
+    ElCollapseTransition: typeof import('snowball-ui')['ElCollapseTransition']
     ElContainer: typeof import('snowball-ui')['ElContainer']
     ElFooter: typeof import('snowball-ui')['ElFooter']
     ElForm: typeof import('snowball-ui')['ElForm']

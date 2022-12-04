@@ -1,0 +1,13 @@
+@use 'sass:map';
+@use 'common/var' as *;
+@use 'mixins/function' as *;
+@use 'mixins/mixins' as *;
+// set collapse-transition var
+@include b(collapse-transition) {
+  @include set-component-css-var('collapse-transition', $collapse-transition);
+}
+
+@include b(collapse-transition) {
+  display: inline-block;
+  color: getCssVar('collapse-transition', 'text-color');
+}
