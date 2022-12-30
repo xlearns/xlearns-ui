@@ -5,5 +5,6 @@
   "keywords": [],
   "license": "ISC",
   "author": "",
-  "main": "index.ts"
+  "main": "index.ts",
+  "types": "../typings/exclude.d.ts"
 }

@@ -53,6 +53,7 @@ importers:
       lint-staged: ^13.0.3
       lodash-unified: ^1.0.3
       magic-string: ^0.26.3
+      name-case-transform: ^1.0.6
       pinst: ^3.0.0
       prettier: ^2.7.1
       rimraf: ^3.0.2
@@ -140,6 +141,7 @@ importers:
       jsdom: 20.0.0
       lodash-unified: 1.0.3_@types+lodash-es@4.17.6
       magic-string: 0.26.3
+      name-case-transform: 1.0.6
       pinst: 3.0.0
       prettier: 2.7.1
       rollup: 2.79.0
@@ -3366,6 +3368,13 @@ packages:
         integrity: sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==,
       }
     dev: false
+
+  /babel-plugin-array-includes/2.0.3:
+    resolution:
+      {
+        integrity: sha512-sCOF2ST61Vlnss4IRn/X84crwJyzq0f/3z0voJd4XZ2izIUX2h9AO5L+F4CJ/7na3d9xRWDsaS0EfPTg8kJsqg==,
+      }
+    dev: true
 
   /bach/1.2.0:
     resolution:
@@ -9405,6 +9414,15 @@ packages:
         integrity: sha512-kDcwXR4PS7caBpuRYYBUz9iVixUk3anO3f5OYFiIPwK/20vCzKCHyKoulbiDY1S53zD2bxUpxN/IJ+TnXjfvxg==,
       }
     engines: { node: '>= 0.10' }
+    dev: true
+
+  /name-case-transform/1.0.6:
+    resolution:
+      {
+        integrity: sha512-qZS0eYi8llCV4EcAmaUtkFL9gcyXRVgxjF2+1AebfnyVi2+gTkhI0KUDHCVLd8Jmhuc2hLC1JtEloWUw6uofPw==,
+      }
+    dependencies:
+      babel-plugin-array-includes: 2.0.3
     dev: true
 
   /nan/2.16.0:

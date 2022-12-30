@@ -100,6 +100,7 @@
     "jsdom": "^20.0.0",
     "lodash-unified": "^1.0.3",
     "magic-string": "^0.26.3",
+    "name-case-transform": "^1.0.6",
     "pinst": "^3.0.0",
     "prettier": "^2.7.1",
     "rollup": "^2.75.7",

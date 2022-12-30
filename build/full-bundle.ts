@@ -2,6 +2,7 @@ import path from 'path'
 import { promises as fs } from 'fs'
 import DefineOptions from 'unplugin-vue-define-options/vite'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
+import caseTransform from 'name-case-transform'
 import chalk from 'chalk'
 import { rollup } from 'rollup'
 import commonjs from '@rollup/plugin-commonjs'
@@ -40,7 +41,7 @@ const excludes = ['icons']
     format: 'umd',
     file: path.resolve(epOutput, 'dist/index.js'),
     exports: 'named',
-    name: PKG_NAME,
+    name: caseTransform(PKG_NAME, 'A'),
     globals: {
       vue: 'Vue',
     },
