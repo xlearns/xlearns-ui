@@ -11,6 +11,7 @@
     "build/**/*",
     "build/**/*.json",
     "scripts/**/*",
+    "typings/exclude.d.ts",
     "package.json",
     "packages/theme-chalk/*",
     "packages/snowball/package.json"
