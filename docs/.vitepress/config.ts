@@ -1,5 +1,9 @@
 import { defineConfig } from 'vitepress'
 import { sidebar, nav } from './config/index'
+import Env from './Env.json'
+
+const { isDev } = Env
+const base = isDev ? '/' : '/xlearns-ui/'
 
 export default defineConfig({
   title: '🚀  snowball',
@@ -27,5 +31,5 @@ export default defineConfig({
       })
     },
   },
-  base: '/xlearns-ui/',
+  base,
 })

@@ -6,8 +6,8 @@
   "license": "ISC",
   "author": "",
   "scripts": {
-    "dev": "vitepress dev . --host",
-    "docs:build": "vitepress build .",
+    "dev": "node state dev && vitepress dev . --host",
+    "docs:build": "node state  && vitepress build .",
     "docs:serve": "vitepress serve ."
   },
   "dependencies": {
